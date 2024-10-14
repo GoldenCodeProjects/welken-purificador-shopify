@@ -1,5 +1,6 @@
-{{ 'section-carousel.css' | asset_url | stylesheet_tag }}
-{{ 'component-carousel-script.css' | asset_url | stylesheet_tag }}
+<link rel="stylesheet" href="{{ 'section-carousel.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'component-carousel-script.css' | asset_url }}">
+
 <script src="{{ 'component-carousel-script.js' | asset_url }}" defer></script>
 <script src="{{ 'component-video-link-script.js' | asset_url }}" defer></script>
 
@@ -9,18 +10,28 @@
       {%- for block in section.blocks -%}
         {%- if block.type == 'image' -%}
           {%- assign image = block.settings.image -%}
+          {%- assign mobile_image = block.settings.image_mobile -%}
           {%- if image != blank -%}
-            <div class="swiper-slide swiper-lazy">
-              <img src="{{ image | img_url: '2048x' }}"
+            <div class="swiper-slide swiper-lazy {% if mobile_image != blank %} -responsive{% endif %}">
+              <img src="{{ image | image_url: width: 1600 }}"
               alt="{{ image.alt }}"
-              width="{{ image.width }}"
-              height="{{ image.height }}"
-              loading="lazy">
+              width="1920"
+              height="600"
+              {% if forloop.first == false  %}loading="lazy"{% endif %}
+              class="desktop">
+              {%- if mobile_image != blank -%}
+                <img src="{{ mobile_image | image_url: width: 700 }}"
+                alt="{{ mobile_image.alt }}"
+                width="700"
+                height="600"
+                {% if forloop.first == false %}loading="lazy"{% endif %}
+                class="mobile">
+              {%- endif -%}
               <div class="swiper-lazy-preloader"></div>
               <div class="text {{ block.settings.pos_x }} {{ block.settings.pos_y }}">
                 {{ block.settings.description }}
                 {%- if block.settings.button_text != blank and block.settings.button_url != blank -%}
-                  <a href="{{ block.settings.button_url }}" class="c-button -primary u-mt-small">
+                  <a href="{{ block.settings.button_url }}" class="c-button -primary">
                     {{ block.settings.button_text }}
                   </a>
                 {%- endif -%}
@@ -33,7 +44,7 @@
               <video-link video-type="{{ block.settings.video_link.type }}"
               video-id="{{ block.settings.video_link.id }}"
               cover-url="{{ block.settings.video_poster | image_url: width: 1400 }}">
-                <button slot="btn">
+                <button slot="btn" aria-label="Play video">
                   {%- render 'component-icon', icon: 'play', icon_size: 80 -%}
                 </button>
                 <div slot="placeholder">
@@ -56,7 +67,6 @@
 {
   "name": "Carrusel de imagenes",
   "tag": "section",
-  "class": "u-mb-small",
   "blocks": [
     {
       "type": "image",
@@ -66,6 +76,11 @@
           "type": "image_picker",
           "id": "image",
           "label": "Insertar imagen"
+        },
+        {
+          "type": "image_picker",
+          "id": "image_mobile",
+          "label": "Imagen para movil"
         },
         {
           "type": "html",

@@ -5,18 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
 
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-    {%- unless settings.fonts_header.system? and settings.fonts_body.system? -%}
-    <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    {%- endunless -%}
-
-    {%- unless settings.fonts_header.system? -%}
-      <link rel="preload" href="{{ settings.fonts_header | font_url }}" type="font/woff2" as="font" crossorigin>
-    {%- endunless -%}
-
-    {%- unless settings.fonts_body.system? -%}
-      <link rel="preload" href="{{ settings.fonts_body | font_url }}" type="font/woff2" as="font" crossorigin>
-    {%- endunless -%}
+    {{ 'stylesheet.css' | asset_url | stylesheet_tag: preload: true }}
 
     {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
     {{ 'base.js' | asset_url | preload_tag: as: 'script' }}

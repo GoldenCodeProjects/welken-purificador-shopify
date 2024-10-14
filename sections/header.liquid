@@ -73,35 +73,12 @@
   </nav>
 
   <div class="header_buttons">
-    <dark-mode-button>
-      <span slot="moon">{%- render 'component-icon' icon: 'moon', icon_size: 18 -%}</span>
-      <span slot="sun">{%- render 'component-icon' icon: 'sun', icon_size: 18 -%}</span>
-    </dark-mode-button>
-
-    <open-search>
-      <button class="header_buttons_btn">
-        {%- render 'component-icon' icon: 'search', icon_size: 18 -%}
-      </button>
-    </open-search>
-
     <cart-icon class="header_cart-icon">
       <button class="header_buttons_btn -cart">
         {%- render 'component-icon' icon: 'cart', icon_size: 18 -%}
         <span class="data-quantity">0</span>
       </button>
     </cart-icon>
-
-    {%- if shop.customer_accounts_enabled -%}
-      {%- if customer -%}
-        <a class="header_buttons_btn" href="/account/">
-          {%- render 'component-icon' icon: 'account', icon_size: 18 -%}
-        </a>
-      {%- else -%}
-        <a class="header_buttons_btn" href="/account/login">
-          {%- render 'component-icon' icon: 'account', icon_size: 18 -%}
-        </a>
-      {%- endif -%}
-    {%- endif -%}
   </div>
 </header>
 

@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="{{ 'section-video.css' | asset_url }}">
+
+<div class="o-container -medium -wide">
+  <h2 class="section_title">{{ section.settings.title }}</h2>
+  <p class="section_description">{{ section.settings.description }}</p>
+
+  <div class="video_wrapper">
+    <div class="video">
+      {{ section.settings.video_frame }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Video",
+  "tag": "section",
+  "class": "section--video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "video_frame",
+      "label": "Video Frame",
+      "info": "Insert the video frame URL"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Video",
+    }
+  ]
+}
+{% endschema %}

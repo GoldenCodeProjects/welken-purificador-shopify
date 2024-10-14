@@ -6,76 +6,62 @@
         "a2495587-9ae1-4673-9ea2-8a81d3b7e74f": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/cat-enjoying-the-view.jpg",
-            "description": "<h3><span style=\"font-family:Verdana,Geneva,sans-serif\">Agrega aqui lo que quieras<\/span><\/h3>",
-            "pos_x": "-center-x",
+            "image": "shopify:\/\/shop_images\/Sin_titulo-1.jpg",
+            "description": "<h2 style=\"color: #36C2D5;\">Welken en tu hogar<\/h2>\n<p style=\"color: #8A989A;\">Pureza inigualable del agua para toda tu familia<\/p>",
+            "pos_x": "-left",
             "pos_y": "-center-y",
-            "button_text": "Un enlace",
+            "button_text": "Comprar ahora",
             "button_url": "shopify:\/\/collections\/all"
           }
         },
-        "65f4302a-f0b0-4c82-ba03-c3fa49207f50": {
-          "type": "video",
+        "image_WyGmYD": {
+          "type": "image",
           "settings": {
-            "video_link": "https:\/\/www.youtube.com\/watch?v=J---aiyznGQ",
-            "video_poster": "shopify:\/\/shop_images\/a-small-black-and-white-street-cat.jpg"
+            "image": "shopify:\/\/shop_images\/Group_110.jpg",
+            "description": "<h2>Welken en tu oficina o negocio<\/h2>\n<p>Ofrece a tus colaboradores o clientes la mejor calidad de agua<\/p>",
+            "pos_x": "-left",
+            "pos_y": "-center-y",
+            "button_text": "Comprar ahora",
+            "button_url": "shopify:\/\/collections\/all"
           }
         }
       },
       "block_order": [
         "a2495587-9ae1-4673-9ea2-8a81d3b7e74f",
-        "65f4302a-f0b0-4c82-ba03-c3fa49207f50"
+        "image_WyGmYD"
       ],
       "settings": {
         "filter_enabled": false,
-        "size": "-large"
+        "size": "-medium"
       }
     },
-    "8ad4be35-0f6a-42ba-9ff4-e11258e94c28": {
-      "type": "last-seen",
+    "video_KRff36": {
+      "type": "video",
       "settings": {
-        "heading": "Vistos recientemente"
+        "title": "El purificador de aguamás potente y fácil de utilizar",
+        "description": "Welken es un purificador de agua por ósmosis inversa que le ofrece a \ntu familia o a tu negocio una calidad inigualable en la pureza del agua",
+        "video_frame": "<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/Gx3m2xjAX8o?si=JSZyAGbgkq_sIzoD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen><\/iframe>"
       }
     },
-    "f7864bd3-4ec2-4573-bd52-d03b641126d8": {
-      "type": "feadtured-products",
-      "blocks": {
-        "f8617ce9-884e-43ba-a61d-0d471a8ac700": {
-          "type": "products",
-          "settings": {
-            "product_selected": "example-t-shirt"
-          }
-        }
-      },
-      "block_order": [
-        "f8617ce9-884e-43ba-a61d-0d471a8ac700"
-      ],
+    "benefits_4qJRnm": {
+      "type": "benefits",
       "settings": {
-        "heading": "Más vendidos"
-      }
-    },
-    "bd7fbfff-064b-4ee9-922c-39a48a566ee2": {
-      "type": "selected-categories",
-      "blocks": {
-        "71b6facf-b5b6-4eee-9d1c-1608a7e01689": {
-          "type": "category",
-          "settings": {
-            "category": "frontpage"
-          }
-        }
-      },
-      "block_order": [
-        "71b6facf-b5b6-4eee-9d1c-1608a7e01689"
-      ],
-      "settings": {
-        "title": ""
+        "title": "Solo obtienes beneficios al adquirir  tu purificador Welken",
+        "heading_1": "Ahorra por cada litro de  agua purificada",
+        "content_1": "Ahorra hasta $15 por litro invirtiendo en tu purificador de agua Welken y obtén una calidad de agua aún más pura.",
+        "image_1": "shopify:\/\/shop_images\/realistic-water-drop-with-ecosystem.jpg",
+        "heading_2": "Cuida tu salud de metales pesados  y bacterias",
+        "content_2": "Welken elimina contaminantes presentes en el agua como metales pesados, bacterias, parásitos y exceso de minerales.",
+        "image_2": "shopify:\/\/shop_images\/crop-man-pouring-water-near-window.jpg",
+        "heading_3": "Contribuye a la disminución del uso  de plásticos",
+        "content_3": "Utilizar un purificador de agua Welken contribuye a reducir el más de un millón de botellas de plástico que se utilizan en México por hora.",
+        "image_3": "shopify:\/\/shop_images\/Mask_Group_2.png"
       }
     }
   },
   "order": [
     "56deeea7-a573-493b-8593-aeacf53dc825",
-    "8ad4be35-0f6a-42ba-9ff4-e11258e94c28",
-    "f7864bd3-4ec2-4573-bd52-d03b641126d8",
-    "bd7fbfff-064b-4ee9-922c-39a48a566ee2"
+    "video_KRff36",
+    "benefits_4qJRnm"
   ]
 }

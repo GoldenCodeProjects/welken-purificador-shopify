@@ -1,8 +1,13 @@
 {
   "current": {
+    "colors_solid_button": "#35c2d5",
+    "colors_accent_primary": "#35c2d5",
+    "colors_accent_secondary": "#35c2d5",
+    "colors_text": "#8a989a",
+    "colors_background_secondary": "#f4f4f4",
     "social_facebook_link": "https:\/\/facebook.com\/shopify",
     "social_instagram_link": "http:\/\/instagram.com\/shopify",
-    "social_tiktok_link": "https:\/\/tiktok.com\/@shopify",
+    "social_tiktok_link": "",
     "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
     "sections": {
       "cart-collapse": {
@@ -20,21 +25,32 @@
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/6387659.jpg",
-          "img_width": 50,
+          "logo": "shopify:\/\/shop_images\/welken_logo_2_sin_fondo.png",
+          "img_width": 180,
           "menu": "main-menu"
         }
       },
       "footer": {
         "type": "footer",
+        "blocks": {
+          "shops_hHp3E4": {
+            "type": "shops",
+            "settings": {
+              "text": "Inicio",
+              "url": "\/"
+            }
+          }
+        },
+        "block_order": [
+          "shops_hHp3E4"
+        ],
         "settings": {
-          "logo-light": "shopify:\/\/shop_images\/6387659.jpg",
+          "logo-light": "shopify:\/\/shop_images\/welken_logo_2_sin_fondo.png",
           "address_text": "<p>São Paulo 1912, Providencia, 44630 Guadalajara, Jal.<\/p>",
           "address_link": "https:\/\/goo.gl\/maps\/iUa9tyD52Cc5LjAJ6",
+          "find_text": "Mapa del sitio",
           "follow_text": "Sígueme en mis redes",
-          "whatsapp_text": "300 300 0000",
-          "contact_email": "tuCorreo@service.com",
-          "phone_text": "300 300 0000"
+          "contact_email": "contacto@welken.mx"
         }
       }
     },

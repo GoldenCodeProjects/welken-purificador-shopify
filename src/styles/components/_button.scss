@@ -20,13 +20,13 @@
   margin: 0;
   text-align: center;
   text-decoration: none;
-  border: 2px solid transparent;
-  border-radius: rem(10px);
-  padding: rem(5px) rem(16px);
+  border: 1px solid transparent;
+  border-radius: rem(25px);
+  padding: rem(7px) rem(20px);
   font-family: $font-heading-family;
   font-style: $font-heading-style;
-  font-weight: $font-heading-weight;
-  font-size: rem(20px);
+  font-weight: 600;
+  font-size: rem(18px);
   user-select: none;
   appearance: none;
   transition: transform 200ms ease-in, background-color 200ms ease-in,

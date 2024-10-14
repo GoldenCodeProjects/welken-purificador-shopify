@@ -13,15 +13,25 @@ component-carousel {
   max-width: 100vw;
   display: block;
   position: relative;
+  overflow: hidden;
   background-color: $color-base-background-secondary;
+  width: 100%;
   .swiper-lazy-preloader {
     display: block;
   }
   &.-small {
-    height: 35vh;
+    aspect-ratio: 4/1;
+    @include mq-down('sm') {
+      aspect-ratio: 4/ 3;
+    }
   }
   &.-medium {
     height: 50vh;
+    min-height: 400px;
+  }
+  &.-large {
+    height: calc(100vh - 46px - 68px) !important;
+    min-height: 600px;
   }
   &.-filter {
     .swiper-slide::after {
@@ -45,6 +55,22 @@ component-carousel {
     display: flex;
     align-items: center;
     position: relative;
+    &.-responsive{
+      .desktop{
+        display: block;
+      }
+      .mobile{
+        display: none;
+      }
+      @include mq-down('sm') {
+        .desktop{
+          display: none;
+        }
+        .mobile{
+          display: block;
+        }
+      }
+    }
   }
   .swiper,
   .swiper-wrapper,
@@ -92,12 +118,7 @@ component-carousel {
     transform: translateY(-50%);
     padding: 10px;
     color: #fff;
-    text-shadow: 1px 0px 1px rgba(0, 0, 0, 0.25),
-      0px 1px 1px rgba(0, 0, 0, 0.25), 0px -1px 1px rgba(0, 0, 0, 0.25),
-      -1px 0px 1px rgba(0, 0, 0, 0.25);
-    text-align: center;
     font-size: 1rem;
-    text-transform: uppercase;
     z-index: 2;
     h1,
     h2,
@@ -105,8 +126,11 @@ component-carousel {
     h4,
     h5,
     h6 {
-      font-size: 2em;
-      font-weight: 800;
+      font-size: 2.5em;
+      font-weight: 700;
+    }
+    p{
+      font-size: 1.1rem;
     }
     &.-left {
       left: 7%;
@@ -137,13 +161,17 @@ component-carousel {
     }
     .c-button {
       text-shadow: none;
+      margin-top: 1rem;
     }
     @include mq-down('xs') {
       width: 80%;
       font-size: 0.75rem;
       top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      left: 2% !important;
+      transform: translateY(-50%) !important;
+      .c-button {
+        width: 100%;
+      }
     }
   }
 }

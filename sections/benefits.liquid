@@ -1,0 +1,93 @@
+<link rel="stylesheet" href="{{ 'section-benefits.css' | asset_url }}">
+
+<div class="o-container -medium -wide">
+  <h2 class="section-title">{{ section.settings.title }}</h2>
+  <div class="wrapper">
+    <div class="benefit">
+      <div class="text">
+        <h3>{{ section.settings.heading_1 }}</h3>
+        <p>{{ section.settings.content_1 }}</p>
+      </div>
+      <img src="{{ section.settings.image_1 | img_url: 'master' }}" alt="">
+    </div>
+    <div class="benefit">
+      <img src="{{ section.settings.image_2 | img_url: 'master' }}" alt="">
+      <div class="text">
+        <h3>{{ section.settings.heading_2 }}</h3>
+        <p>{{ section.settings.content_2 }}</p>
+      </div>
+    </div>
+    <div class="benefit">
+      <img src="{{ section.settings.image_3 | img_url: 'master' }}" alt="">
+      <div class="text">
+        <h3>{{ section.settings.heading_3 }}</h3>
+        <p>{{ section.settings.content_3 }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Beneficios",
+  "tag": "section",
+  "class": "section--benefits",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título"
+    },
+    {
+      "type": "text",
+      "id": "heading_1",
+      "label": "Encabezado 1"
+    },
+    {
+      "type": "textarea",
+      "id": "content_1",
+      "label": "Contenido 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Imagen 1"
+    },
+    {
+      "type": "text",
+      "id": "heading_2",
+      "label": "Encabezado 2"
+    },
+    {
+      "type": "textarea",
+      "id": "content_2",
+      "label": "Contenido 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Imagen 2"
+    },
+    {
+      "type": "text",
+      "id": "heading_3",
+      "label": "Encabezado 3"
+    },
+    {
+      "type": "textarea",
+      "id": "content_3",
+      "label": "Contenido 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Imagen 3"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Beneficios"
+    }
+  ]
+}
+{% endschema %}

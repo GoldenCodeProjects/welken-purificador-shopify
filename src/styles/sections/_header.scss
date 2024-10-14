@@ -33,8 +33,12 @@
   &_nav{
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: flex-end;
     gap: 1rem;
+    a{
+      color: $color-base-text;
+      font-weight: 600;
+    }
     @include mq-down(sm) {
       display: none;
     }
@@ -57,11 +61,14 @@
       width: 2.5rem;
       &.-cart{
         position: relative;
+        svg{
+          color: $color-base-primary;
+        }
         .data-quantity{
           position: absolute;
           top: -0.25rem;
           right: -0.25rem;
-          background: $color-base-primary;
+          background: $color-base-text;
           border-radius: 0.625rem;
           color: $color-base-background-primary;
           font-size: 0.6rem;

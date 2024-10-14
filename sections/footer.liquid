@@ -1,6 +1,38 @@
 <div class="footer">
-  <div class="footer-top o-container -medium -wide">
-    <div class="findUs">
+  <div class="footer-container o-container -medium -wide">
+    <div class="footer_logo">
+      <img
+        src="{{ section.settings.logo-light | image_url: width: 350 }}"
+        alt="{{ section.settings.alt }}"
+        width="350"
+        height="200"
+        loading="lazy">
+
+      <p class="copyright">
+        © {{ 'now' | date: '%Y' }} {{ shop.name }}.
+      </p>
+    </div>
+
+    <div class="footer_find">
+      <h6>{{ section.settings.find_text }}</h6>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'shops' -%}
+          <a href="{{ block.settings.url }}" class="link">
+            <span>{{ block.settings.text }}</span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="footer_contact">
+      <h6>Contacto</h6>
+      <a href="mailto:{{ section.settings.contact_email }}" class="link">
+        {% render 'component-icon', icon: 'email', icon_size: 20 %}
+        <span>
+          {{ section.settings.contact_email }}
+        </span>
+        <b class="email"></b>
+      </a>
       {%- if section.settings.address_text != blank -%}
         {%- if section.settings.address_link != blank -%}
           <a
@@ -13,57 +45,39 @@
           <div class="address">{{ section.settings.address_text }}</div>
         {%- endif -%}
       {%- endif -%}
-      <a
-        class="link"
-        href="https://wa.me/{{ section.settings.whatsapp_text | handleize | replace: '-', '' }}"
-        target="_blank">
-        {% render 'component-icon', icon: 'whatsapp', icon_size: 20 %}
-        <span>{{ section.settings.whatsapp_text }}</span>
-        <b class="whatsapp"></b>
-      </a>
-      <a href="mailto:{{ section.settings.contact_email }}" class="link">
-        {% render 'component-icon', icon: 'email', icon_size: 20 %}
-        <span>
-          {{ section.settings.contact_email }}
-        </span>
-        <b class="email"></b>
-      </a>
-      <a href="tel:{{ section.settings.phone_text }}" class="link">
-        {% render 'component-icon', icon: 'phone', icon_size: 20 %}
-        <span>
-          {{ section.settings.phone_text }}
-        </span>
-        <b class="phone"></b>
-      </a>
     </div>
 
-    <div class="logo">
-      <img
-        src="{{ section.settings.logo-light | image_url: width: 350 }}"
-        alt="{{ section.settings.alt }}"
-        width="350"
-        height="200"
-        loading="lazy">
-    </div>
-
-    <div class="info">
+    <div class="footer_info">
       <h6>{{ section.settings.follow_text }}</h6>
       <div class="social">
         {% render 'component-social-list' %}
       </div>
-    </div>
-  </div>
 
-  <nav class="footer-bottom">
-    <a href="{{ shop.url }}" class="copyright">
-      © 2022, {{ shop.name }}
-    </a>
-    <p>Todos los derechos reservados</p>
-    {% for policy in shop.policies %}
-      <a href="{{ policy.url }}">{{ policy.title }}</a>
-    {% endfor %}
-    <a href="https://goldencode.co/en" target="_blank">Desarrollado por Golden Code</a>
-  </nav>
+      <h6 class="u-mt-medium">Metodos de pago</h6>
+      <ul class="payment_types">
+        {%- for type in shop.enabled_payment_types -%}
+          <li>
+            {{ type | payment_type_svg_tag }}
+          </li>
+        {%- endfor -%}
+      </ul>
+    </div>
+
+    <nav class="footer_policy">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'policy' -%}
+          <a href="{{ block.settings.url }}" class="link" title="{{ block.settings.text }}">
+            <span>{{ block.settings.text }}</span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+      <a href="https://goldencode.co/en" target="_blank"
+        rel="noopener noreferrer" title="Desarrollado por Golden Code"
+      >
+        Desarrollado por Golden Code
+      </a>
+    </nav>
+  </div>
 </div>
 
 {% schema %}
@@ -90,24 +104,53 @@
         "info": "La dirección se convertirá en un enlace si se proporciona una URL."
       }, {
         "type": "text",
+        "id": "find_text",
+        "label": "Encuéntranos en",
+        "default": "Compra EasyLiving en:"
+      }, {
+        "type": "text",
         "id": "follow_text",
         "label": "Sígueme en mis redes",
         "default": "Sígueme en mis redes"
       }, {
         "type": "text",
-        "id": "whatsapp_text",
-        "label": "WhatsApp",
-        "default": "300 300 0000"
-      }, {
-        "type": "text",
         "id": "contact_email",
         "label": "Correo electrónico",
         "default": "tuCorreo@service.com"
-      }, {
-        "type": "text",
-        "id": "phone_text",
-        "label": "Teléfono",
-        "default": "300 300 0000"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "shops",
+        "name": "Tienda",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Texto"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "URL"
+          }
+        ]
+      },
+      {
+        "type": "policy",
+        "name": "Políticas",
+        "settings": [
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Texto"
+          },
+          {
+            "type": "url",
+            "id": "url",
+            "label": "URL"
+          }
+        ]
       }
     ]
   }
