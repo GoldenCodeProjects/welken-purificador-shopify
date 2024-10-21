@@ -57,11 +57,160 @@
         "content_3": "Utilizar un purificador de agua Welken contribuye a reducir el más de un millón de botellas de plástico que se utilizan en México por hora.",
         "image_3": "shopify:\/\/shop_images\/Mask_Group_2.png"
       }
+    },
+    "featured_collections_XMapzK": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_VfJQnq": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify:\/\/collections\/para-tu-hogar",
+            "title": "Para tu hogar",
+            "image": "shopify:\/\/shop_images\/Group_111.jpg",
+            "float_image": "shopify:\/\/shop_images\/Group_106_da247ec1-1f70-46c1-9b74-8d678e2f72c4.png"
+          }
+        },
+        "collection_zCNh6c": {
+          "type": "collection",
+          "settings": {
+            "collection": "shopify:\/\/collections\/para-tu-oficina-o-negocio",
+            "title": "Para tu oficina o negocio",
+            "image": "shopify:\/\/shop_images\/Group_112.jpg",
+            "float_image": "shopify:\/\/shop_images\/Group_106_da247ec1-1f70-46c1-9b74-8d678e2f72c4.png"
+          }
+        }
+      },
+      "block_order": [
+        "collection_VfJQnq",
+        "collection_zCNh6c"
+      ],
+      "settings": {
+        "title": "Compra ahora tu purificador Welken"
+      }
+    },
+    "features_WYPqmR": {
+      "type": "features",
+      "blocks": {
+        "feature_DrGnKy": {
+          "type": "feature",
+          "settings": {
+            "title": "Fácil rápido cambio de cartucho.",
+            "content": "No requiere de técnico o herramienta para hacer el cambio de cartucho."
+          }
+        },
+        "feature_taXqEN": {
+          "type": "feature",
+          "settings": {
+            "title": "Certificación CE, RoHS y NSF",
+            "content": "en la membrana de ósmosis"
+          }
+        },
+        "feature_kndM8P": {
+          "type": "feature",
+          "settings": {
+            "title": "Aviso cada vez que requiere cambio de cartucho.",
+            "content": "También nosotros notificamos a nuestros clientes con un mensaje."
+          }
+        }
+      },
+      "block_order": [
+        "feature_DrGnKy",
+        "feature_taXqEN",
+        "feature_kndM8P"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Group_106_ca8208a8-e474-47b9-8fe5-5c3d534c35bc.png"
+      }
+    },
+    "reviews_gfazzA": {
+      "type": "reviews",
+      "blocks": {
+        "review_bkM8m8": {
+          "type": "review",
+          "settings": {
+            "author": "Arturo Ramirez",
+            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "rating": 4
+          }
+        },
+        "review_bkM8m9": {
+          "type": "review",
+          "settings": {
+            "author": "Daniel Ramirez",
+            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "rating": 4
+          }
+        },
+        "review_bkM8m84": {
+          "type": "review",
+          "settings": {
+            "author": "Fur Ramirez",
+            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "rating": 4
+          }
+        },
+        "review_bkM8m2": {
+          "type": "review",
+          "settings": {
+            "author": "Karen Ramirez",
+            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "rating": 4
+          }
+        },
+        "review_bkM8m8y": {
+          "type": "review",
+          "settings": {
+            "author": "Manuel Ramirez",
+            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "rating": 4
+          }
+        },
+        "review_bkM8m8a": {
+          "type": "review",
+          "settings": {
+            "author": "Poel Ramirez",
+            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
+            "image": "shopify:\/\/shop_images\/Group_75.png",
+            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "rating": 4
+          }
+        }
+      },
+      "block_order": [
+        "review_bkM8m8",
+        "review_bkM8m9",
+        "review_bkM8m84",
+        "review_bkM8m2",
+        "review_bkM8m8y",
+        "review_bkM8m8a"
+      ],
+      "settings": {
+        "title": "Conoce la opinión  de nuestros clientes"
+      }
+    },
+    "calculator_hjbPx7": {
+      "type": "calculator",
+      "settings": {
+      }
     }
   },
   "order": [
     "56deeea7-a573-493b-8593-aeacf53dc825",
     "video_KRff36",
-    "benefits_4qJRnm"
+    "benefits_4qJRnm",
+    "calculator_hjbPx7",
+    "featured_collections_XMapzK",
+    "features_WYPqmR",
+    "reviews_gfazzA"
   ]
 }

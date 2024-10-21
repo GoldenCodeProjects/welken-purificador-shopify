@@ -79,6 +79,7 @@
     "inversify": "^6.0.1",
     "lit": "^2.4.1",
     "paper-range-slider": "^3.0.0",
+    "paperwave-range-slider": "^1.0.6",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.6.0",
     "sweetalert2": "^11.4.5",

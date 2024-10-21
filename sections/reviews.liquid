@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="{{ 'component-reviews-script.css' | asset_url }}">
+<link rel="stylesheet" href="{{ 'section-reviews.css' | asset_url }}">
+
+<script src="{{ 'component-reviews-script.js' | asset_url }}" defer></script>
+
+<div class="o-container -medium -wide">
+  <h2 class="section_title">{{ section.settings.title }}</h2>
+
+  <div class="swiper reviews">
+    <div class="swiper-wrapper">
+      {% for block in section.blocks %}
+        <div class="swiper-slide review">
+          <div class="review__content">
+            <div class="review__rating">
+              {% for i in (1..5) %}
+                {% if i <= block.settings.rating %}
+                  {% render 'component-icon' icon: 'star', icon_size: 20 %}
+                {% else %}
+                  {% render 'component-icon' icon: 'star-empty', icon_size: 20 %}
+                {% endif %}
+              {% endfor %}
+            </div>
+            <p class="review__text">{{ block.settings.content }}</p>
+          </div>
+          <div class="review__images">
+            {% if block.settings.image %}
+              <img src="{{ block.settings.image | image_url: width: 300 }}" alt="" loading="lazy" width="300" height="300">
+            {% endif %}
+            {% if block.settings.image_2 %}
+              <img src="{{ block.settings.image_2 | image_url: width: 300 }}" alt="" loading="lazy" width="300" height="300">
+            {% endif %}
+          </div>
+          <div class="review__author">
+            <span class="review__author-letter">{{ block.settings.author | slice: 0, 1 }}</span>
+            <p class="review__name">{{ block.settings.author }}</p>
+            <p class="review__verified">
+              {% render 'component-icon' icon: 'checkmark', icon_size: 22 %}
+              Compra verificada
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Reseñas",
+  "tag": "section",
+  "class": "section--reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+    },
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Reseña",
+      "settings": [
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Autor",
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Contenido",
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen",
+        },
+        {
+          "type": "image_picker",
+          "id": "image_2",
+          "label": "Imagen",
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reseñas",
+    }
+  ]
+}
+{% endschema %}

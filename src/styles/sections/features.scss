@@ -1,0 +1,65 @@
+@import './../settings/colors';
+@import './../settings/fonts';
+@import './../settings/breakpoints';
+@import './../tools/functions';
+@import './../tools/mixins';
+
+.section--features {
+  max-width: 100vw;
+  overflow-x: hidden;
+  padding: 1rem 0 3rem 0;
+
+  .o-container{
+    .wrapper{
+      padding-top: 2rem;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 500px;
+      .image{
+        width: 80%;
+        max-width: 600px;
+      }
+      .feature{
+        position: absolute;
+        width: 350px;
+        &_title{
+          font-size: 1.1rem;
+          color: $color-base-primary;
+          text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+        }
+        &_content{
+          font-size: 1.1rem;
+          font-weight: 400;
+          color: $color-base-text;
+          text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
+        }
+        &:nth-child(2){
+          top: 50%;
+          left: 0;
+          transform: translateY(-50%);
+          text-align: left;
+        }
+        &:nth-child(3){
+          top: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          text-align: center;
+        }
+        &:nth-child(4){
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          text-align: right;
+          @include mq-down(sm){
+            top: unset;
+            bottom: 0;
+            transform: translateY(0);
+          }
+        }
+      }
+    }
+
+  }
+}

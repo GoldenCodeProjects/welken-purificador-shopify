@@ -1,4 +1,18 @@
 @font-face {
+  font-family: 'Ibrand';
+  src: url('Ibrand-Regular.eot');
+  src: url('Ibrand-Regular.eot?#iefix') format('embedded-opentype'),
+      url('Ibrand-Regular.woff2') format('woff2'),
+      url('Ibrand-Regular.woff') format('woff'),
+      url('Ibrand-Regular.ttf') format('truetype'),
+      url('Ibrand-Regular.svg#Ibrand-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@font-face {
     font-family: 'Nobel Uno';
     src: url('NobelUno-BoldItalic.eot');
     src: url('NobelUno-BoldItalic.eot?#iefix') format('embedded-opentype'),

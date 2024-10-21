@@ -1,0 +1,66 @@
+{{ 'section-featured-collections.css' | asset_url | stylesheet_tag }}
+
+<h2 class="section-title">{{ section.settings.title }}</h2>
+
+<div class="o-container -wide">
+  {%- for block in section.blocks -%}
+    <a class="collection" href="{{ block.settings.collection }}">
+      <div class="block">
+        <h3>{{ block.settings.title }}</h3>
+        <img src="{{ block.settings.image | image_url: width: 700 }}" alt="" width="700" height="700" loading="lazy">
+      </div>
+      <div class="float">
+        <img src="{{ block.settings.float_image | image_url: width: 700 }}" alt="" width="300" height="300" loading="lazy">
+      </div>
+    </a>
+  {%- endfor -%}
+</div>
+
+
+{% schema %}
+{
+  "name": "Colecciones destacadas",
+  "class": "section--featured-collections",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Colección",
+      "settings": [
+        {
+          "type": "url",
+          "id": "collection",
+          "label": "Colección o Pagina"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen de fondo"
+        },
+        {
+          "type": "image_picker",
+          "id": "float_image",
+          "label": "Imagen flotante"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título"
+    },
+  ],
+  "presets": [
+    {
+      "name": "Colecciones destacadas",
+    }
+  ]
+}
+{% endschema %}

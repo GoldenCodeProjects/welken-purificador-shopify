@@ -1,0 +1,46 @@
+@import './../settings/colors';
+@import './../settings/fonts';
+@import './../settings/breakpoints';
+@import './../tools/functions';
+@import './../tools/mixins';
+
+// {% comment %} <form>
+//       <div class="c-field">
+//         <label for="cost" class="c-field_label">¿Cuánto gastas por garrafón?</label>
+//         <input type="number" id="cost" class="c-field_input" placeholder="Ej. 30">
+//       </div>
+//       <div class="c-field">
+//         <label for="quantity" class="c-field_label">Garrafones por semana</label>
+//         <paperwave-range-slider
+//           min="1"
+//           max="40"
+//           lowValue="30"
+//           highValue="90"
+//           minInterval="1"
+//           pin
+//         ></paperwave-range-slider>
+//       </div>
+//     </form> {% endcomment %}
+
+.section--calculator{
+  padding: 3rem 0;
+  background-color: $color-base-background-secondary;
+
+  .section_title{
+    color: $color-base-primary;
+    font-size: 1.7rem;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 1.5rem;
+    @include mq-down(sm){
+      font-size: 1.3rem;
+    }
+  }
+
+  .c-button{
+    margin: auto;
+    display: block;
+    width: fit-content;
+    margin-top: 1.5rem;
+  }
+}

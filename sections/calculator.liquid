@@ -1,0 +1,28 @@
+<link rel="stylesheet" href="{{ 'component-calculator-script.css' | asset_url }}">
+<script src="{{ 'component-calculator-script.js' | asset_url }}" defer></script>
+
+{{ 'section-calculator.css' | asset_url | stylesheet_tag }}
+
+
+<div class="o-container -wide">
+  <h2 class="section_title">¿Cuánto ahorrarías al año con Welken?</h2>
+
+  <component-calculator>
+    Not found
+  </component-calculator>
+
+  <a href="#" class="c-button -primary">Comprar ahora</a>
+</div>
+
+{% schema %}
+{
+  "name": "Calculadora",
+  "class": "section--calculator",
+  "tag": "section",
+  "presets": [
+    {
+      "name": "Calculadora",
+    }
+  ]
+}
+{% endschema %}

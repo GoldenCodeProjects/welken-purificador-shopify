@@ -1,0 +1,52 @@
+{{ 'section-features.css' | asset_url | stylesheet_tag }}
+
+<div class="o-container -wide">
+  <div class="wrapper">
+    <img class="image" src="{{ section.settings.image | image_url: width: 1700 }}" alt="" width="1000" height="1000" loading="lazy">
+    {%- for block in section.blocks -%}
+      <div class="feature">
+        <h2 class="feature_title">{{ block.settings.title }}</h2>
+        <p class="feature_content">{{ block.settings.content }}</p>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Características",
+  "class": "section--features",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Característica",
+      "limit": 3,
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título"
+        },
+        {
+          "type": "textarea",
+          "id": "content",
+          "label": "Contenido"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen",
+    },
+  ],
+  "presets": [
+    {
+      "name": "Características",
+    }
+  ]
+}
+{% endschema %}

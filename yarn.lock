@@ -1104,6 +1104,17 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@polymer/app-layout@^3.0.0-pre.21":
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/@polymer/app-layout/-/app-layout-3.1.0.tgz"
+  integrity sha512-+jf5/TtUDj/la9Vi59ooGNjnTN8JTkyIUK8gxAms0N3MmyeqrmcNLlJKDVyE6IIGKz0WfFeGKqKtmtTLHrZIlg==
+  dependencies:
+    "@polymer/iron-flex-layout" "^3.0.0-pre.26"
+    "@polymer/iron-media-query" "^3.0.0-pre.26"
+    "@polymer/iron-resizable-behavior" "^3.0.0-pre.26"
+    "@polymer/iron-scroll-target-behavior" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/font-roboto@^3.0.1":
   version "3.0.2"
   resolved "https://registry.npmjs.org/@polymer/font-roboto/-/font-roboto-3.0.2.tgz"
@@ -1120,6 +1131,13 @@
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/iron-a11y-keys-behavior/-/iron-a11y-keys-behavior-3.0.1.tgz"
   integrity sha512-lnrjKq3ysbBPT/74l0Fj0U9H9C35Tpw2C/tpJ8a+5g8Y3YJs1WSZYnEl1yOkw6sEyaxOq/1DkzH0+60gGu5/PQ==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-ajax@^3.0.0-pre.21":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/iron-ajax/-/iron-ajax-3.0.1.tgz"
+  integrity sha512-7+TPEAfWsRdhj1Y8UeF1759ktpVu+c3sG16rJiUC3wF9+woQ9xI1zUm2d59i7Yc3aDEJrR/Q8Y262KlOvyGVNg==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
@@ -1150,6 +1168,38 @@
     "@polymer/iron-validatable-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
+"@polymer/iron-component-page@^3.0.0-pre.20":
+  version "3.0.0-pre.21"
+  resolved "https://registry.npmjs.org/@polymer/iron-component-page/-/iron-component-page-3.0.0-pre.21.tgz"
+  integrity sha512-dc7P/wCY6J/ApVvQd6gZXVbB3ZGt/pmFtn/uaTbiSNRitzu9Fu+HaQsAtWLu4QbaZjSALTY70i7Im7LGUi6qFA==
+  dependencies:
+    "@polymer/app-layout" "^3.0.0-pre.21"
+    "@polymer/iron-ajax" "^3.0.0-pre.21"
+    "@polymer/iron-doc-viewer" "^3.0.0-pre.21"
+    "@polymer/iron-icons" "^3.0.0-pre.21"
+    "@polymer/paper-icon-button" "^3.0.0-pre.21"
+    "@polymer/paper-styles" "^3.0.0-pre.21"
+    "@polymer/paper-toast" "^3.0.0-pre.21"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-doc-viewer@^3.0.0-pre.21":
+  version "3.0.0-pre.21"
+  resolved "https://registry.npmjs.org/@polymer/iron-doc-viewer/-/iron-doc-viewer-3.0.0-pre.21.tgz"
+  integrity sha512-9U4Xia/swdrk2BmXx0VUzkOZhncveQDWDZZ2DYFiW3TCSl4zU57o+5bSlZyRXsvr7ddOgqRr5Yw1zhGgFSxGEQ==
+  dependencies:
+    "@polymer/iron-location" "^3.0.0-pre.21"
+    "@polymer/marked-element" "^3.0.0-pre.21"
+    "@polymer/paper-styles" "^3.0.0-pre.21"
+    "@polymer/polymer" "^3.0.0"
+    "@polymer/prism-element" "^3.0.0-pre.21"
+
+"@polymer/iron-fit-behavior@^3.0.0-pre.26":
+  version "3.1.0"
+  resolved "https://registry.npmjs.org/@polymer/iron-fit-behavior/-/iron-fit-behavior-3.1.0.tgz"
+  integrity sha512-ABcgIYqrjhmUT8tiuolqeGttF/8pd3sEymUDrO1vXbZu4FWIvoLNndrMDFvs++AGd12Mjf5pYy84NJc6dB8Vig==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/iron-flex-layout@^3.0.0-pre.26", "@polymer/iron-flex-layout@^3.0.1":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/iron-flex-layout/-/iron-flex-layout-3.0.1.tgz"
@@ -1164,6 +1214,32 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
+"@polymer/iron-icon@^3.0.0-pre.26":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/iron-icon/-/iron-icon-3.0.1.tgz"
+  integrity sha512-QLPwirk+UPZNaLnMew9VludXA4CWUCenRewgEcGYwdzVgDPCDbXxy6vRJjmweZobMQv/oVLppT2JZtJFnPxX6g==
+  dependencies:
+    "@polymer/iron-flex-layout" "^3.0.0-pre.26"
+    "@polymer/iron-meta" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-icons@^3.0.0-pre.21":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/iron-icons/-/iron-icons-3.0.1.tgz"
+  integrity sha512-xtEI8erH2GIBiF3QxEMyW81XuVjguu6Le5WjEEpX67qd9z7jjmc4T/ke3zRUlnDydex9p8ytcwVpMIKcyvjYAQ==
+  dependencies:
+    "@polymer/iron-icon" "^3.0.0-pre.26"
+    "@polymer/iron-iconset-svg" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-iconset-svg@^3.0.0-pre.26":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/iron-iconset-svg/-/iron-iconset-svg-3.0.1.tgz"
+  integrity sha512-XNwURbNHRw6u2fJe05O5fMYye6GSgDlDqCO+q6K1zAnKIrpgZwf2vTkBd5uCcZwsN0FyCB3mvNZx4jkh85dRDw==
+  dependencies:
+    "@polymer/iron-meta" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/iron-input@^3.0.0-pre.26":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/iron-input/-/iron-input-3.0.1.tgz"
@@ -1173,6 +1249,20 @@
     "@polymer/iron-validatable-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
+"@polymer/iron-location@^3.0.0-pre.21":
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/@polymer/iron-location/-/iron-location-3.0.2.tgz"
+  integrity sha512-75XlPsrm6RQUPNzWWaA0TnTQaWZUYX8UB4Q6WCjikKWzmaSCCxlBrVVYf8WRqtCxw/PeCvLn5kGL6qhTlNTCEA==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-media-query@^3.0.0-pre.26":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/iron-media-query/-/iron-media-query-3.0.1.tgz"
+  integrity sha512-czUX1pm1zfmfcZtq5J57XFkcobBv08Y50exp0/3v8Bos5VL/jv2tU0RwiTfDBxUMhjicGbgwEBFQPY2V5DMzyw==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/iron-meta@^3.0.0-pre.26":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/iron-meta/-/iron-meta-3.0.1.tgz"
@@ -1180,10 +1270,34 @@
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
+"@polymer/iron-overlay-behavior@^3.0.0-pre.27":
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/@polymer/iron-overlay-behavior/-/iron-overlay-behavior-3.0.3.tgz"
+  integrity sha512-Q/Fp0+uOQQ145ebZ7T8Cxl4m1tUKYjyymkjcL2rXUm+aDQGb1wA1M1LYxUF5YBqd+9lipE0PTIiYwA2ZL/sznA==
+  dependencies:
+    "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.26"
+    "@polymer/iron-fit-behavior" "^3.0.0-pre.26"
+    "@polymer/iron-resizable-behavior" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/iron-range-behavior@^3.0.0-pre.26":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/iron-range-behavior/-/iron-range-behavior-3.0.1.tgz"
   integrity sha512-+jtL9v45M/T1RJleWyQaNH84S9/mIIR+AjNbYIttbKGp1eG+98j8MDWe7LXNtg79V2LQnE/+VS82cBeELyGVeg==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-resizable-behavior@^3.0.0-pre.26":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/iron-resizable-behavior/-/iron-resizable-behavior-3.0.1.tgz"
+  integrity sha512-FyHxRxFspVoRaeZSWpT3y0C9awomb4tXXolIJcZ7RvXhMP632V5lez+ch5G5SwK0LpnAPkg35eB0LPMFv+YMMQ==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/iron-scroll-target-behavior@^3.0.0-pre.26":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/iron-scroll-target-behavior/-/iron-scroll-target-behavior-3.0.1.tgz"
+  integrity sha512-xg1WanG25BIkQE8rhuReqY9zx1K5M7F+YAIYpswEp5eyDIaZ1Y3vUmVeQ3KG+hiSugzI1M752azXN7kvyhOBcQ==
   dependencies:
     "@polymer/polymer" "^3.0.0"
 
@@ -1195,7 +1309,15 @@
     "@polymer/iron-meta" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/paper-behaviors@^3.0.1":
+"@polymer/marked-element@^3.0.0-pre.21":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/marked-element/-/marked-element-3.0.1.tgz"
+  integrity sha512-WJQzQetxdStVGQbyTBUBgd+hSI0Rl39uJg7b2zL3r6EfMnibzmA/YNT06M8jVZdxPF+B4SumrFWRtasVtGQRUQ==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+    marked "~0.3.9"
+
+"@polymer/paper-behaviors@^3.0.0-pre.27", "@polymer/paper-behaviors@^3.0.1":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/paper-behaviors/-/paper-behaviors-3.0.1.tgz"
   integrity sha512-6knhj69fPJejv8qR0kCSUY+Q0XjaUf0OSnkjRjmTJPAwSrRYtgqE+l6P1FfA+py1X/cUjgne9EF5rMZAKJIg1g==
@@ -1205,7 +1327,17 @@
     "@polymer/paper-ripple" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/paper-input@^3.0.1":
+"@polymer/paper-icon-button@^3.0.0-pre.21":
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/@polymer/paper-icon-button/-/paper-icon-button-3.0.2.tgz"
+  integrity sha512-kOdxQgnKL097bggFF6PWvsBYuWg+MCcoHoTHX6bh/MuZoWFZNjrFntFqwuB4oEbpjCpfm4moA33muPJFj7CihQ==
+  dependencies:
+    "@polymer/iron-icon" "^3.0.0-pre.26"
+    "@polymer/paper-behaviors" "^3.0.0-pre.27"
+    "@polymer/paper-styles" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/paper-input@^3.0.0-pre.26", "@polymer/paper-input@^3.0.1":
   version "3.2.1"
   resolved "https://registry.npmjs.org/@polymer/paper-input/-/paper-input-3.2.1.tgz"
   integrity sha512-6ghgwQKM6mS0hAQxQqj+tkeEY1VUBqAsrasAm8V5RpNcfSWQC/hhRFxU0beGuKTAhndzezDzWYP6Zz4b8fExGg==
@@ -1218,7 +1350,7 @@
     "@polymer/paper-styles" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/paper-progress@^3.0.1":
+"@polymer/paper-progress@^3.0.0-pre.26", "@polymer/paper-progress@^3.0.1":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/paper-progress/-/paper-progress-3.0.1.tgz"
   integrity sha512-5nguG+tmnyoaWKVNG8Smtno2uLSPBgEsT3f20JY8yJTjUBYWaqa8E3l5RLkTRXgA4x9OnvLb8/CdlQWXQIogBg==
@@ -1236,7 +1368,22 @@
     "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
-"@polymer/paper-styles@^3.0.0-pre.26", "@polymer/paper-styles@^3.0.1":
+"@polymer/paper-slider@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/paper-slider/-/paper-slider-3.0.1.tgz"
+  integrity sha512-TNA8nEQci1fe3vTQQaFwkPj9p9yTLSr9Mhe8xQSTHpFNKun1rsp91LlKJmiKJDO7xU9RGZmA2mRlQwaj6kgR3g==
+  dependencies:
+    "@polymer/iron-a11y-keys-behavior" "^3.0.0-pre.26"
+    "@polymer/iron-behaviors" "^3.0.0-pre.26"
+    "@polymer/iron-flex-layout" "^3.0.0-pre.26"
+    "@polymer/iron-form-element-behavior" "^3.0.0-pre.26"
+    "@polymer/paper-behaviors" "^3.0.0-pre.27"
+    "@polymer/paper-input" "^3.0.0-pre.26"
+    "@polymer/paper-progress" "^3.0.0-pre.26"
+    "@polymer/paper-styles" "^3.0.0-pre.26"
+    "@polymer/polymer" "^3.0.0"
+
+"@polymer/paper-styles@^3.0.0-pre.21", "@polymer/paper-styles@^3.0.0-pre.26", "@polymer/paper-styles@^3.0.1":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@polymer/paper-styles/-/paper-styles-3.0.1.tgz"
   integrity sha512-y6hmObLqlCx602TQiSBKHqjwkE7xmDiFkoxdYGaNjtv4xcysOTdVJsDR/R9UHwIaxJ7gHlthMSykir1nv78++g==
@@ -1245,12 +1392,30 @@
     "@polymer/iron-flex-layout" "^3.0.0-pre.26"
     "@polymer/polymer" "^3.0.0"
 
+"@polymer/paper-toast@^3.0.0-pre.21":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/paper-toast/-/paper-toast-3.0.1.tgz"
+  integrity sha512-pizuogzObniDdICUc6dSLrnDt2VzzoRne1gCmbD6sfOATVv5tc8UfrqhA2iHngbNBEbniBiciS3iogdp5KTVUQ==
+  dependencies:
+    "@polymer/iron-a11y-announcer" "^3.0.0-pre.26"
+    "@polymer/iron-fit-behavior" "^3.0.0-pre.26"
+    "@polymer/iron-overlay-behavior" "^3.0.0-pre.27"
+    "@polymer/polymer" "^3.0.0"
+
 "@polymer/polymer@^3.0.0", "@polymer/polymer@^3.0.5":
   version "3.5.1"
   resolved "https://registry.npmjs.org/@polymer/polymer/-/polymer-3.5.1.tgz"
   integrity sha512-JlAHuy+1qIC6hL1ojEUfIVD58fzTpJAoCxFwV5yr0mYTXV1H8bz5zy0+rC963Cgr9iNXQ4T9ncSjC2fkF9BQfw==
   dependencies:
     "@webcomponents/shadycss" "^1.9.1"
+
+"@polymer/prism-element@^3.0.0-pre.21":
+  version "3.0.1"
+  resolved "https://registry.npmjs.org/@polymer/prism-element/-/prism-element-3.0.1.tgz"
+  integrity sha512-mam3oZZwVoxmC8i2srCxaTsvCqZF2HX4yxbm1JN9OGZS2JMwu7bnjjk7O8haoj9u6w+ocUi+vTLjYeIIoPx7vQ==
+  dependencies:
+    "@polymer/polymer" "^3.0.0"
+    prismjs "^1.11.0"
 
 "@shopify/network@^1.5.1":
   version "1.6.4"
@@ -3331,6 +3496,11 @@ make-dir@^3.0.2, make-dir@^3.1.0:
   dependencies:
     semver "^6.0.0"
 
+marked@~0.3.9:
+  version "0.3.19"
+  resolved "https://registry.npmjs.org/marked/-/marked-0.3.19.tgz"
+  integrity sha512-ea2eGWOqNxPcXv8dyERdSr/6FmzvWwzjMxpfGB/sbMccXoct+xY+YukPD+QTUZwyvK7BZwcr4m21WBOW41pAkg==
+
 memorystream@^0.3.1:
   version "0.3.1"
   resolved "https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz"
@@ -3550,6 +3720,15 @@ paper-range-slider@^3.0.0:
     "@polymer/paper-progress" "^3.0.1"
     "@polymer/paper-styles" "^3.0.1"
     "@polymer/polymer" "^3.0.5"
+
+paperwave-range-slider@^1.0.6:
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/paperwave-range-slider/-/paperwave-range-slider-1.0.6.tgz"
+  integrity sha512-DfR/xZ9qDFWcfBOP/Etx8L9q1HvAYDinrX8cjGM7xvRz3r2Qu3OuADSPzLVHC6J5nUb2S7E35aQVZsKnzLOHTg==
+  dependencies:
+    "@polymer/iron-component-page" "^3.0.0-pre.20"
+    "@polymer/paper-slider" "^3.0.1"
+    "@polymer/polymer" "^3.0.0"
 
 parent-module@^1.0.0:
   version "1.0.1"
@@ -3951,6 +4130,11 @@ pretty-bytes@^5.3.0:
   version "5.6.0"
   resolved "https://registry.npmjs.org/pretty-bytes/-/pretty-bytes-5.6.0.tgz"
   integrity sha512-FFw039TmrBqFK8ma/7OL3sDz/VytdtJr044/QUJtH0wK9lb9jLq9tJyIxUwtQJHwar2BqtiA4iCWSwo9JLkzFg==
+
+prismjs@^1.11.0:
+  version "1.29.0"
+  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.29.0.tgz"
+  integrity sha512-Kx/1w86q/epKcmte75LNrEoT+lX8pBpavuAbvJWRXar7Hz8jrtF+e3vY751p0R8H9HdArwaCTNDDzHg/ScJK1Q==
 
 private@^0.1.6, private@^0.1.8:
   version "0.1.8"

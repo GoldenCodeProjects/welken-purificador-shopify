@@ -16,23 +16,29 @@ component-carousel {
   overflow: hidden;
   background-color: $color-base-background-secondary;
   width: 100%;
+
   .swiper-lazy-preloader {
     display: block;
   }
+
   &.-small {
     aspect-ratio: 4/1;
+
     @include mq-down('sm') {
       aspect-ratio: 4/ 3;
     }
   }
+
   &.-medium {
     height: 50vh;
     min-height: 400px;
   }
+
   &.-large {
     height: calc(100vh - 46px - 68px) !important;
     min-height: 600px;
   }
+
   &.-filter {
     .swiper-slide::after {
       content: '';
@@ -43,35 +49,39 @@ component-carousel {
       height: 30%;
       z-index: 1;
       background: rgb(255, 255, 255);
-      background: linear-gradient(
-        0deg,
-        rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 0.15) 85%,
-        rgba(255, 255, 255, 0) 100%
-      );
+      background: linear-gradient(0deg,
+          rgba(255, 255, 255, 1) 0%,
+          rgba(255, 255, 255, 0.15) 85%,
+          rgba(255, 255, 255, 0) 100%);
     }
   }
+
   .swiper-slide {
     display: flex;
     align-items: center;
     position: relative;
-    &.-responsive{
-      .desktop{
+
+    &.-responsive {
+      .desktop {
         display: block;
       }
-      .mobile{
+
+      .mobile {
         display: none;
       }
+
       @include mq-down('sm') {
-        .desktop{
+        .desktop {
           display: none;
         }
-        .mobile{
+
+        .mobile {
           display: block;
         }
       }
     }
   }
+
   .swiper,
   .swiper-wrapper,
   .swiper-slide,
@@ -79,6 +89,7 @@ component-carousel {
   .simpleParallax {
     height: 100%;
   }
+
   img {
     width: 100%;
     object-fit: cover;
@@ -86,31 +97,47 @@ component-carousel {
     position: relative;
     z-index: 1;
   }
+
   .swiper-button-prev,
   .swiper-button-next {
-    display: block !important;
-    color: $color-base-primary;
-    @include mq-down('xxs') {
+    color: $color-base-background-primary !important;
+    font-size: 1rem !important;
+
+    &::after {
+      font-size: inherit !important;
+      background-color: $color-base-primary !important;
+      border-radius: 50%;
+      padding: 0.5rem;
+      width: 2rem;
+      height: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include mq-down(sm) {
       display: none !important;
     }
   }
-  .swiper-button-disabled {
-    opacity: 0 !important;
+
+  .swiper-button-prev {
+    left: 1rem;
   }
-  .swiper-pagination {
-    bottom: unset;
-    top: 10px;
-    height: fit-content;
+
+  .swiper-button-next {
+    right: 1rem;
   }
-  .swiper-pagination-bullet {
-    background: transparent;
-    opacity: 1;
-    height: 15px;
-    width: 15px;
-    border: 2px solid $color-base-primary;
-    &.swiper-pagination-bullet-active {
-      background: $color-base-primary;
+
+  .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: 2rem !important;
+
+    @include mq-down(sm) {
+      bottom: 1rem !important;
     }
+  }
+
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: $color-base-primary !important;
   }
 
   .text {
@@ -120,6 +147,7 @@ component-carousel {
     color: #fff;
     font-size: 1rem;
     z-index: 2;
+
     h1,
     h2,
     h3,
@@ -129,46 +157,57 @@ component-carousel {
       font-size: 2.5em;
       font-weight: 700;
     }
-    p{
+
+    p {
       font-size: 1.1rem;
     }
+
     &.-left {
       left: 7%;
       right: auto;
     }
+
     &.-right {
       left: auto;
       right: 7%;
     }
+
     &.-center-x {
       left: 50%;
       transform: translateX(-50%);
     }
+
     &.-center-y {
       top: 50%;
       transform: translateY(-50%);
     }
+
     &.-center-x.-center-y {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
     }
+
     &.-top {
       top: 7%;
     }
+
     &.-bottom {
       bottom: 14%;
     }
+
     .c-button {
       text-shadow: none;
       margin-top: 1rem;
     }
+
     @include mq-down('xs') {
       width: 80%;
       font-size: 0.75rem;
       top: 50%;
       left: 2% !important;
       transform: translateY(-50%) !important;
+
       .c-button {
         width: 100%;
       }
