@@ -84,6 +84,7 @@
     "rxjs": "^7.6.0",
     "sweetalert2": "^11.4.5",
     "swiper": "^8.0.7",
-    "toastify-js": "^1.11.2"
+    "toastify-js": "^1.11.2",
+    "toolcool-range-slider": "^4.0.28"
   }
 }

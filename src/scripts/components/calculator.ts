@@ -1,8 +1,9 @@
-import 'paperwave-range-slider/paperwave-range-slider.js';
+import 'toolcool-range-slider/dist/plugins/tcrs-binding-labels.min.js';
+import 'toolcool-range-slider';
 
 class CalculadoraAhorro {
-  private precioPorGarrafon: number;
-  private garrafonesPorSemana: number;
+  private precioPorGarrafon: number = 30;
+  private garrafonesPorSemana: number = 10;
 
   // Constantes
   private readonly semanasPorAño = 52;
@@ -58,10 +59,62 @@ class CalculadoraAhorro {
   }
 }
 
-const precioPorGarrafon = 50;
-const garrafonesPorSemana = 2;
+class ComponentCalculator extends HTMLElement {
+  private precioPorGarrafon: number = 30;
+  private garrafonesPorSemana: number = 10;
 
-const calculadora = new CalculadoraAhorro(precioPorGarrafon, garrafonesPorSemana);
-const ahorroAnual = calculadora.calcularAhorroAnual();
+  private inputCostEl = document.getElementById('cost') as HTMLInputElement;
+  private quantityEl = document.querySelector('tc-range-slider#quantity') as HTMLInputElement;
 
-console.log(`El ahorro anual sería de $${ahorroAnual}`);
+  private resultValueEl = document.querySelector('.result__value') as HTMLSpanElement;
+
+  constructor() {
+    super();
+  }
+
+  connectedCallback() {
+    this.inputCostEl.addEventListener('input', this.handleInputCost);
+    this.quantityEl.addEventListener('change', this.handleInputQuantity);
+    this.calcularAhorro();
+  }
+
+  private handleInputCost = (event: Event) => {
+    const target = event.target as HTMLInputElement;
+    this.precioPorGarrafon = Number(target.value);
+
+    this.calcularAhorro();
+  };
+
+  private handleInputQuantity = (event: Event) => {
+    const value = event['detail'].value;
+    this.garrafonesPorSemana = Number(value);
+
+    this.calcularAhorro();
+  };
+
+  private numberToCurrency(value: number): string {
+    const roundedValue = Math.round(value);
+    return roundedValue.toLocaleString('es-MX', {
+      style: 'currency',
+      currency: 'MXN',
+      minimumFractionDigits: 0,
+    });
+  }
+
+  private calcularAhorro() {
+    try {
+      if (!this.precioPorGarrafon || !this.garrafonesPorSemana) {
+        return this.resultValueEl.textContent = this.numberToCurrency(0);
+      }
+
+      const calculadora = new CalculadoraAhorro(this.precioPorGarrafon, this.garrafonesPorSemana);
+      const ahorroAnual = calculadora.calcularAhorroAnual();
+
+      this.resultValueEl.textContent = this.numberToCurrency(ahorroAnual);
+    } catch (error) {
+      this.resultValueEl.textContent = this.numberToCurrency(0);
+    }
+  }
+}
+
+customElements.define('component-calculator', ComponentCalculator);

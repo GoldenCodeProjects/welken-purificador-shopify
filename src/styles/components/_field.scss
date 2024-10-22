@@ -11,7 +11,7 @@
 .c-field {
   position: relative;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   width: 100%;
   max-width: 22em;
   margin: 0 auto;
@@ -23,18 +23,24 @@
 
   &_label {
     cursor: pointer;
-    color: $color-base-text;
+    color: #717171;
     transition: color 0.3s ease;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
   }
 
   &_input {
     padding: 0.35rem 0.75rem;
-    border: 1px solid $color-base-text;
+    border-radius: 0.5rem;
+    background-color: $color-base-background-primary;
+    border: 1px solid $color-base-background-primary;
     transition: border-color 0.3s ease;
-    font-weight: 300;
-    font-size: 1rem;
+    font-weight: 700;
+    font-size: 1.1rem;
+    &:active{
+      border-color: $color-base-secondary;
+    }
   }
 
   &_input:active,

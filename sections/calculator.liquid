@@ -4,11 +4,30 @@
 {{ 'section-calculator.css' | asset_url | stylesheet_tag }}
 
 
-<div class="o-container -wide">
+<div class="o-container -narrow">
   <h2 class="section_title">¿Cuánto ahorrarías al año con Welken?</h2>
 
   <component-calculator>
-    Not found
+    <form>
+      <div class="c-field">
+        <label for="cost" class="c-field_label">¿Cuánto gastas por garrafón?</label>
+        <input type="number" id="cost" class="c-field_input" value="30" placeholder="Ej. 30">
+      </div>
+      <div class="c-field">
+        <label for="quantity" class="c-field_label">Garrafones por semana</label>
+        <tc-range-slider id="quantity"
+          value1="10" min="0" max="40" step="1"
+          value-label="#value-1"
+        ></tc-range-slider>
+        <div class="value-label" id="value-1"></div>
+      </div>
+    </form>
+
+    <p class="result">
+      <span>Ahorra hasta</span>
+      <span class="result__value">$0.00</span>
+      <span>Al año con Welken</span>
+    </p>
   </component-calculator>
 
   <a href="#" class="c-button -primary">Comprar ahora</a>

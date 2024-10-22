@@ -4721,6 +4721,11 @@ toastify-js@^1.11.2:
   resolved "https://registry.npmjs.org/toastify-js/-/toastify-js-1.12.0.tgz"
   integrity sha512-HeMHCO9yLPvP9k0apGSdPUWrUbLnxUKNFzgUoZp1PHCLploIX/4DSQ7V8H25ef+h4iO9n0he7ImfcndnN6nDrQ==
 
+toolcool-range-slider@^4.0.28:
+  version "4.0.28"
+  resolved "https://registry.npmjs.org/toolcool-range-slider/-/toolcool-range-slider-4.0.28.tgz"
+  integrity sha512-DDZAEJ9hItgSbGWY6DkjvMoUBLZG9J3X6qvBzAruvGzcPwrZKRt3EB2ixPqFmrpEy98SyyM+WZbKL0+TR4fOkg==
+
 tr46@~0.0.3:
   version "0.0.3"
   resolved "https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz"
