@@ -1,3 +1,67 @@
 // ==========================================================================
 // ## SHOPIFY STATIC SECTION: MAIN 404
 // ==========================================================================
+@import './../settings/breakpoints';
+@import './../settings/fonts';
+@import './../settings/colors';
+@import './../tools/mixins';
+@import './../tools/functions';
+
+.section--404{
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+
+  .wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    &_title{
+      font-size: 20rem;
+      line-height: 1;
+      color: $color-base-primary;
+      text-align: center;
+      font-weight: bolder;
+      @include mq-only('sm'){
+        font-size: 15rem;
+      }
+      @include mq-only('xs'){
+        font-size: 10rem;
+      }
+      @include mq-down('xxs'){
+        font-size: 8rem;
+      }
+    }
+    &_image{
+      width: 50%;
+      max-width: 400px;
+      display: block;
+      margin: 0 auto;
+      margin-top: -15rem;
+      @include mq-only('sm'){
+        max-width: 300px;
+        margin-top: -10rem;
+      }
+      @include mq-only('xs'){
+        max-width: 200px;
+        margin-top: -5rem;
+      }
+      @include mq-down('xxs'){
+        max-width: 150px;
+        margin-top: -4rem;
+      }
+    }
+    &_heading{
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-top: 1.5rem;
+      color: $color-base-primary;
+    }
+    &_content{
+      font-size: 1.1rem;
+      margin: 1rem 0;
+      color: $color-base-text;
+    }
+  }
+}

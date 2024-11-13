@@ -31,12 +31,15 @@
   }
 
   &_input {
-    padding: 0.35rem 0.75rem;
+    line-height: 1;
+    padding: 0.45rem 0.75rem;
     border-radius: 0.5rem;
+    height: 38px;
     background-color: $color-base-background-primary;
     border: 1px solid $color-base-background-primary;
     transition: border-color 0.3s ease;
-    font-weight: 700;
+    color: #5e5e5e;
+    font-weight: 500;
     font-size: 1.1rem;
     &:active{
       border-color: $color-base-secondary;
@@ -55,14 +58,20 @@
     }
   }
 
+  &.-icon{
+    .c-field_input{
+      padding-left: 1.5rem;
+    }
+  }
+
 
   &_icon{
     position: absolute;
-    right: 0.5rem;
-    bottom: 1rem;
+    left: 0.5rem;
+    bottom: calc(38px / 2);
     transform: translateY(50%);
     z-index: 1;
-    color: rgba(var(--color-base-text), 0.5);
+    color: #484848;
     transition: color 0.3s ease;
     width: 1.5rem;
     height: 1.5rem;

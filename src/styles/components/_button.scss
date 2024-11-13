@@ -30,7 +30,7 @@
   user-select: none;
   appearance: none;
   transition: transform 200ms ease-in, background-color 200ms ease-in,
-    color 200ms ease-in, border-color 200ms ease-in;
+    color 200ms ease-in, border-color 200ms ease-in, box-shadow 200ms ease-in;
   &:hover {
     text-decoration: none;
   }
@@ -44,6 +44,11 @@
     &:hover {
       background-color: $color-base-solid-button;
       color: $color-base-background-primary;
+    }
+    &:focus, &:active {
+      background-color: $color-base-solid-button;
+      color: $color-base-background-primary;
+      box-shadow: 0 0 5px 2px $color-base-solid-button;
     }
   }
 

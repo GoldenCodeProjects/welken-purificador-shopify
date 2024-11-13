@@ -71,6 +71,10 @@
         margin: 0.5rem 0;
         line-height: 1;
       }
+      ::selection{
+        background-color: $color-base-background-primary;
+        color: $color-base-text;
+      }
     }
   }
 

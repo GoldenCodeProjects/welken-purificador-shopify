@@ -2,7 +2,7 @@ import 'toolcool-range-slider/dist/plugins/tcrs-binding-labels.min.js';
 import 'toolcool-range-slider';
 
 class CalculadoraAhorro {
-  private precioPorGarrafon: number = 30;
+  private precioPorGarrafon: number = 45;
   private garrafonesPorSemana: number = 10;
 
   // Constantes
@@ -60,13 +60,13 @@ class CalculadoraAhorro {
 }
 
 class ComponentCalculator extends HTMLElement {
-  private precioPorGarrafon: number = 30;
-  private garrafonesPorSemana: number = 10;
-
   private inputCostEl = document.getElementById('cost') as HTMLInputElement;
   private quantityEl = document.querySelector('tc-range-slider#quantity') as HTMLInputElement;
 
   private resultValueEl = document.querySelector('.result__value') as HTMLSpanElement;
+
+  private precioPorGarrafon: number = this.inputCostEl.value ? Number(this.inputCostEl.value) : 45;
+  private garrafonesPorSemana: number = 10;
 
   constructor() {
     super();

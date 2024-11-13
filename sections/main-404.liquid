@@ -1,12 +1,39 @@
 {{ 'section-main-404.css' | asset_url | stylesheet_tag }}
 
-<div class="404 o-container -medium"></div>
+<div class="wrap o-container -medium -narrow">
+  <h1 class="wrap_title">404</h1>
+  {% if section.settings.image != blank %}
+    <img class="wrap_image" src="{{ section.settings.image | image_url: width: 700 }}" altwrap" width="700" height="1000">
+  {% endif %}
+  <h2 class="wrap_heading">{{ section.settings.heading }}</h2>
+  <div class="wrap_content">{{ section.settings.content }}</div>
 
+  <a class="c-button -primary" href="{{ shop.url }}">{{ 'accessibility.back_home' | t }}</a>
+</div>
 
 {% schema %}
 {
   "name": "t:sections.404.name",
   "tag": "section",
-  "settings": []
+  "class": "section--404",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen de fondo"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Encabezado",
+      "default": "La página que buscas no existe o no se encuentra disponible en este momento",
+    },
+    {
+      "type": "richtext",
+      "id": "content",
+      "label": "Contenido",
+      "default": "<p></p>"
+    },
+  ]
 }
 {% endschema %}
