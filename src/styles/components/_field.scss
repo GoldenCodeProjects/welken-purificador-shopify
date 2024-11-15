@@ -13,8 +13,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 22em;
-  margin: 0 auto;
   font-size: 1rem;
 
   &:has(select) {
@@ -22,24 +20,27 @@
   }
 
   &_label {
+    order: 1;
     cursor: pointer;
-    color: #717171;
+    color: $color-base-text;
     transition: color 0.3s ease;
-    font-weight: 300;
+    font-weight: 600;
     font-size: 1.1rem;
     margin-bottom: 0.25rem;
   }
 
   &_input {
+    order: 2;
     line-height: 1;
     padding: 0.45rem 0.75rem;
     border-radius: 0.5rem;
+    width: 100%;
     height: 38px;
-    background-color: $color-base-background-primary;
-    border: 1px solid $color-base-background-primary;
+    background-color: transparent;
+    border: 2px solid $color-base-text;
     transition: border-color 0.3s ease;
-    color: #5e5e5e;
-    font-weight: 500;
+    color: $color-base-text;
+    font-weight: 400;
     font-size: 1.1rem;
     &:active{
       border-color: $color-base-secondary;
@@ -51,10 +52,10 @@
   &_input:focus-visible,
   &_input:not(:placeholder-shown),
   &_input:-webkit-autofill {
-    border-color: $color-base-secondary;
-    box-shadow: 0 0 0 1px $color-base-secondary;
+    border-color: $color-base-primary;
+    box-shadow: 0 0 0 1px $color-base-primary;
     + .c-field_label {
-      color: $color-base-secondary;
+      color: $color-base-primary;
     }
   }
 

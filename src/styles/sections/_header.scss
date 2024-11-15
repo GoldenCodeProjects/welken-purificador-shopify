@@ -15,6 +15,7 @@
     grid-template-columns: auto 1fr auto;
     align-items: center;
     gap: 2rem;
+    padding: 0;
     @include mq-down(xs) {
       grid-template-columns: auto 1fr;
     }
