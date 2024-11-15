@@ -19,7 +19,7 @@
         <span class="label">Subtotal</span>
         <span id="total" class="value"></span>
       </p>
-      <a id="buynow" class="c-button -primary {% if cart.item_count == 0 %}-disabled{% endif %} comprar_carrito"
+      <a id="buynow" class="c-button -white {% if cart.item_count == 0 %}-disabled{% endif %} comprar_carrito"
         href="{% if cart.item_count == 0 %}#{% else %}/checkout{% endif %}"
       >
         Comprar carrito

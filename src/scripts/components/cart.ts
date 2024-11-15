@@ -3,8 +3,6 @@ import * as currency from '@shopify/theme-currency'
 import Toastify from 'toastify-js'
 import "toastify-js/src/toastify.css"
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger)
 
 const deleteItemKey = (key) => {
   cart
@@ -45,7 +43,6 @@ class CartComponent extends HTMLElement {
   titleElement: HTMLElement
   lineItemsElement: HTMLElement[]
   sideCartElement: HTMLElement
-  timeline: gsap.core.Timeline
 
   constructor() {
     super()
@@ -57,7 +54,6 @@ class CartComponent extends HTMLElement {
     this.titleElement = this.querySelector('h2')
     this.lineItemsElement = [];
     this.sideCartElement = this.querySelector('.cart');
-    this.timeline = gsap.timeline()
   }
 
   connectedCallback() {
@@ -71,42 +67,7 @@ class CartComponent extends HTMLElement {
     console.log('open')
     this.classList.add('-active')
     document.documentElement.style.overflow = 'hidden'
-    this.timeline.clear(true);
     this.lineItemsElement = (Array.from(document.querySelectorAll('.product-item')) as unknown as HTMLElement[]).reverse()
-    this.cartAnimate()
-  }
-
-  cartAnimate() {
-    this.timeline
-      .fromTo(this.sideCartElement, {
-        opacity: 0,
-        background: 'transparent'
-      }, {
-        opacity: 1,
-        duration: 1.2,
-        ease: 'linear'
-      })
-      .fromTo([
-        this.titleElement,
-        ...this.lineItemsElement.splice(this.lineItemsElement.length - 3).reverse(),
-        this.querySelector('.subtotal')
-      ], {
-        xPercent: 100
-      }, {
-        duration: 2,
-        xPercent: 0,
-        ease: 'elastic.out(1, 0.5)',
-        stagger: {
-          each: .3
-        }
-      }, '<.3')
-      .fromTo(this.sideCartElement, {
-        background: 'transparent'
-      }, {
-        background: 'white',
-        duration: .7,
-        ease: 'linear'
-      }, '<')
   }
 
   close() {
@@ -284,6 +245,10 @@ class UpdateProduct extends HTMLElement {
 
   max: number = this.getAttribute('max') ? Number(this.getAttribute('max')) : 100000
 
+  updateCart = Boolean(this.getAttribute('update-cart') === 'true')
+
+  cartComponent: CartComponent = document.querySelector('cart-component')
+
   constructor() {
     super()
   }
@@ -305,7 +270,28 @@ class UpdateProduct extends HTMLElement {
   }
 
   update() {
-    this.inputTarget.value = this.quantity.value
+    try {
+      this.inputTarget.value = this.quantity.value
+    } catch { }
+    if (!this.updateCart) return;
+
+    const key = this.dataset.key
+    const quantity = Number(this.quantity.value)
+    cart
+      .updateItem(key, { quantity })
+      .then((cart: any) => {
+        this.cartComponent.updateItem(key, quantity)
+      })
+      .catch((error) => {
+        console.error(error)
+        Toastify({
+          text: 'Ya no es posible actualizar la cantidad',
+          duration: 3000,
+          gravity: 'bottom',
+          position: 'left',
+          close: true,
+        }).showToast()
+      });
   }
 
 }
@@ -318,6 +304,7 @@ class RemoveProductButton extends HTMLElement {
   constructor() {
     super()
     const key = this.dataset.key
+    if (!key || !this.button) return
     this.button.addEventListener('click', deleteItemKey.bind(this, key))
   }
 }

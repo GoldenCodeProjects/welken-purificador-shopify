@@ -62,6 +62,16 @@
     }
   }
 
+  &.-white {
+    background-color: transparent;
+    color: $color-base-background-primary;
+    border-color: $color-base-background-primary;
+    &:hover {
+      background-color: $color-base-background-primary;
+      color: $color-base-solid-button;
+    }
+  }
+
   /// Size variants
   &.-small {
     min-width: 6rem;

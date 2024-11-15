@@ -155,14 +155,18 @@
           </div>
 
         {%- when 'schedule' -%}
-          <div class="product_schedule c-body" {{ block.shopify_attributes }}>
-            <div class="product_schedule__description">
-              {{ block.settings.description }}
+          {%- assign title = product.title | downcase -%}
+          {%- if title contains 'cartucho' -%}
+          {%- else -%}
+            <div class="product_schedule c-body" {{ block.shopify_attributes }}>
+              <div class="product_schedule__description">
+                {{ block.settings.description }}
+              </div>
+              <a href="{{ block.settings.url }}" class="c-button -primary">
+                {{ block.settings.text }}
+              </a>
             </div>
-            <a href="{{ block.settings.url }}" class="c-button -primary">
-              {{ block.settings.text }}
-            </a>
-          </div>
+          {%- endif -%}
 
         {%- when 'custom_liquid' -%}
           <div class="product_custom c-body" {{ block.shopify_attributes }}>

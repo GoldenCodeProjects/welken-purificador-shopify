@@ -5,29 +5,54 @@
 {%- for line_item in cart.items -%}
   <div class="product-item" data-key="{{ line_item.key }}">
     <remove-product-button data-key="{{ line_item.key }}">
-      <button class="c-button -transparent remove-product">&times;</button>
+      <button class="remove-product" title="Eliminar producto">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M135.2 17.7L128 32 32 32C14.3 32 0 46.3 0 64S14.3 96 32 96l384 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-96 0-7.2-14.3C307.4 6.8 296.3 0 284.2 0L163.8 0c-12.1 0-23.2 6.8-28.6 17.7zM416 128L32 128 53.2 467c1.6 25.3 22.6 45 47.9 45l245.8 0c25.3 0 46.3-19.7 47.9-45L416 128z"/></svg>
+      </button>
     </remove-product-button>
-    {%- if line_item.image != blank -%}
-      <img class="product-item_featured-image"
-      src="{{ line_item.image | img_url: '250x' }}"
-      alt="{{ line_item.image.alt }}"
-      width="{{ line_item.image.width }}"
-      height="{{ line_item.image.height }}"
-      loading="lazy">
-    {%- else -%}
-      {{ 'product-1' | placeholder_svg_tag: 'placeholder_svg_tag' }}
-    {%- endif -%}
-    <h4 class="product-item_title">{{ line_item.title }}</h4>
-    {% if line_item.sku != blank %}
-      <span class="product-item_sku">{{ line_item.sku }}</span>
-    {% endif %}
-    {%- render 'component-price', product: line_item.product, show_badges: true -%}
-    <update-quantity key="{{ line_item.key }}" max="100">
-      <label>Piezas</label>
-      <input quantity type="number" value="{{ line_item.quantity }}">
-      <button up class="c-button -transparent -small"></button>
-      <button down class="c-button -transparent -small"></button>
-    </update-quantity>
+    <a class="image" href="{{ line_item.url }}">
+      {%- if line_item.image != blank -%}
+        <img class="product-item_featured-image"
+        src="{{ line_item.image | image_url: width: 300 }}"
+        alt="{{ line_item.image.alt }}"
+        width="{{ line_item.image.width }}"
+        height="{{ line_item.image.height }}"
+        loading="lazy">
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag: 'placeholder_svg_tag' }}
+      {%- endif -%}
+    </a>
+
+    <div class="info">
+      <h4 class="product-item_title">
+        <a href="{{ line_item.url }}">{{ line_item.title }}</a>
+      </h4>
+      {% if line_item.sku != blank %}
+        <span class="product-item_sku">{{ line_item.sku }}</span>
+      {% endif %}
+      <p class="c-item_price">
+        ${{ line_item.price | round: 0 | money_without_currency }}
+      </p>
+      <update-quantity
+        update-cart="true"
+        target="#quantityValue"
+        max="{{ product.selected_or_first_available_variant.inventory_quantity }}"
+        data-key="{{ line_item.key }}"
+      >
+        <label for="quantity">Cantidad</label>
+        <button type="button" class="quantity-minus" down>
+          -
+        </button>
+        <input type="number" id="quantity"
+          name="quantity" quantity
+          min="1" max="100"
+          value="{{ line_item.quantity }}"
+        >
+        <button type="button" class="quantity-plus" up>
+          +
+        </button>
+      </update-quantity>
+    </div>
+
   </div>
 {%- else -%}
   <h3 class="c-heading -h3">No hay productos</h3>

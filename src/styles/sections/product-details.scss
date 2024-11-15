@@ -1,0 +1,49 @@
+@import './../settings/colors';
+@import './../settings/fonts';
+@import './../settings/breakpoints';
+@import './../tools/functions';
+@import './../tools/mixins';
+
+.section--product-details{
+  max-width: 100vw;
+  overflow: hidden;
+  .wrapper{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    .title{
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: $color-base-primary;
+    }
+
+    .tables-wrapper{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      @include mq-down(sm){
+        grid-template-columns: 1fr;
+      }
+      table{
+        width: 100%;
+        border-collapse: collapse;
+        tbody{
+          tr{
+            &:nth-child(odd){
+              background-color: $color-base-background-secondary;
+            }
+            td{
+              padding: 0.5rem;
+              font-size: 1rem;
+              font-weight: 400;
+              color: $color-base-text;
+              &:first-child{
+                font-weight: 600;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

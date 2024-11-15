@@ -3,16 +3,21 @@
 // ==========================================================================
 
 .header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 2rem;
   padding: 1rem 2rem;
   border-bottom: 1px solid rgba(var(--color-base-text), 0.2);
   box-shadow: 0 0 0.5rem rgba(var(--color-base-text), 0.2);
   @include mq-down(xs) {
-    grid-template-columns: auto 1fr;
     padding: 0.75rem 0.5rem;
+  }
+
+  .wrapper{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    @include mq-down(xs) {
+      grid-template-columns: auto 1fr;
+    }
   }
 
   &_logo {

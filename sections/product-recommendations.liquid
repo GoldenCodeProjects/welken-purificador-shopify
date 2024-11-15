@@ -47,8 +47,6 @@
     }
   })
   const handleIntersection = async (entries, observer) => {
-    if (!entries[0].isIntersecting) return;
-    observer.unobserve(productRecommendationsSection);
     const recommendations = document.querySelector('.product-recommendations');
     let product = recommendations.dataset.product;
     console.log(product);
@@ -72,12 +70,9 @@
         console.error(e);
       });
   };
-  const productRecommendationsSection = document.querySelector('.recommendations');
-  const observer = new IntersectionObserver(handleIntersection, {
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.1
-  });
-  observer.observe(productRecommendationsSection);
+  setTimeout(() => {
+    handleIntersection();
+  }, 1000);
 </script>
 
 {% schema %}

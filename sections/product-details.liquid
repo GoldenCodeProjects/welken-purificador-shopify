@@ -1,0 +1,53 @@
+{%- if product.metafields.custom.details != blank -%}
+  {{ 'section-product-details.css' | asset_url | stylesheet_tag }}
+
+  <div class="o-container -wide wrapper">
+    <h2 class="title">Detalles</h2>
+
+    {%- assign details = product.metafields.custom.details.value -%}
+    <div class="tables-wrapper">
+      {% comment %} Odd table {% endcomment %}
+      <table class="table">
+        <tbody>
+          {% for detail in details %}
+            {%- assign splitted = detail | split: ':' -%}
+            {%- assign key = splitted[0] -%}
+            {%- assign value = splitted[1] -%}
+            {%- assign mod = forloop.index0 | modulo: 2 -%}
+            {%- if mod == 0 -%}
+              <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+              </tr>
+            {%- endif -%}
+          {% endfor %}
+        </tbody>
+      </table>
+      {% comment %} Even table {% endcomment %}
+      <table class="table">
+        <tbody>
+          {% for detail in details %}
+            {%- assign splitted = detail | split: ':' -%}
+            {%- assign key = splitted[0] -%}
+            {%- assign value = splitted[1] -%}
+            {%- assign mod = forloop.index0 | modulo: 2 -%}
+            {%- if mod != 0 -%}
+              <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+              </tr>
+            {%- endif -%}
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+  {
+    "name": "Texto personalizado",
+    "tag": "section",
+    "class": "section--product-details",
+  }
+{% endschema %}

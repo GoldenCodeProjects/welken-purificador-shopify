@@ -15,70 +15,72 @@
 {% endstyle %}
 
 <header class="header">
-  <a class="header_logo c-heading -bold" href="{{ shop.url }}" aria-label="Home">
-    {%- if section.settings.logo != blank -%}
-      <img
-        src="{{ section.settings.logo | image_url: width: 350 }}"
-        alt="{{ section.settings.logo.alt }}" loading="lazy"
-        width="{{ section.settings.logo.width }}"
-        height="{{ section.settings.logo.height }}"
-      >
-    {%- else -%}
-      {{ shop.name }}
-    {%- endif -%}
-  </a>
-
-  <nav class="header_nav" role="navigation" aria-label="Main navigation">
-    {%- for link in section.settings.menu.links -%}
-      {%- if link.links == blank -%}
-        <a href="{{ link.url }}"
-          class="header_nav_item c-navigation {% if link.current %}-active{% endif %}"
-          {% if link.current %}aria-current="page"{% endif %}
+  <div class="o-container -wide wrapper">
+    <a class="header_logo c-heading -bold" href="{{ shop.url }}" aria-label="Home">
+      {%- if section.settings.logo != blank -%}
+        <img
+          src="{{ section.settings.logo | image_url: width: 350 }}"
+          alt="{{ section.settings.logo.alt }}" loading="lazy"
+          width="{{ section.settings.logo.width }}"
+          height="{{ section.settings.logo.height }}"
         >
-          {{ link.title }}
-        </a>
       {%- else -%}
-        <div class="header_sublist" role="list" tabindex="-1">
-          <a class="header_sublist-title c-navigation">
-            {{ link.title | escape }}
-            {% render 'component-icon' icon: 'caret', icon_size: 15 %}
-          </a>
-
-          <ul class="header_sublist-elements {% if link.handle == 'products' %}-products{% endif %}">
-            {%- for childlink in link.links -%}
-              <li>
-                {%- if childlink.links == blank -%}
-                  <a href="{{ childlink.url }}" class="header_sublist-item c-navigation">{{ childlink.title | escape }}</a>
-                {%- else -%}
-                  <div class="header_deepsublist" role="list" tabindex="-1">
-                    <span class="header_deepsublist-title c-navigation">{{ childlink.title | escape }}</span>
-                    <ul class="header_deepsublist-elements">
-                      {%- for grandchildlink in childlink.links -%}
-                        <li class="header_deepsublist-item">
-                          <a href="{{ grandchildlink.url }}" class="c-navigation {% if grandchildlink.current %}-active{% endif %}"
-                          {% if grandchildlink.current %} aria-current="page"{% endif %}>
-                            {{ grandchildlink.title | escape }}
-                          </a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  </div>
-                {%- endif -%}
-              </li>
-            {%- endfor -%}
-          </ul>
-        </div>
+        {{ shop.name }}
       {%- endif -%}
-    {%- endfor -%}
-  </nav>
+    </a>
 
-  <div class="header_buttons">
-    <cart-icon class="header_cart-icon">
-      <button class="header_buttons_btn -cart">
-        {%- render 'component-icon' icon: 'cart', icon_size: 18 -%}
-        <span class="data-quantity">0</span>
-      </button>
-    </cart-icon>
+    <nav class="header_nav" role="navigation" aria-label="Main navigation">
+      {%- for link in section.settings.menu.links -%}
+        {%- if link.links == blank -%}
+          <a href="{{ link.url }}"
+            class="header_nav_item c-navigation {% if link.current %}-active{% endif %}"
+            {% if link.current %}aria-current="page"{% endif %}
+          >
+            {{ link.title }}
+          </a>
+        {%- else -%}
+          <div class="header_sublist" role="list" tabindex="-1">
+            <a class="header_sublist-title c-navigation">
+              {{ link.title | escape }}
+              {% render 'component-icon' icon: 'caret', icon_size: 15 %}
+            </a>
+
+            <ul class="header_sublist-elements {% if link.handle == 'products' %}-products{% endif %}">
+              {%- for childlink in link.links -%}
+                <li>
+                  {%- if childlink.links == blank -%}
+                    <a href="{{ childlink.url }}" class="header_sublist-item c-navigation">{{ childlink.title | escape }}</a>
+                  {%- else -%}
+                    <div class="header_deepsublist" role="list" tabindex="-1">
+                      <span class="header_deepsublist-title c-navigation">{{ childlink.title | escape }}</span>
+                      <ul class="header_deepsublist-elements">
+                        {%- for grandchildlink in childlink.links -%}
+                          <li class="header_deepsublist-item">
+                            <a href="{{ grandchildlink.url }}" class="c-navigation {% if grandchildlink.current %}-active{% endif %}"
+                            {% if grandchildlink.current %} aria-current="page"{% endif %}>
+                              {{ grandchildlink.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    </div>
+                  {%- endif -%}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+
+    <div class="header_buttons">
+      <cart-icon class="header_cart-icon">
+        <button class="header_buttons_btn -cart">
+          {%- render 'component-icon' icon: 'cart', icon_size: 18 -%}
+          <span class="data-quantity">0</span>
+        </button>
+      </cart-icon>
+    </div>
   </div>
 </header>
 

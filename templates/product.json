@@ -11,10 +11,6 @@
           "type": "price",
           "settings": {}
         },
-        "2a0f9cd7-e5ac-4720-a2fd-fca377abe899": {
-          "type": "description",
-          "settings": {}
-        },
         "caaa9716-2cb9-46d7-8edc-47bfc2180066": {
           "type": "variant_picker",
           "settings": {}
@@ -24,6 +20,10 @@
           "settings": {
             "show_dynamic_checkout": true
           }
+        },
+        "2a0f9cd7-e5ac-4720-a2fd-fca377abe899": {
+          "type": "description",
+          "settings": {}
         },
         "schedule_hJptwM": {
           "type": "schedule",
@@ -37,11 +37,15 @@
       "block_order": [
         "300a0ebb-bb0d-479d-ab0a-88ad80b6a1cd",
         "eb397b33-70f2-4ede-a68a-efbf0fca3375",
-        "2a0f9cd7-e5ac-4720-a2fd-fca377abe899",
         "caaa9716-2cb9-46d7-8edc-47bfc2180066",
         "59ab47e0-8863-48ec-8805-a59802e0c8af",
+        "2a0f9cd7-e5ac-4720-a2fd-fca377abe899",
         "schedule_hJptwM"
       ],
+      "settings": {}
+    },
+    "details": {
+      "type": "product-details",
       "settings": {}
     },
     "3305b4e4-6449-4f35-a4fd-621be981a9e3": {
@@ -54,6 +58,7 @@
   },
   "order": [
     "main",
+    "details",
     "3305b4e4-6449-4f35-a4fd-621be981a9e3"
   ]
 }

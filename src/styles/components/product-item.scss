@@ -5,91 +5,96 @@
 @import './../tools/functions';
 
 .product-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
   position: relative;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: 125px 1.5fr;
+  gap: 1rem;
   remove-product-button {
     position: absolute;
-    top: -10px;
-    right: -10px;
-    button {
-      font-size: rem(28px);
-      width: rem(28px);
-      height: rem(28px);
-      padding: 0;
-      border: none;
-      background: none;
-      color: var(--color-base-accent-secondary);
-      cursor: pointer;
+    top: 0.5rem;
+    right: 1rem;
+    z-index: 16;
+    button{
+      font-size: 1rem;
+      color: $color-base-text;
+      svg{
+        width: 1rem;
+        height: 1rem;
+      }
     }
+  }
+  .image{
+    position: relative;
+    overflow: hidden;
   }
   &_featured-image {
     height: auto;
+    aspect-ratio: 1 / 1;
+    background-color: $color-base-background-secondary;
+    border: 1px solid rgba(var(--color-base-text), 0.2);
     max-height: 150px;
-    max-width: 65%;
     object-fit: contain;
     object-position: center;
-    margin-bottom: rem(7px);
+    transition: background-color 0.3s;
+    &:hover{
+      background-color: rgba(var(--color-base-text), 0.2);
+    }
   }
   &_title {
-    font-size: rem(18px);
-    margin-bottom: rem(7px);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+    color: $color-base-primary;
   }
-  &_sku {
-    font-size: rem(14px);
-    color: rgba(var(--color-base-accent-primary), 0.6);
-    margin-bottom: rem(7px);
-    &::before {
-      content: 'SKU: ';
-    }
-  }
-
-  update-quantity {
-    margin-top: rem(7px);
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-template-rows: 1fr 1fr;
-    gap: rem(7px);
+  update-quantity{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
     align-items: center;
-    justify-items: center;
-    label {
+    justify-content: flex-start;
+    gap: 0.25rem;
+    width: max-content;
+    label{
+      margin-top: 0.5rem;
+      display: block;
+      width: 100%;
+      flex: 1;
+      flex-basis: 100%;
+      font-size: 1rem;
+      color: $color-base-text;
       font-weight: 600;
-      grid-row: span 2;
-      font-size: rem(18px);
-      color: #433828;
-      width: max-content;
     }
-    input {
-      font-weight: 500;
-      grid-row: span 2;
-      font-size: rem(22px);
-      color: #433828;
-      width: 50px;
+    .quantity-minus, .quantity-plus{
+      cursor: pointer;
+      width: 2rem;
+      height: 2rem;
+      font-size: 1.5rem;
+      line-height: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid $color-base-text;
+      color: $color-base-text;
+      border-radius: 50%;
+      transition: background-color 0.3s, color 0.3s;
+      &:hover{
+        background-color: $color-base-text;
+        color: $color-base-background-primary;
+      }
+    }
+    input{
+      width: 3rem;
+      height: 2rem;
+      font-size: 1.1rem;
       text-align: center;
-      border: 2px solid #433828;
-      border-radius: 4px;
+      font-weight: 500;
+      color: $color-base-text;
       -moz-appearance: textfield;
-      &::-webkit-inner-spin-button,
-      &::-webkit-outer-spin-button {
+      appearance: textfield;
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
-      }
-    }
-    button {
-      color: #433828;
-      width: 20px;
-      height: 20px;
-      min-width: 20px !important;
-      font-size: rem(18px) !important;
-      font-weight: 900;
-      &[up]::after {
-        content: '+';
-      }
-      &[down]::after {
-        content: '-';
       }
     }
   }
