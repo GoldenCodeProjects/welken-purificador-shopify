@@ -1,8 +1,55 @@
 {
   "sections": {
     "main": {
-      "type": "rent"
+      "type": "rent",
+      "blocks": {
+        "location_EF3yGc": {
+          "type": "location",
+          "settings": {
+            "location": "Zona Metropolitana de Guadalajara"
+          }
+        },
+        "location_QRtyFR": {
+          "type": "location",
+          "settings": {
+            "location": "Chapala"
+          }
+        },
+        "location_YfKq3F": {
+          "type": "location",
+          "settings": {
+            "location": "Ajijic"
+          }
+        },
+        "location_MUVNVw": {
+          "type": "location",
+          "settings": {
+            "location": "San Juan Cosalá"
+          }
+        },
+        "location_JNEw9x": {
+          "type": "location",
+          "settings": {
+            "location": "Puerto Vallarta"
+          }
+        }
+      },
+      "block_order": [
+        "location_EF3yGc",
+        "location_QRtyFR",
+        "location_YfKq3F",
+        "location_MUVNVw",
+        "location_JNEw9x"
+      ],
+      "settings": {
+        "heading": "Renta un purificador Welken",
+        "image": "shopify:\/\/shop_images\/Group110_4ea62143-e671-4b42-bbd0-91420dd6c0f4.png",
+        "content": "¿Necesitas un purificador de agua de forma temporal? Renta un purificador Welken dentro de las siguientes zonas y municipios:",
+        "contactus": "Envíanos un mensaje para conocer la disponibilidad y requisitos"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

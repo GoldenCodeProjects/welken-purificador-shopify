@@ -1,20 +1,33 @@
 {{ 'section-rent.css' | asset_url | stylesheet_tag }}
 
-<div class="o-container -wide">
-  <div class="wrapper">
-    <img class="image" src="{{ section.settings.image | image_url: width: 1700 }}" alt="" width="1000" height="1000" loading="lazy">
-    <div class="content">
-      <p class="title">{{ section.settings.content }}</p>
+<h1 class="title">
+  {{ section.settings.heading }}
+</h1>
+
+<section class="locations">
+  <div class="o-container -wide">
+    <div class="wrapper">
+      <p class="content">{{ section.settings.content }}</p>
+      <img class="image" src="{{ section.settings.image | image_url: width: 1000 }}" alt="" width="1000" height="1000" loading="lazy">
+      <ul class="locations">
+        {% for block in section.blocks %}
+          <li class="location">
+            <p class="location_name">{{ block.settings.location }}</p>
+          </li>
+        {% endfor %}
+      </ul>
     </div>
-    <ul class="locations">
-      {% for block in section.blocks %}
-        <li class="location">
-          <p class="location_name">{{ block.settings.location }}</p>
-        </li>
-      {% endfor %}
-    </ul>
   </div>
-</div>
+</section>
+
+<section class="contactUs">
+  <div class="o-container -wide">
+    <div class="wrapper">
+      <p class="content">{{ section.settings.contactus }}</p>
+      <a class="c-button -primary" href="/pages/contact">Contáctanos</a>
+    </div>
+  </div>
+</section>
 
 {% schema %}
 {
@@ -25,7 +38,6 @@
     {
       "type": "location",
       "name": "Ubicación",
-      "limit": 1,
       "settings": [
         {
           "type": "text",
