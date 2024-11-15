@@ -1,0 +1,69 @@
+{{ 'section-rent.css' | asset_url | stylesheet_tag }}
+
+<div class="o-container -wide">
+  <div class="wrapper">
+    <img class="image" src="{{ section.settings.image | image_url: width: 1700 }}" alt="" width="1000" height="1000" loading="lazy">
+    <div class="content">
+      <p class="title">{{ section.settings.content }}</p>
+    </div>
+    <ul class="locations">
+      {% for block in section.blocks %}
+        <li class="location">
+          <p class="location_name">{{ block.settings.location }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Renta un purificador",
+  "class": "section--rent",
+  "tag": "section",
+  "blocks": [
+    {
+      "type": "location",
+      "name": "Ubicación",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "location",
+          "label": "Nombre de la ubicación",
+        },
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Encabezado",
+      "default": "Renta un purificador Welken"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen",
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Contenido",
+      "default": "¿Necesitas un purificador de agua de forma temporal? Renta un purificador Welken dentro de las siguientes zonas y municipios:",
+    },
+    {
+      "type": "textarea",
+      "id": "contactus",
+      "label": "Contáctanos",
+      "default": "Envíanos un mensaje para conocer la disponibilidad y requisitos",
+    }
+  ],
+  "presets": [
+    {
+      "name": "Características",
+    }
+  ]
+}
+{% endschema %}
