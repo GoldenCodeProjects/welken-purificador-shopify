@@ -1,0 +1,42 @@
+<link rel="stylesheet" href="{{ 'section-banner-collection.css' | asset_url }}">
+
+<div class="o-container -wide">
+  <div class="wrapper">
+    <h1 class="title">{{ collection.title }}</h1>
+    {%- if collection.metafields.custom.banner != blank -%}
+      {%- assign banner = collection.metafields.custom.banner.value -%}
+      <img src="{{ banner | image_url: width: 1920 }}"
+        class="banner" alt="{{ collection.title }}"
+        width="{{ banner.width }}"
+        height="{{ banner.height }}"
+      >
+    {%- else -%}
+      <img src="{{ section.settings.default | image_url: width: 1920 }}"
+        class="banner -default" alt="{{ collection.title }}"
+        width="{{ section.settings.default.width }}"
+        height="{{ section.settings.default.height }}"
+      >
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Banner de colecciones",
+  "class": "section--banner-collection",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "default",
+      "label": "Imagen"
+    },
+  ],
+  "presets": [
+    {
+      "category": "Colecciones",
+      "name": "Banner de colecciones"
+    }
+  ],
+}
+{% endschema %}

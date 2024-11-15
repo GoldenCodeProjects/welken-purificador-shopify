@@ -39,6 +39,18 @@
   }
 
   &.-wide {
-    max-width: 1250px;
+    @include mq-down('xs') {
+      max-width: 100%;
+    }
+    @include mq-only('sm') {
+      max-width: 768px;
+    }
+    @include mq-only('md') {
+      max-width: 1024px;
+    }
+    @include mq-only('lg') {
+      max-width: 1280px;
+    }
+    max-width: 1440px;
   }
 }

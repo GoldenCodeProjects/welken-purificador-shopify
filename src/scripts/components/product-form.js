@@ -23,42 +23,27 @@ if (!customElements.get('product-form')) {
 
         submitButton.setAttribute('aria-disabled', true)
         submitButton.classList.add('-loading')
-        this.querySelector('.loading-overlay__spinner').classList.remove(
-          'u-hide'
-        )
 
-        const id = new FormData(this.form).get('id')
-        console.log(id)
+        const formData = new FormData(this.form)
+        const id = formData.get('id')
+        const quantity = formData.get('quantity') || 1
 
         cart
-          .addItem(Number(id))
+          .addItem(Number(id), { quantity })
           .then(this.onSuccess.bind(this))
           .catch(this.onError.bind(this))
           .finally(() => {
-            fbq('track', 'AddToCart');
             document.querySelectorAll('cart-icon').forEach((icon) => {
-              console.log(icon)
               icon.calculateItems()
             })
             submitButton.removeAttribute('aria-disabled', true)
             submitButton.classList.remove('-loading')
-            this.querySelector('.loading-overlay__spinner').classList.add(
-              'u-hide'
-            )
           })
       }
 
       onSuccess(cart) {
         console.dir(cart)
         document.querySelector('cart-component').addItem()
-        Toastify({
-          text: 'Producto agregado al carrito',
-          duration: 300000,
-          gravity: 'top',
-          position: 'right',
-          offset: { y: 120 },
-          close: true,
-        }).showToast()
       }
 
       onError(error) {
@@ -66,10 +51,10 @@ if (!customElements.get('product-form')) {
         Toastify({
           text: 'Ya no es posible agregar mas productos',
           duration: 3000,
-          gravity: 'top',
-          position: 'right',
-          offset: { y: 120 },
+          gravity: 'bottom',
+          position: 'left',
           close: true,
+          duration: 3000,
         }).showToast()
       }
 

@@ -1,4 +1,4 @@
-import Swiper, { Thumbs, EffectFade, Navigation } from 'swiper'
+import Swiper, { Thumbs, EffectFade, Navigation, Pagination } from 'swiper'
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/effect-fade';
@@ -22,29 +22,17 @@ Fancybox.bind('a[preview]', {
 })
 
 var thumbs = new Swiper('.thumbs', {
-  spaceBetween: 10,
-  slidesPerView: 4,
+  spaceBetween: 16,
+  slidesPerView: 'auto',
   slideToClickedSlide: true,
   watchSlidesVisibility: true,
   watchSlidesProgress: true,
-  breakpoints: {
-    320: {
-      slidesPerView: 3,
-    },
-    480: {
-      slidesPerView: 5,
-    },
-    768: {
-      slidesPerView: 3,
-    },
-    1024: {
-      slidesPerView: 4,
-    },
-  },
+  // Vertical view
+  direction: 'vertical',
 })
 
 var previews = new Swiper('.previews', {
-  modules: [Thumbs, EffectFade, Navigation],
+  modules: [Thumbs, EffectFade, Navigation, Pagination],
   effect: 'fade',
   navigation: {
     nextEl: '.swiper-button-next',
@@ -52,5 +40,9 @@ var previews = new Swiper('.previews', {
   },
   thumbs: {
     swiper: thumbs,
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
   },
 })

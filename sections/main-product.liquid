@@ -9,35 +9,45 @@
 <script src="{{ 'component-variant-selects-script.js' | asset_url }}" defer=defer></script>
 
 <div class="o-container -medium -wide u-pv-medium">
-  <div class="product_media">
-    <div class="swiper previews">
-      <div class="swiper-wrapper">
-        {% assign images = product.media | where: "media_type", "image" %}
-        {% for image in images %}
-          <div class="swiper-slide">
-            <a preview href="{{ image | image_url: width: 2048 }}">
-              <img src="{{ image | image_url: width: 850 }}"
+  <div class="media-wrapper">
+    <div class="product_media">
+      <div class="swiper thumbs">
+        <div class="swiper-wrapper">
+          {% assign images = product.media | where: "media_type", "image" %}
+          {% for image in images %}
+            <div class="swiper-slide">
+              <img src="{{ image | image_url: width: 200 }}"
               alt="{{ image.alt }}" width="{{ image.width }}"
               height="{{ image.height }}" loading="lazy">
-            </a>
-          </div>
-        {% endfor %}
+            </div>
+          {% endfor %}
+        </div>
       </div>
 
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
+      <div class="swiper previews">
+        {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+          <span class="percent">
+            {{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100 | divided_by: product.selected_or_first_available_variant.compare_at_price | round: 0 }}% desc
+          </span>
+        {% endif %}
 
-    <div class="swiper thumbs">
-      <div class="swiper-wrapper">
-        {% assign images = product.media | where: "media_type", "image" %}
-        {% for image in images %}
-          <div class="swiper-slide">
-            <img src="{{ image | image_url: width: 200 }}"
-            alt="{{ image.alt }}" width="{{ image.width }}"
-            height="{{ image.height }}" loading="lazy">
-          </div>
-        {% endfor %}
+        <div class="swiper-wrapper">
+          {% assign images = product.media | where: "media_type", "image" %}
+          {% for image in images %}
+            <div class="swiper-slide">
+              <a preview href="{{ image | image_url: width: 2048 }}">
+                <img src="{{ image | image_url: width: 850 }}"
+                alt="{{ image.alt }}" width="{{ image.width }}"
+                height="{{ image.height }}" loading="lazy">
+                <div class="zoom">
+                  {% render 'component-icon' icon: 'zoom', icon_size: 100 %}
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </div>
@@ -53,106 +63,105 @@
         {%- when 'title' -%}
           <h1 class="product_title" {{ block.shopify_attributes }}>{{ product.title }}</h1>
 
-        {%- when 'vendor' -%}
-          <p class="product_vendor" {{ block.shopify_attributes }}>
-            por
-            <a href="/collections/all?filter.p.vendor={{ product.vendor | replace: ' ', '+' }}">
-              {{ product.vendor }}
-            </a>
-          </p>
-
         {%- when 'price' -%}
-          {%- if product.price != 0 -%}
-            <div class="product_price" id="price-{{ section.id }}" role="status" {{ block.shopify_attributes }}>
-              {% if product.compare_at_price_max > product.price %}
-                <span class="compare">{{ product.compare_at_price_max | money_without_trailing_zeros }}</span>
-              {% endif %}
-              <span>{{ product.price | money_with_currency }}</span>
-            </div>
-          {% endif %}
+          <div class="product_price">
+            {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+              {%- assign compare_with_iva = product.selected_or_first_available_variant.compare_at_price  -%}
+              <span class="compare">${{ compare_with_iva | round: 0 | money_without_currency }}</span>
+            {% endif %}
+            <span class="original">${{ product.selected_or_first_available_variant.price | round: 0 | money_without_currency }}</span>
+          </div>
 
         {%- when 'description' -%}
           {%- if product.description != blank -%}
             <div class="product_description c-body">
-              <h4 class="product_point-title c-body">Maridaje</h4>
               {{ product.description }}
             </div>
           {%- endif -%}
 
         {%- when 'variant_picker' -%}
           {%- unless product.has_only_default_variant -%}
-            <variant-selects class="product_variants" data-section="{{ section.id }}" data-url="{{ product.url }}" {{ block.shopify_attributes }}>
-              {%- for option in product.options_with_values -%}
-                <div class="product_input">
-                  <label class="product_label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
-                    {{ option.name }}
-                  </label>
-                  <div class="product_select select">
-                    <select id="Option-{{ section.id }}-{{ forloop.index0 }}"
-                      class="select_select"
-                      name="options[{{ option.name | escape }}]"
-                      form="{{ product_form_id }}"
+            <variant-selects class="product_variants"
+              section="{{ section.id }}"
+              url="{{ product.url }}"
+              variants="{{ product.variants | json | escape }}"
+            >
+              {% for option in product.options_with_values %}
+                <div class="variant">
+                  <label for="{{ option.name }}">{{ option.name }}</label>
+                  <div class="option" onclick="document.querySelector('#{{ option.name }}').click()">
+                    <select
+                      id="{{ option.name }}"
+                      name="{{ option.name }}"
+                      class="variant-select"
+                      data-index="{{ forloop.index0 }}"
                     >
-                      {%- for value in option.values -%}
-                        <option value="{{ value | escape }}" {% if option.selected_value == value %}selected="selected"{% endif %}>
+                      {%- assign index = forloop.index0 | plus: 1 -%}
+                      {%- assign option_index = 'option' | append: index -%}
+                      {% for value in option.values %}
+                        <option
+                          value="{{ value }}"
+                          {% if product.selected_variant[option_index] == value %}selected{% endif %}
+                        >
                           {{ value }}
                         </option>
-                      {%- endfor -%}
+                      {% endfor %}
                     </select>
-                    {% render 'component-icon' icon: 'caret', icon_size: 15 %}
+                    {% render 'component-icon' icon: 'caret', icon_size: 20 %}
                   </div>
                 </div>
-              {%- endfor -%}
-
-              <script type="application/json">
-                {{ product.variants | json }}
-              </script>
+              {% endfor %}
             </variant-selects>
           {%- endunless -%}
 
         {%- when 'buy_buttons' -%}
-          <div class="product_form product-form" {{ block.shopify_attributes }}>
+          <div class="product_buttons product-form" {{ block.shopify_attributes }}>
             <product-form>
               <div class="product-form__error-message-wrapper c-body -error u-hide" role="alert">
                 {% render 'component-icon' icon: 'error', icon_size: 20 %}
                 <span class="product-form__error-message"></span>
               </div>
 
+              {%- assign product_form_id = 'product-form-' | append: section.id -%}
               {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}" disabled>
+                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+                <input id="quantityValue" type="hidden" name="quantity" value="1">
+
+                <label for="quantity" class="product_label"
+                  onclick="document.querySelector('product-form .quantity-btn').click()"
+                >Cantidad</label>
+                <update-quantity target="#quantityValue" max="{{ product.selected_or_first_available_variant.inventory_quantity }}">
+                  <button type="button" class="quantity-minus" down>
+                    -
+                  </button>
+                  <input type="number" id="quantity" name="quantity" value="1" min="1" max="100">
+                  <button type="button" class="quantity-plus" up>
+                    +
+                  </button>
+                </update-quantity>
+
                 <div class="product-form__buttons">
                   <button
                     type="submit"
                     name="add"
-                    class="c-button"
-                  {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+                    class="c-button -secondary"
+                    {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
                   >
-                      <span>
-                        Agregar al carrito
-                      </span>
-                      <div class="loading-overlay__spinner u-hide">
-                        <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
-                          <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                        </svg>
-                      </div>
+                    <span>Agregar al carrito</span>
                   </button>
-                  {%- if block.settings.show_dynamic_checkout -%}
-                    <div onclick="fbq('track', 'AddPaymentInfo')">
-                      {{ form | payment_button }}
-                    </div>
-                    <style>
-                      [role=button]{
-                        padding: 0.5rem 1.25rem !important;
-                      }
-                      .shopify-payment-button__button {
-                        font-weight: 300 !important;
-                        font-size: 1.25rem !important;
-                      }
-                    </style>
-                  {%- endif -%}
                 </div>
               {%- endform -%}
             </product-form>
+          </div>
+
+        {%- when 'schedule' -%}
+          <div class="product_schedule c-body" {{ block.shopify_attributes }}>
+            <div class="product_schedule__description">
+              {{ block.settings.description }}
+            </div>
+            <a href="{{ block.settings.url }}" class="c-button -primary">
+              {{ block.settings.text }}
+            </a>
           </div>
 
         {%- when 'custom_liquid' -%}
@@ -205,9 +214,9 @@
     "name": {{ product.title | json }},
     "url": {{ shop.url | append: product.url | json }},
     {% if seo_media -%}
-      {%- assign media_size = seo_media.preview_image.width | append: 'x' -%}
+      {%- assign media_size = seo_media.preview_image.width -%}
       "image": [
-        {{ seo_media | img_url: media_size | prepend: "https:" | json }}
+        {{ seo_media | image_url: width: media_size | prepend: "https:" | json }}
       ],
     {%- endif %}
     "description": {{ product.description | strip_html | json }},
@@ -260,8 +269,28 @@
       "limit": 1
     },
     {
+      "type": "aperture_methods",
+      "name": "Métodos de apertura",
+      "limit": 1
+    },
+    {
       "type": "description",
       "name": "Descripción del producto",
+      "limit": 1
+    },
+    {
+      "type": "lock_features",
+      "name": "Características",
+      "limit": 1
+    },
+    {
+      "type": "so_features",
+      "name": "Sistema operativo",
+      "limit": 1
+    },
+    {
+      "type": "free",
+      "name": "Envío gratis",
       "limit": 1
     },
     {
@@ -280,6 +309,29 @@
           "default": true,
           "label": "Agregar botonera de compra dinámica",
           "info": "Agrega un botón de compra dinámica a la página de producto"
+        }
+      ]
+    },
+    {
+      "type": "schedule",
+      "name": "Agendar instalación",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Descripción",
+          "default": "<p>¿Vives en la Zona Metropolitana de Guadalajara o sus al rededores? Verifica si tenemos cobertura en tu zona y agenda la instalación gratuita de tu purificador</p>"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Texto del botón",
+          "default": "Agendar instalación"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL del botón"
         }
       ]
     },

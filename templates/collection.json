@@ -1,8 +1,20 @@
 {
   "sections": {
+    "banner_collection_gYALRz": {
+      "type": "banner-collection",
+      "settings": {
+        "default": "shopify:\/\/shop_images\/crop-man-pouring-water-near-window.jpg"
+      }
+    },
     "main": {
-      "type": "main-collection"
+      "type": "main-collection",
+      "settings": {
+        "cartridges_collection": "cartuchos"
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "banner_collection_gYALRz",
+    "main"
+  ]
 }

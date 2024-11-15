@@ -7,6 +7,10 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   scroll-behavior: smooth;
+  font-size: 18px;
+  color: $color-base-text;
+  font-family: $font-body-family;
+  font-weight: $font-body-weight;
 
   &:not(.template-index) #shopify-section-header{
     position: sticky;

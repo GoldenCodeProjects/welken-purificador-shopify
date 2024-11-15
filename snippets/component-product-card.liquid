@@ -32,7 +32,27 @@
     width="{{ product.featured_image.width }}"
     height="{{ product.featured_image.height }}"
     loading="lazy">
+    {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+      <span class="percent">
+        {{ product.selected_or_first_available_variant.compare_at_price | minus: product.selected_or_first_available_variant.price | times: 100 | divided_by: product.selected_or_first_available_variant.compare_at_price | round: 0 }}% desc
+      </span>
+    {% endif %}
   </a>
 
   <h3 class="c-product-card_title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+
+  {% comment %} Des {% endcomment %}
+  {% if product.description != blank %}
+    <p class="c-product-card_description">{{ product.description | strip_html | truncatewords: 20 }}</p>
+  {% endif %}
+
+  {% comment %} Price {% endcomment %}
+  <p class="c-product-card_price">
+    {% if product.selected_or_first_available_variant.compare_at_price > product.selected_or_first_available_variant.price %}
+      {%- assign compare_with_iva = product.selected_or_first_available_variant.compare_at_price  -%}
+      <span class="compare">${{ compare_with_iva | round: 0 | money_without_currency }}</span>
+    {% endif %}
+    <span class="original">${{ product.selected_or_first_available_variant.price | round: 0 | money_without_currency }}</span>
+  </p>
+
 </div>

@@ -34,6 +34,11 @@
   &:hover {
     text-decoration: none;
   }
+  &:focus, &:active {
+    background-color: $color-base-solid-button;
+    color: $color-base-background-primary;
+    box-shadow: 0 0 0px 3px rgba(var(--color-base-solid-button), 0.25);
+  }
 
   /// Color variants
   &,
@@ -45,17 +50,16 @@
       background-color: $color-base-solid-button;
       color: $color-base-background-primary;
     }
-    &:focus, &:active {
-      background-color: $color-base-solid-button;
-      color: $color-base-background-primary;
-      box-shadow: 0 0 5px 2px $color-base-solid-button;
-    }
   }
 
   &.-secondary {
-    background-color: transparent;
-    color: $color-base-outline-button;
-    border: 1px solid $color-base-outline-button;
+    background-color: $color-base-solid-button;
+    color: $color-base-background-primary;
+    border-color: $color-base-solid-button;
+    &:hover {
+      background-color: transparent;
+      color: $color-base-solid-button;
+    }
   }
 
   /// Size variants

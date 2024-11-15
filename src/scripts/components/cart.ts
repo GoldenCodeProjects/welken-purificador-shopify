@@ -142,6 +142,13 @@ class CartComponent extends HTMLElement {
   }
 
   addItem() {
+    Toastify({
+      text: 'Producto agregado al carrito',
+      duration: 3000,
+      gravity: 'bottom',
+      position: 'left',
+      close: true,
+    }).showToast()
     this.renderSectionFromFetch()
   }
 
@@ -272,117 +279,35 @@ class UpdateProduct extends HTMLElement {
   upBtn: HTMLButtonElement = this.querySelector('button[up]')
   downBtn: HTMLButtonElement = this.querySelector('button[down]')
   quantity: HTMLInputElement = this.querySelector('input')
-  key: string = this.getAttribute('key')
+
+  inputTarget: HTMLInputElement = document.querySelector(`input${this.getAttribute('target')}`)
+
   max: number = this.getAttribute('max') ? Number(this.getAttribute('max')) : 100000
-  oldQuantity: number = 1
-
-  cartComponent: CartComponent = document.querySelector('cart-component')
-
-  icons: NodeListOf<CartIcon> = document.querySelectorAll('cart-icon')
 
   constructor() {
     super()
   }
 
-  static get observedAttributes() {
-    return ['key', 'max', 'oldQuantity']
-  }
-
-  attributeChangedCallback(name, oldValue, newValue) {
-    if (oldValue !== newValue) {
-      this[name] = newValue
-    }
-  }
-
-  eventButtons() {
-    this.upBtn.addEventListener('click', this.setQuantity.bind(this, 1))
-    this.downBtn.addEventListener('click', this.setQuantity.bind(this, -1))
-  }
-
-  setQuantity(quantity) {
-    const newQuantity = Number(this.quantity.value) + quantity
-    if (newQuantity <= this.max && newQuantity > 0) {
-      this.quantity.value = newQuantity
-    } else if (newQuantity > this.max) {
-      this.quantity.value = String(this.max)
-    } else if (newQuantity <= 0) {
-      this.quantity.value = String(0)
-    } else {
-      this.showErrorMessage()
-    }
-    this.quantity.dispatchEvent(new Event('change'))
-  }
-
-  changeQuantity(e) {
-    const quantity = Number(e.target.value)
-    if (quantity <= this.max && quantity > 0) {
-      this.disabledElements(true)
-      cart
-        .updateItem(this.key, { quantity })
-        .then((cart) => {
-          console.dir(cart)
-
-          const item = cart.items.find((item) => item.key === this.key)
-          this.cartComponent.updateItem(item.key, item.quantity)
-
-          this.oldQuantity = quantity
-          if (this.oldQuantity <= item.quantity) {
-            Toastify({
-              text: 'Cantidad actualizada',
-              duration: 3000,
-              gravity: 'bottom',
-              position: 'center',
-              close: true,
-            }).showToast()
-          } else {
-            this.showErrorMessage(item.quantity)
-          }
-        })
-        .catch((error) => {
-          console.error(error)
-          this.showErrorMessage()
-        })
-        .finally(() => {
-          this.disabledElements(false)
-          this.icons.forEach((icon: CartIcon) => {
-            icon.calculateItems()
-          })
-        })
-    } else if (quantity > this.max) {
-      this.quantity.value = String(this.max)
-    } else if (quantity <= 0) {
-      deleteItemKey(this.key)
-    } else {
-      this.showErrorMessage()
-    }
-  }
-
-  disabledElements(disabled = true) {
-    this.upBtn.disabled = disabled
-    this.downBtn.disabled = disabled
-    this.quantity.disabled = disabled
-  }
-
-  showErrorMessage(quantity = this.oldQuantity) {
-    const message = `No se puede agregar mas de ${quantity} productos`
-    Toastify({
-      text: message,
-      duration: 3000,
-      gravity: 'bottom',
-      position: 'center',
-      close: true,
-    }).showToast()
-  }
-
   connectedCallback() {
-    this.quantity.addEventListener('change', this.changeQuantity.bind(this))
-    this.oldQuantity = Number(this.quantity.value)
-    this.eventButtons()
+    this.upBtn.addEventListener('click', this.increment.bind(this))
+    this.downBtn.addEventListener('click', this.decrement.bind(this))
+    this.quantity.addEventListener('input', this.update.bind(this))
   }
 
-  disconnectedCallback() {
-    this.quantity.removeEventListener('change', this.changeQuantity.bind(this))
+  increment() {
+    this.quantity.value = String(Math.min(Number(this.quantity.value) + 1, this.max))
+    this.update()
   }
+
+  decrement() {
+    this.quantity.value = String(Math.max(Number(this.quantity.value) - 1, 1))
+    this.update()
+  }
+
+  update() {
+    this.inputTarget.value = this.quantity.value
+  }
+
 }
 
 customElements.define('update-quantity', UpdateProduct)
