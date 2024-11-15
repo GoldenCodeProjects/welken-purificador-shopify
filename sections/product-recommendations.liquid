@@ -47,9 +47,10 @@
     }
   })
   const handleIntersection = async (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+    observer.unobserve(entries[0].target);
     const recommendations = document.querySelector('.product-recommendations');
     let product = recommendations.dataset.product;
-    console.log(product);
     if(!recommendations.dataset.product) {
       product = await dinamicRecomendations();
       !product && document.querySelector('.recommendations').remove();
@@ -70,9 +71,12 @@
         console.error(e);
       });
   };
-  setTimeout(() => {
-    handleIntersection();
-  }, 1000);
+  const observer = new IntersectionObserver(handleIntersection, {
+    root: null,
+    rootMargin: '200px 0px 0px 0px',
+    threshold: 0.1
+  });
+  observer.observe(document.querySelector('.product-recommendations'));
 </script>
 
 {% schema %}
