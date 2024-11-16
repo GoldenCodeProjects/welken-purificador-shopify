@@ -1,0 +1,45 @@
+@import './../settings/colors';
+@import './../settings/fonts';
+@import './../settings/breakpoints';
+@import './../tools/functions';
+@import './../tools/mixins';
+
+.section--other-state{
+  display: block;
+  padding: 3rem 0;
+  background-color: $color-base-primary;
+  ::selection{
+    background-color: $color-base-background-primary;
+    color: $color-base-primary;
+  }
+
+  .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    @include mq-down('sm'){
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    form{
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      button[type="submit"]{
+        margin-top: 1rem;
+      }
+    }
+
+    .info{
+      color: $color-base-background-primary;
+      *{
+        color: $color-base-background-primary;
+      }
+      h2{
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

@@ -1,8 +1,19 @@
 {
   "sections": {
     "main": {
-      "type": "instalation"
+      "type": "instalation",
+      "settings": {}
+    },
+    "other": {
+      "type": "other-state",
+      "settings": {
+        "heading": "¿Vives en otro municipio o estado?",
+        "description": "Contamos con soporte técnico remoto para guiarte durante la instalación de tu sistema de purificación Welken. Envíanos un mensaje para resolver tus dudas o agendar una videollamada."
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "other"
+  ]
 }

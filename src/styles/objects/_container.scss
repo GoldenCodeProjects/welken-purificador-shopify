@@ -34,23 +34,29 @@
     padding-right: em(32px);
   }
 
-  &.-narrow {
-    max-width: 700px;
-  }
-
   &.-wide {
-    @include mq-down('xs') {
-      max-width: 100%;
-    }
-    @include mq-only('sm') {
-      max-width: 768px;
+    max-width: 1440px;
+    @include mq-only('lg') {
+      max-width: 1280px;
     }
     @include mq-only('md') {
       max-width: 1024px;
     }
-    @include mq-only('lg') {
-      max-width: 1280px;
+    @include mq-only('sm') {
+      max-width: 768px;
     }
-    max-width: 1440px;
+    @include mq-down('xs') {
+      max-width: 100%;
+    }
+  }
+
+  &.-narrow {
+    max-width: 800px;
+    @include mq-only('sm') {
+      max-width: 640px;
+    }
+    @include mq-only('xs') {
+      max-width: 550px;
+    }
   }
 }

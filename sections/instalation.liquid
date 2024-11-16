@@ -1,0 +1,125 @@
+{{ 'section-instalation.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'component-stepper-script.js' | asset_url }}" defer></script>
+
+<stepper-form class="o-container -narrow wrapper">
+  <div class="content">
+    <h1 class="title">{{ page.title }}</h1>
+    <div class="text">
+      {{ page.content }}
+    </div>
+  </div>
+
+  {% form 'contact', return_to: 'back' %}
+    <input type="hidden" name="contact[type]" value="instalacion">
+    <textarea name="contact[body]" required hidden>Instalación dentro de la ZMG</textarea>
+    <button type="submit" id="submit"></button>
+
+    <fieldset>
+      <legend class="c-field_label">Dirección de instalación</legend>
+      {% comment %} Municipio {% endcomment %}
+      <div class="c-field">
+        <select name="contact[municipio]" id="municipio" class="c-field_input" required>
+          <option value="Zona Metropolitana de Guadalajara">Zona Metropolitana de Guadalajara</option>
+          <option value="Chapala">Chapala</option>
+          <option value="Ajijic">Ajijic</option>
+          <option value="San Juan Cosalá">San Juan Cosalá</option>
+          <option value="Puerto Vallarta">Puerto Vallarta</option>
+        </select>
+        <label for="municipio" class="c-field_label">Municipio</label>
+      </div>
+
+      {% comment %} Calle y número {% endcomment %}
+      <div class="c-field">
+        <input type="text" name="contact[calle]" id="calle"
+        value="{% if form.calle %}{{ form.calle }}{% endif %}"
+        placeholder="Calle y número" required class="c-field_input">
+        <label for="calle" class="c-field_label">Calle y número</label>
+      </div>
+
+      {% comment %} Colonia {% endcomment %}
+      <div class="c-field">
+        <input type="text" name="contact[colonia]" id="colonia"
+        value="{% if form.colonia %}{{ form.colonia }}{% endif %}"
+        placeholder="Colonia" required class="c-field_input">
+        <label for="colonia" class="c-field_label">Colonia</label>
+      </div>
+
+      {% comment %} Código postal {% endcomment %}
+      <div class="c-field">
+        <input type="text" name="contact[cp]" id="cp"
+        value="{% if form.cp %}{{ form.cp }}{% endif %}"
+        placeholder="Código postal" required class="c-field_input">
+        <label for="cp" class="c-field_label">Código postal</label>
+      </div>
+    </fieldset>
+
+    <fieldset hidden>
+      <legend class="c-field_label">Datos de contacto</legend>
+      {% comment %} Nombre {% endcomment %}
+      <div class="c-field">
+        <input type="name" name="contact[name]" id="name"
+        value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+        placeholder="Ingresa tu nombre" required class="c-field_input">
+        <label for="name" class="c-field_label">Nombre</label>
+      </div>
+
+      {% comment %} Correo {% endcomment %}
+      <div class="c-field">
+        <input type="email" name="contact[email]" id="email"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        placeholder="mail@correo.com" required class="c-field_input">
+        <label for="email" class="c-field_label">Correo electrónico</label>
+      </div>
+
+      {% comment %} Telefono {% endcomment %}
+      <div class="c-field">
+        <input type="tel" name="contact[phone]" id="phone"
+        value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        placeholder="Ingrese tel" required class="c-field_input">
+        <label for="phone" class="c-field_label">Teléfono</label>
+      </div>
+    </fieldset>
+
+    <fieldset hidden>
+      <legend class="c-field_label">Hora y fecha</legend>
+      {% comment %} Fecha, block sundays {% endcomment %}
+      <div class="c-field">
+        <input type="date" name="contact[fecha]" id="fecha"
+        value="{% if form.fecha %}{{ form.fecha }}{% endif %}"
+        min="{{ 'now' | date: '%Y-%m-%d' }}"
+        required class="c-field_input">
+        <label for="fecha" class="c-field_label">Fecha</label>
+      </div>
+      {% comment %} Hora, Bloques de 2 horas desde las 9 a las 5 {% endcomment %}
+      <div class="c-field">
+        <select name="contact[hora]" id="hora" class="c-field_input" required>
+          <option value="9:00">9:00 - 11:00 am</option>
+          <option value="11:00">11:00 - 1:00 pm</option>
+          <option value="13:00">1:00 - 3:00 pm</option>
+          <option value="15:00">3:00 - 5:00 pm</option>
+        </select>
+        <label for="hora" class="c-field_label">Hora</label>
+      </div>
+    </fieldset>
+
+    {% comment %} Controls {% endcomment %}
+    <div class="controls">
+      <button type="button" class="c-button -primary" id="prev">
+        Anterior
+      </button>
+      <button type="button" class="c-button -secondary" id="next">
+        Siguiente
+        <span class="count">1/3</span>
+      </button>
+    </div>
+  {% endform %}
+</stepper-form>
+
+{% schema %}
+{
+  "name": "Formulario de instalacion",
+  "tag": "section",
+  "class": "section--instalation",
+  "settings": [],
+}
+{% endschema %}

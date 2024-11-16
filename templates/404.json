@@ -1,8 +1,15 @@
 {
   "sections": {
     "main": {
-      "type": "main-404"
+      "type": "main-404",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/glass.png",
+        "heading": "La página que buscas no existe o no se encuentra disponible en este momento",
+        "content": ""
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main"
+  ]
 }

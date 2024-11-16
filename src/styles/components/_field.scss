@@ -79,6 +79,34 @@
   }
 
   // State variations
+  &.-white {
+    .c-field_label {
+      color: $color-base-background-primary;
+    }
+    .c-field_input {
+      background-color: transparent;
+      color: $color-base-background-primary;
+      border-color: $color-base-background-primary;
+      + .c-field_icon {
+        color: $color-base-background-primary;
+      }
+      &::placeholder {
+        color: rgba(var(--color-base-background-primary), 0.5);
+      }
+    }
+    .c-field_input:active,
+    .c-field_input:focus,
+    .c-field_input:focus-visible,
+    .c-field_input:not(:placeholder-shown),
+    .c-field_input:-webkit-autofill {
+      border-color: $color-base-background-primary;
+      box-shadow: 0 0 0 1px $color-base-background-primary;
+      + .c-field_label {
+        color: $color-base-background-primary;
+      }
+    }
+  }
+
   &.-error {
     border-color: rgba(240, 0, 0, 0.9);
   }
