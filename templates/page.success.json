@@ -1,0 +1,8 @@
+{
+  "sections": {
+    "main": {
+      "type": "success"
+    }
+  },
+  "order": ["main"]
+}
