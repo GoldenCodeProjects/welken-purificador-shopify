@@ -23,12 +23,15 @@ component-modal {
     min-height: 2rem;
     max-width: 500px;
     max-height: 80vh;
-    border-radius: 5px;
+    border-radius: 1rem;
     background: $color-base-background-primary;
     overflow: auto;
     cursor: auto;
+    @include mq-down(sm) {
+      max-height: calc(100vh - 2rem);
+    }
     > * {
-      padding: 1rem;
+      padding: 1.5rem;
     }
     p + p {
       margin-top: 1rem;
@@ -40,19 +43,7 @@ component-modal {
       padding: 0.5rem;
       line-height: 0.5;
       font-size: 1.5rem;
-    }
-    [title] {
-      font-size: 1.35rem;
-      font-weight: bold;
-      margin-bottom: 1rem;
-      padding-right: 1.25rem;
-      color: $color-base-primary;
-    }
-    [buttons] {
-      display: flex;
-      justify-content: flex-end;
-      margin-top: 1rem;
-      gap: 1rem;
+      width: fit-content !important;
     }
   }
   &[size='small'] .modal-dialog {

@@ -1,11 +1,87 @@
+{{ 'component-article-card-style.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
-<div class="blog o-container -medium"></div>
+<h1 class="section-title">
+  {{ 'blogs.article.blog' | t }}
+</h1>
+
+{% if blog.tags.size > 0 %}
+  <div class="blog-filter o-container -wide -medium u-pv-medium">
+    {% comment %} Current tag {% endcomment %}
+    {%- assign current_tag = request.path | split: '/' | last | split: '?' | first -%}
+    {%- if current_tag == 'tagged' -%}
+      {%- assign current_tag = 'Todos' -%}
+    {%- endif -%}
+    <ul id="BlogTagFilter" class="tag-list">
+      {% comment %} All tag {% endcomment %}
+      <li>
+        <a href="{{ blog.url }}"
+          class="c-button -tag {% if current_tag == 'news' %}-active{% endif %}"
+          aria-label="Todos los artículos"
+          aria-current="{% if current_tag == 'news' %}page{% endif %}"
+          title="Todos los artículos"
+        >
+          Todos
+        </a>
+      </li>
+      {% comment %} Avalavaible {% endcomment %}
+      {% for tag in blog.all_tags %}
+        <li>
+          {%- assign tag_lower = tag | downcase -%}
+          <a href="{{ blog.url }}/tagged/{{ tag | handleize }}"
+            class="c-button -tag {% if current_tag == tag_lower %}-active{% endif %}"
+            aria-label="Artículos etiquetados con {{ tag }}"
+            aria-current="{% if current_tag == tag_lower %}page{% endif %}"
+            title="Artículos etiquetados con {{ tag }}"
+          >
+            {{ tag }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+{% endif %}
+
+<div class="blog-wrapper o-container -medium -wide">
+  {%- paginate blog.articles by 3 -%}
+    <div class="blog-articles">
+      {%- for article in blog.articles -%}
+        <div class="blog-articles_article">
+          {%- render 'article-card'
+            article: article,
+            show_date: true
+          -%}
+        </div>
+      {%- else -%}
+        <h4 class="no">
+          No hay artículos para mostrar
+        </h4>
+      {%- endfor -%}
+    </div>
+    {%- if paginate.pages > 1 -%}
+      {%- render 'pagination', paginate: paginate -%}
+    {%- endif -%}
+  {%- endpaginate -%}
+</div>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', function() {
+    const date = document.querySelectorAll('.article-card_date');
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    {% comment %} date.textContent = new Date(date.dateTime).toLocaleDateString('{{ shop.locale }}', options); {% endcomment %}
+    date.forEach((element) =>
+      element.textContent = new Date(element.dateTime).toLocaleDateString('{{ shop.locale }}', options)
+    );
+  });
+</script>
 
 {% schema %}
 {
   "name": "t:sections.blog.name",
   "tag": "section",
-  "settings": []
+  "class": "section--main-blog",
+  "settings": [
+
+  ]
 }
 {% endschema %}

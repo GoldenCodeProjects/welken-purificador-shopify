@@ -102,3 +102,7 @@ h6 {
     text-decoration: none;
   }
 }
+
+a:focus, a:active {
+  text-decoration: underline;
+}

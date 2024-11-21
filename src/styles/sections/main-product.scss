@@ -16,6 +16,30 @@
     @include mq-down('xs') {
       grid-template-columns: 1fr;
     }
+    ul{
+      margin-top: 0.5rem;
+      list-style: none;
+      list-style-position: inside;
+      padding-left: 1rem;
+      li{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: 400;
+        color: $color-base-text;
+        margin-bottom: 0.5rem;
+        &::before{
+          content: '';
+          display: inline-block;
+          width: 5px;
+          height: 5px;
+          background-color: $color-base-primary;
+          border-radius: 50%;
+          margin-right: 1rem;
+        }
+      }
+    }
   }
 
   .media-wrapper{
@@ -26,7 +50,7 @@
     width: 100%;
     overflow: hidden;
     display: grid;
-    grid-template-columns: 98px 1fr;
+    grid-template-columns: 64px 1fr;
     gap: 1rem;
     position: sticky;
     top: calc(80px + 2rem);
@@ -36,7 +60,7 @@
       top: 0px;
     }
     .thumbs {
-      width: 98px;
+      width: 64px;
       overflow: hidden;
       .swiper-slide {
         cursor: pointer;
@@ -218,7 +242,6 @@
   &_description {
     font-size: 1rem;
     line-height: 1.65rem;
-    letter-spacing: 0px;
     color: $color-base-text;
     p, h1, h2, h3, h4, h5, h6, ul, ol, dl, table, blockquote, pre, figure, hr, .rte--table {
       margin-bottom: 0.5rem;
@@ -243,7 +266,6 @@
     h3{
       font-size: 1.1rem;
       font-weight: 700;
-      letter-spacing: 2px;
       color: $color-base-text;
     }
     .variant{
@@ -286,16 +308,19 @@
       }
     }
   }
+
   &_input {
     display: grid;
     align-items: center;
     grid-template-columns: 100px 1fr;
   }
+
   &_label {
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 500;
     color: $color-base-primary;
   }
+
   &_buttons {
     display: flex;
     flex-direction: column;
@@ -314,45 +339,50 @@
         }
       }
     }
-    update-quantity{
+    .quantity{
       display: flex;
-      flex-direction: row;
       align-items: center;
-      justify-content: space-between;
-      gap: 0.25rem;
-      width: max-content;
+      gap: 0.5rem;
       margin-bottom: 1rem;
-      .quantity-minus, .quantity-plus{
-        cursor: pointer;
-        width: 2rem;
-        height: 2rem;
-        font-size: 1.5rem;
-        line-height: 1;
+      update-quantity{
         display: flex;
-        justify-content: center;
+        flex-direction: row;
         align-items: center;
-        border: 1px solid $color-base-text;
-        color: $color-base-text;
-        border-radius: 50%;
-        transition: background-color 0.3s, color 0.3s;
-        &:hover{
-          background-color: $color-base-text;
-          color: $color-base-background-primary;
+        justify-content: space-between;
+        gap: 0.25rem;
+        width: max-content;
+        .quantity-minus, .quantity-plus{
+          cursor: pointer;
+          width: 2rem;
+          height: 2rem;
+          font-size: 1.5rem;
+          line-height: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border: 1px solid $color-base-text;
+          color: $color-base-text;
+          border-radius: 50%;
+          transition: background-color 0.3s, color 0.3s;
+          &:hover{
+            background-color: $color-base-text;
+            color: $color-base-background-primary;
+          }
         }
-      }
-      input{
-        width: 3rem;
-        height: 2rem;
-        font-size: 1.1rem;
-        text-align: center;
-        font-weight: 500;
-        color: $color-base-text;
-        -moz-appearance: textfield;
-        appearance: textfield;
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-          -webkit-appearance: none;
-          margin: 0;
+        input{
+          width: 3rem;
+          height: 2rem;
+          font-size: 1.1rem;
+          text-align: center;
+          font-weight: 500;
+          color: $color-base-text;
+          -moz-appearance: textfield;
+          appearance: textfield;
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
         }
       }
     }
@@ -366,6 +396,50 @@
       button,a,.shopify-payment-button{
         display: block;
         width: fit-content;
+      }
+    }
+    #rent-modal .modal-content{
+      h2{
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: $color-base-primary;
+        margin-bottom: 1rem;
+      }
+      .c-button{
+        margin-top: 1rem;
+      }
+    }
+    #buy-modal .modal-dialog {
+      max-width: 800px;
+      .modal-content{
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        @include mq-down(md){
+          grid-template-columns: 1fr;
+        }
+        h2{
+          font-size: 1.6rem;
+          font-weight: 600;
+          color: $color-base-primary;
+          margin-bottom: 1rem;
+        }
+        .c-button{
+          margin-top: 1rem;
+        }
+        .now, .after{
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+        .now{
+          background-color: $color-base-primary;
+          color: $color-base-background-primary;
+          h2{
+            color: $color-base-background-primary;
+          }
+        }
       }
     }
     @include mq-down(xs) {
@@ -392,6 +466,34 @@
     max-width: 400px;
     a{
       margin-top: 1rem;
+    }
+  }
+
+  &_more{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    details{
+      summary{
+        font-size: 1rem;
+        font-weight: 500;
+        color: #333333;
+        cursor: pointer;
+        padding: 0.5rem 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #DDDDDD;
+        svg{
+          transition: transform 0.3s;
+        }
+      }
+      .c-body{
+        padding: 0.5rem 0;
+      }
+      &[open] summary svg{
+        transform: rotate(180deg);
+      }
     }
   }
 }

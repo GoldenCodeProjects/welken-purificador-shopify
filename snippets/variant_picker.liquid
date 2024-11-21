@@ -1,0 +1,31 @@
+<variant-selects class="product_variants"
+  section="{{ section.id }}"
+  url="{{ product.url }}"
+  variants="{{ product.variants | json | escape }}"
+>
+  {% for option in product.options_with_values %}
+    <div class="variant">
+      <label for="{{ option.name }}">{{ option.name }}</label>
+      <div class="option" onclick="document.querySelector('#{{ option.name }}').click()">
+        <select
+          id="{{ option.name }}"
+          name="{{ option.name }}"
+          class="variant-select"
+          data-index="{{ forloop.index0 }}"
+        >
+          {%- assign index = forloop.index0 | plus: 1 -%}
+          {%- assign option_index = 'option' | append: index -%}
+          {% for value in option.values %}
+            <option
+              value="{{ value }}"
+              {% if product.selected_variant[option_index] == value %}selected{% endif %}
+            >
+              {{ value }}
+            </option>
+          {% endfor %}
+        </select>
+        {% render 'component-icon' icon: 'caret', icon_size: 20 %}
+      </div>
+    </div>
+  {% endfor %}
+</variant-selects>

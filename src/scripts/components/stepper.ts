@@ -41,19 +41,19 @@ class StepperForm extends HTMLElement {
   }
 
   private async handleNext(): Promise<void> {
-    if (this.isStepValid()) {
-      if (this.currentStep < this.totalSteps - 1) {
-        this.showStep(this.currentStep + 1);
-      } else {
-        this.submitForm();
-      }
-    } else {
+    if (!this.isStepValid()) {
       await Swal.fire({
         icon: "warning",
         title: "Campos incompletos",
         text: "Por favor, llena todos los campos requeridos.",
         confirmButtonText: "Entendido",
       });
+      return;
+    }
+    if (this.currentStep < this.totalSteps - 1) {
+      this.showStep(this.currentStep + 1);
+    } else {
+      this.submitForm();
     }
   }
 

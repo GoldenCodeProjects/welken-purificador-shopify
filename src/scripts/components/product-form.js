@@ -38,6 +38,11 @@ if (!customElements.get('product-form')) {
             })
             submitButton.removeAttribute('aria-disabled', true)
             submitButton.classList.remove('-loading')
+
+            const hasCheckout = submitButton.hasAttribute('checkout')
+            if (hasCheckout) {
+              window.location = '/checkout'
+            }
           })
       }
 

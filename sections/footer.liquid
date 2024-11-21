@@ -13,15 +13,18 @@
       </p>
     </div>
 
-    <div class="footer_find">
+    <div class="footer_sitemap">
       <h6>{{ section.settings.find_text }}</h6>
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'shops' -%}
-          <a href="{{ block.settings.url }}" class="link">
-            <span>{{ block.settings.text }}</span>
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
+      {% comment %} Menu linklist {% endcomment %}
+      <ul class="footer_menu">
+        {%- for item in section.settings.menu.links -%}
+          <li>
+            <a href="{{ item.url }}" class="link" title="{{ item.title }}">
+              {{ item.title }}
+            </a>
+          </li>
+        {%- endfor -%}
+      </ul>
     </div>
 
     <div class="footer_contact">
@@ -64,12 +67,10 @@
     </div>
 
     <nav class="footer_policy">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'policy' -%}
-          <a href="{{ block.settings.url }}" class="link" title="{{ block.settings.text }}">
-            <span>{{ block.settings.text }}</span>
-          </a>
-        {%- endif -%}
+      {%- for policy in shop.policies -%}
+        <a href="{{ policy.url }}" class="link">
+          {{ policy.title }}
+        </a>
       {%- endfor -%}
       <a href="https://goldencode.co/en" target="_blank"
         rel="noopener noreferrer" title="Desarrollado por Golden Code"
@@ -86,6 +87,11 @@
     "tag": "footer",
     "class": "section--footer",
     "settings": [
+      {
+        "type": "link_list",
+        "id": "menu",
+        "label": "Navigation menu"
+      },
       {
         "type": "image_picker",
         "id": "logo-light",

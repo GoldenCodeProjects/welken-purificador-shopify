@@ -5,21 +5,28 @@ class CalculadoraAhorro {
   private precioPorGarrafon: number = 45;
   private garrafonesPorSemana: number = 10;
 
+  // Costos de los cartuchos
+  private costoCartuchoA = 1090;
+  private costoCartuchoB = 1590;
+
   // Constantes
   private readonly semanasPorAño = 52;
   private readonly mesesPorAño = 12;
-
-  // Costos de los cartuchos
-  private readonly costoCartuchoA = 1090; // Costo en pesos del cartucho que se cambia cada 6 meses
-  private readonly costoCartuchoB = 1590; // Costo en pesos del cartucho que se cambia cada 19 meses
 
   // Frecuencias de reemplazo
   private readonly mesesEntreReemplazosA = 6;
   private readonly mesesEntreReemplazosB = 19;
 
-  constructor(precioPorGarrafon: number, garrafonesPorSemana: number) {
+  constructor() { }
+
+  public setGarrafones(precioPorGarrafon: number, garrafonesPorSemana: number) {
     this.precioPorGarrafon = precioPorGarrafon;
     this.garrafonesPorSemana = garrafonesPorSemana;
+  }
+
+  public setCostosCartuchos(costoCartuchoA: number, costoCartuchoB: number) {
+    this.costoCartuchoA = costoCartuchoA;
+    this.costoCartuchoB = costoCartuchoB;
   }
 
   private get reemplazosAnualesA(): number {
@@ -107,7 +114,8 @@ class ComponentCalculator extends HTMLElement {
         return this.resultValueEl.textContent = this.numberToCurrency(0);
       }
 
-      const calculadora = new CalculadoraAhorro(this.precioPorGarrafon, this.garrafonesPorSemana);
+      const calculadora = new CalculadoraAhorro();
+      calculadora.setGarrafones(this.precioPorGarrafon, this.garrafonesPorSemana);
       const ahorroAnual = calculadora.calcularAhorroAnual();
 
       this.resultValueEl.textContent = this.numberToCurrency(ahorroAnual);

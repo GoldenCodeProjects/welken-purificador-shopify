@@ -1,7 +1,17 @@
+{%- if title == blank -%}
+  {%- assign title = collection.title -%}
+{%- endif -%}
+
 <section class="collection o-container -wide">
-  <h2 class="collection_title">{{ collection.title }}</h2>
+  <h2 class="collection_title">{{ title }}</h2>
   <div class="collection_grid">
     {%- for product in collection.products -%}
+      {%- if omit != blank -%}
+        {%- assign products_collections = product.collections | map: 'id' -%}
+        {%- if products_collections contains omit.id -%}
+          {%- continue -%}
+        {%- endif -%}
+      {%- endif -%}
       {%- render 'component-product-card' product: product -%}
     {%- else -%}
       <h4 class="no-products c-heading -h2">No hay productos</h4>

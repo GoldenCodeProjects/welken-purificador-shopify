@@ -35,28 +35,31 @@
   }
 
   &.-wide {
-    max-width: 1440px;
-    @include mq-only('lg') {
-      max-width: 1280px;
+    max-width: 100%;
+    @include mq-up('xs') {
+      max-width: $breakpoint-xs;
     }
-    @include mq-only('md') {
-      max-width: 1024px;
+    @include mq-up('sm') {
+      max-width: $breakpoint-sm;
     }
-    @include mq-only('sm') {
-      max-width: 768px;
+    @include mq-up('md') {
+      max-width: $breakpoint-md;
     }
-    @include mq-down('xs') {
-      max-width: 100%;
+    @include mq-up('lg') {
+      max-width: $breakpoint-lg;
+    }
+    @include mq-up('xlg') {
+      max-width: $breakpoint-xlg;
     }
   }
 
   &.-narrow {
-    max-width: 800px;
+    max-width: $breakpoint-sm;
     @include mq-only('sm') {
-      max-width: 640px;
+      max-width: $breakpoint-sm;
     }
     @include mq-only('xs') {
-      max-width: 550px;
+      max-width: $breakpoint-xs;
     }
   }
 }

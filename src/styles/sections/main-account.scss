@@ -35,7 +35,6 @@
     .title{
       font-size: 2.5rem;
       font-weight: 300;
-      letter-spacing: 3px;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
       @include mq-down(sm) {
@@ -85,7 +84,6 @@
         padding:  0 1rem;
         font-size: 1rem;
         font-weight: 400;
-        letter-spacing: 1px;
         color: $color-base-secondary;
         border-left: 3px solid transparent;
         transition: color .3s ease-in-out;
@@ -143,7 +141,6 @@
           th{
             font-size: 1rem;
             font-weight: 400;
-            letter-spacing: 1px;
             color: $color-base-secondary;
             text-align: center;
             padding: 0.75rem 1.25rem;

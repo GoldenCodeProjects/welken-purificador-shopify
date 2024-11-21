@@ -1,7 +1,6 @@
 {{ 'component-gallery-style.css' | asset_url | stylesheet_tag }}
 {{ 'component-gallery-script.css' | asset_url | stylesheet_tag }}
-{{ 'section-main-product.css' | asset_url | stylesheet_tag }}
-
+{{ 'component-gallery-script.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-product.css' | asset_url | stylesheet_tag }}
 
 <script src="{{ 'component-gallery-script.js' | asset_url }}" defer=defer></script>
@@ -81,78 +80,11 @@
 
         {%- when 'variant_picker' -%}
           {%- unless product.has_only_default_variant -%}
-            <variant-selects class="product_variants"
-              section="{{ section.id }}"
-              url="{{ product.url }}"
-              variants="{{ product.variants | json | escape }}"
-            >
-              {% for option in product.options_with_values %}
-                <div class="variant">
-                  <label for="{{ option.name }}">{{ option.name }}</label>
-                  <div class="option" onclick="document.querySelector('#{{ option.name }}').click()">
-                    <select
-                      id="{{ option.name }}"
-                      name="{{ option.name }}"
-                      class="variant-select"
-                      data-index="{{ forloop.index0 }}"
-                    >
-                      {%- assign index = forloop.index0 | plus: 1 -%}
-                      {%- assign option_index = 'option' | append: index -%}
-                      {% for value in option.values %}
-                        <option
-                          value="{{ value }}"
-                          {% if product.selected_variant[option_index] == value %}selected{% endif %}
-                        >
-                          {{ value }}
-                        </option>
-                      {% endfor %}
-                    </select>
-                    {% render 'component-icon' icon: 'caret', icon_size: 20 %}
-                  </div>
-                </div>
-              {% endfor %}
-            </variant-selects>
+            {% render 'variant_picker' %}
           {%- endunless -%}
 
         {%- when 'buy_buttons' -%}
-          <div class="product_buttons product-form" {{ block.shopify_attributes }}>
-            <product-form>
-              <div class="product-form__error-message-wrapper c-body -error u-hide" role="alert">
-                {% render 'component-icon' icon: 'error', icon_size: 20 %}
-                <span class="product-form__error-message"></span>
-              </div>
-
-              {%- assign product_form_id = 'product-form-' | append: section.id -%}
-              {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
-                <input id="quantityValue" type="hidden" name="quantity" value="1">
-
-                <label for="quantity" class="product_label"
-                  onclick="document.querySelector('product-form .quantity-btn').click()"
-                >Cantidad</label>
-                <update-quantity target="#quantityValue" max="{{ product.selected_or_first_available_variant.inventory_quantity }}">
-                  <button type="button" class="quantity-minus" down>
-                    -
-                  </button>
-                  <input type="number" id="quantity" name="quantity" value="1" min="1" max="100">
-                  <button type="button" class="quantity-plus" up>
-                    +
-                  </button>
-                </update-quantity>
-
-                <div class="product-form__buttons">
-                  <button
-                    type="submit"
-                    name="add"
-                    class="c-button -secondary"
-                    {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
-                  >
-                    <span>Agregar al carrito</span>
-                  </button>
-                </div>
-              {%- endform -%}
-            </product-form>
-          </div>
+          {% render 'buy_buttons' %}
 
         {%- when 'schedule' -%}
           {%- assign title = product.title | downcase -%}
@@ -162,10 +94,29 @@
               <div class="product_schedule__description">
                 {{ block.settings.description }}
               </div>
-              <a href="{{ block.settings.url }}" class="c-button -primary">
-                {{ block.settings.text }}
-              </a>
+              {%- if block.settings.url != blank and block.settings.text != blank -%}
+                <a href="{{ block.settings.url }}" class="c-button -primary">
+                  {{ block.settings.text }}
+                </a>
+              {%- endif -%}
             </div>
+          {%- endif -%}
+
+        {%- when 'more_info' -%}
+          {%- if product.metafields.custom.more_info != blank -%}
+            <nav class="product_more" {{ block.shopify_attributes }} aria-label="Más información">
+              {%- for item in product.metafields.custom.more_info.value -%}
+                <details {% if forloop.first %}open{% endif %}>
+                  <summary>
+                    {{ item.title }}
+                    {% render 'component-icon' icon: 'caret', icon_size: 18 %}
+                  </summary>
+                  <div class="c-body">
+                    {{ item.descripcion | metafield_tag }}
+                  </div>
+                </details>
+              {%- endfor -%}
+            </nav>
           {%- endif -%}
 
         {%- when 'custom_liquid' -%}
@@ -273,33 +224,18 @@
       "limit": 1
     },
     {
-      "type": "aperture_methods",
-      "name": "Métodos de apertura",
-      "limit": 1
-    },
-    {
       "type": "description",
       "name": "Descripción del producto",
       "limit": 1
     },
     {
-      "type": "lock_features",
-      "name": "Características",
-      "limit": 1
-    },
-    {
-      "type": "so_features",
-      "name": "Sistema operativo",
-      "limit": 1
-    },
-    {
-      "type": "free",
-      "name": "Envío gratis",
-      "limit": 1
-    },
-    {
       "type": "variant_picker",
       "name": "Variantes del producto",
+      "limit": 1
+    },
+    {
+      "type": "more_info",
+      "name": "Información adicional",
       "limit": 1
     },
     {
@@ -352,7 +288,80 @@
     }
   ],
   "settings": [
-
+    {
+      "type": "header",
+      "content": "Modal boton compra",
+      "info": "Configura el modal de compra"
+    },
+    {
+      "type": "text",
+      "id": "buynow_modal_title",
+      "label": "Título izquierda",
+      "default": "Pagar ahora"
+    },
+    {
+      "type": "richtext",
+      "id": "buynow_modal_description",
+      "label": "Descripción izquierda",
+      "default": "<p>Te enviamos completamente gratis tu purificador. Realiza la instalación tú mismo o agenda la instalación después de finalizar tu compra.</p>"
+    },
+    {
+      "type": "text",
+      "id": "buynow_modal_text",
+      "label": "Texto botón izquierda",
+      "default": "Pagar en línea"
+    },
+    {
+      "type": "text",
+      "id": "after_modal_title",
+      "label": "Título derecha",
+      "default": "Pagar al recibir"
+    },
+    {
+      "type": "richtext",
+      "id": "after_modal_description",
+      "label": "Descripción derecha",
+      "default": "<p>Puedes solicitar la instalación gratuita de tu purificador y pagar en el momento si vives en los siguientes municipios:</p>"
+    },
+    {
+      "type": "url",
+      "id": "after_modal_url",
+      "label": "URL botón derecha"
+    },
+    {
+      "type": "text",
+      "id": "after_modal_text",
+      "label": "Texto botón derecha",
+      "default": "Agendar entrega e instalación"
+    },
+    {
+      "type": "header",
+      "content": "Modal boton renta",
+      "info": "Configura el modal de renta"
+    },
+    {
+      "type": "text",
+      "id": "rent_modal_title",
+      "label": "Título",
+      "default": "Renta un purificador Welken"
+    },
+    {
+      "type": "richtext",
+      "id": "rent_modal_description",
+      "label": "Descripción",
+      "default": "<p>Servicio disponible únicamente en los siguientes municipios:</p>"
+    },
+    {
+      "type": "url",
+      "id": "rent_modal_url",
+      "label": "URL botón"
+    },
+    {
+      "type": "text",
+      "id": "rent_modal_text",
+      "label": "Texto botón",
+      "default": "Agendar instalación"
+    },
   ]
 }
 {% endschema %}

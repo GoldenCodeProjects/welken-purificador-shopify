@@ -45,6 +45,10 @@
     &:active{
       border-color: $color-base-secondary;
     }
+    &::placeholder, &::-webkit-input-placeholder {
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
   }
 
   &_input:active,

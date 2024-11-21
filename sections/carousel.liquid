@@ -28,13 +28,15 @@
                 class="mobile">
               {%- endif -%}
               <div class="swiper-lazy-preloader"></div>
-              <div class="text {{ block.settings.pos_x }} {{ block.settings.pos_y }}">
-                {{ block.settings.description }}
-                {%- if block.settings.button_text != blank and block.settings.button_url != blank -%}
-                  <a href="{{ block.settings.button_url }}" class="c-button -primary">
-                    {{ block.settings.button_text }}
-                  </a>
-                {%- endif -%}
+              <div class="o-container -wide text-wrapper">
+                <div class="text {{ block.settings.pos_x }} {{ block.settings.pos_y }}">
+                  {{ block.settings.description }}
+                  {%- if block.settings.button_text != blank and block.settings.button_url != blank -%}
+                    <a href="{{ block.settings.button_url }}" class="c-button -primary">
+                      {{ block.settings.button_text }}
+                    </a>
+                  {%- endif -%}
+                </div>
               </div>
             </div>
           {%- endif -%}

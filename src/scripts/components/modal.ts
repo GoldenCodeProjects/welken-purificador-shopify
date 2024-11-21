@@ -15,7 +15,9 @@ class Modal extends HTMLElement {
         <button class="modal-close" aria-label="Close" close>
           &times;
         </button>
-        ${content}
+        <div class="modal-content">
+          ${content}
+        </div>
       </div>
     `
     this.closeBtns = this.querySelectorAll('button[close]')

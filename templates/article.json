@@ -1,8 +1,29 @@
 {
   "sections": {
     "main": {
-      "type": "main-article"
+      "type": "main-article",
+      "settings": {
+        "related_heading": "Te puede interesar"
+      }
+    },
+    "17322063472d161ef8": {
+      "type": "apps",
+      "blocks": {
+        "related_blog_posts_pro_app_block_related_settings_zyyeGt": {
+          "type": "shopify:\/\/apps\/related-blog-posts-pro\/blocks\/app-block-related-settings\/f202f651-25fe-4dc3-8b0f-72427627d439",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "related_blog_posts_pro_app_block_related_settings_zyyeGt"
+      ],
+      "settings": {
+        "include_container": true
+      }
     }
   },
-  "order": ["main"]
+  "order": [
+    "main",
+    "17322063472d161ef8"
+  ]
 }

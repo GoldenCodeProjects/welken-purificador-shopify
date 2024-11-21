@@ -78,7 +78,6 @@
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
     border-bottom: 1px solid $color-base-secondary;
-    letter-spacing: 4px;
     text-transform: uppercase;
     @include truncate;
   }
@@ -127,7 +126,6 @@
         font-weight: 500;
         color: $color-base-primary;
         text-decoration: none;
-        letter-spacing: 1px;
         margin-bottom: 0.75rem;
       }
       &_price{

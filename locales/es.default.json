@@ -64,6 +64,7 @@
   },
   "accessibility": {
     "skip_to_text": "Ir directamente al contenido",
+    "skip_to_content": "Ir directamente al contenido",
     "close": "Cerrar",
     "unit_price_separator": "por",
     "vendor": "Proveedor:",

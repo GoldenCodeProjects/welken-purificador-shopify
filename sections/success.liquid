@@ -1,0 +1,13 @@
+{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+
+<div class="success o-container -wide -medium">
+  {{ page.content }}
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.page.name",
+  "tag": "section",
+  "settings": []
+}
+{% endschema %}

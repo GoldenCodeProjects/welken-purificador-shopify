@@ -7,19 +7,11 @@
   {%- liquid
     assign cartridges = section.settings.cartridges_collection
 
-    if collection.url != '/collections/all'
-      render 'collection-grid' collection: collection
-    else
-      for collection in collections
-        if collection.id == cartridges.id
-          continue
-        endif
-        render 'collection-grid' collection: collection
-      endfor
-    endif
-
     if collection.id != cartridges.id
+      render 'collection-grid' collection: collection, title: 'Purificadores', omit: cartridges
       render 'collection-grid' collection: cartridges
+    else
+      render 'collection-grid' collection: collection
     endif
   -%}
 </div>

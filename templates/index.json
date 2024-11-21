@@ -58,6 +58,10 @@
         "image_3": "shopify:\/\/shop_images\/Mask_Group_2.png"
       }
     },
+    "calculator_hjbPx7": {
+      "type": "calculator",
+      "settings": {}
+    },
     "featured_collections_XMapzK": {
       "type": "featured-collections",
       "blocks": {
@@ -119,7 +123,7 @@
         "feature_kndM8P"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/Group_106_ca8208a8-e474-47b9-8fe5-5c3d534c35bc.png"
+        "image": "shopify:\/\/shop_images\/welken.png"
       }
     },
     "reviews_gfazzA": {
@@ -197,10 +201,6 @@
       "settings": {
         "title": "Conoce la opinión  de nuestros clientes"
       }
-    },
-    "calculator_hjbPx7": {
-      "type": "calculator",
-      "settings": {}
     }
   },
   "order": [

@@ -1,13 +1,81 @@
 {{ 'section-main-article.css' | asset_url | stylesheet_tag }}
 
-<div class="article o-container -medium">
-  {%- render 'component-article-card' -%}
+<div class="article-heading o-container -narrow">
+  {% comment %} tags {% endcomment %}
+  <nav class="article_tags" aria-label="Etiquetas del artículo">
+    {% for tag in article.tags %}
+      <a class="c-button -tag" href="{{ shop.url }}/blogs/news/tagged/{{ tag | handle }}" aria-label="Ver artículos relacionados con {{ tag }}">{{ tag }}</a>
+    {% endfor %}
+  </nav>
+  {% comment %} title {% endcomment %}
+  <h1 class="article_title">{{ article.title }}</h1>
+  {% comment %} date {% endcomment %}
+  <time class="article_publish" id="time-{{ article.id }}" datetime="{{ article.published_at }}">
+    {{ article.published_at | date: "%Y-%m-%d" }}
+  </time>
 </div>
+
+{%- if article.image != blank -%}
+  <div class="article-image o-container -narrow">
+    <img class="article_image" src="{{ article.image.src | image_url: width: 1920 }}" alt="{{ article.image.alt }}" width="400" height="400" loading="lazy">
+  </div>
+{%- endif -%}
+
+<div class="main-article o-container -narrow">
+  <article class="article_content">
+    {{ article.content }}
+  </article>
+
+  <hr>
+
+  <strong class="share-title">Comparte este artículo en tus redes sociales:</strong>
+  <div class="share_buttons">
+    {%- assign pagelink = shop.url | append: article.url | append: '?utm_source=share&utm_medium=article&utm_campaign=share-article' | url_encode -%}
+    <a class="share_button" href="https://www.facebook.com/sharer/sharer.php?u={{ pagelink }}" target="_blank" rel="noopener noreferrer" aria-label="Compartir en Facebook">
+      {% render 'component-icon' icon: 'facebook', icon_size: 30 %}
+    </a>
+
+    <a class="share_button" href="https://twitter.com/intent/tweet?url={{ pagelink }}" target="_blank" rel="noopener noreferrer" aria-label="Compartir en Twitter">
+      {% render 'component-icon' icon: 'twitter', icon_size: 30 %}
+    </a>
+
+    <a class="share_button" href="https://www.linkedin.com/shareArticle?url={{ pagelink }}" target="_blank" rel="noopener noreferrer" aria-label="Compartir en LinkedIn">
+      {% render 'component-icon' icon: 'linkedin', icon_size: 30 %}
+    </a>
+
+    <a class="share_button" href="https://api.whatsapp.com/send?text={{ pagelink }}" target="_blank" rel="noopener noreferrer" aria-label="Compartir en WhatsApp">
+      {% render 'component-icon' icon: 'whatsapp', icon_size: 30 %}
+    </a>
+
+    <a class="share_button" href="mailto:?subject={{ article.title }}&body={{ pagelink }}" aria-label="Compartir por correo electrónico">
+      {% render 'component-icon' icon: 'email', icon_size: 30 %}
+    </a>
+  </div>
+</div>
+
+<script defer>
+  // Set time to human readable format MX
+  const timeElements = document.querySelectorAll('.article_publish');
+  timeElements.forEach(timeElement => {
+    const time = timeElement.getAttribute('datetime');
+    const date = new Date(time);
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    timeElement.textContent = date.toLocaleDateString('es-MX', options);
+  });
+</script>
 
 {% schema %}
 {
   "name": "t:sections.article.name",
   "tag": "article",
-  "settings": []
+  "class": "section--main-article",
+  "settings": [
+    {
+      "type": "text",
+      "id": "related_heading",
+      "label": "Titulo de seccion relacionada",
+      "default": "Te puede interesar"
+    }
+  ]
 }
 {% endschema %}

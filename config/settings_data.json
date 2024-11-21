@@ -9,11 +9,11 @@
     "social_instagram_link": "http:\/\/instagram.com\/shopify",
     "social_tiktok_link": "",
     "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
+    "favicon": "shopify:\/\/shop_images\/image_2024-11-21_150730532.png",
     "sections": {
       "cart-collapse": {
         "type": "cart-collapse",
-        "settings": {
-        }
+        "settings": {}
       },
       "menu-navigation": {
         "type": "menu-navigation",
@@ -32,19 +32,8 @@
       },
       "footer": {
         "type": "footer",
-        "blocks": {
-          "shops_hHp3E4": {
-            "type": "shops",
-            "settings": {
-              "text": "Inicio",
-              "url": "\/"
-            }
-          }
-        },
-        "block_order": [
-          "shops_hHp3E4"
-        ],
         "settings": {
+          "menu": "footer",
           "logo-light": "shopify:\/\/shop_images\/welken_logo_2_sin_fondo.png",
           "address_text": "<p>São Paulo 1912, Providencia, 44630 Guadalajara, Jal.<\/p>",
           "address_link": "https:\/\/goo.gl\/maps\/iUa9tyD52Cc5LjAJ6",
@@ -54,12 +43,9 @@
         }
       }
     },
-    "content_for_index": [
-
-    ]
+    "content_for_index": []
   },
   "presets": {
-    "Default": {
-    }
+    "Default": {}
   }
 }

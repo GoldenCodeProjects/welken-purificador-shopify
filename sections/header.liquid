@@ -1,4 +1,3 @@
-{{ 'component-dark-mode-button.css' | asset_url | stylesheet_tag }}
 <script src="{{- 'component-dark-mode-button-script.js' | asset_url -}}" defer></script>
 
 {% style %}
@@ -39,23 +38,23 @@
             {{ link.title }}
           </a>
         {%- else -%}
-          <div class="header_sublist" role="list" tabindex="-1">
-            <a class="header_sublist-title c-navigation">
-              {{ link.title | escape }}
-              {% render 'component-icon' icon: 'caret', icon_size: 15 %}
+          <div class="list" role="list" tabindex="-1">
+            <a class="c-navigation" href="{{ link.url }}" title="{{ link.title }}" aria-expanded="false">
+              {{ link.title }}
+              {% render 'component-icon' icon: 'caret', icon_size: 16 %}
             </a>
 
-            <ul class="header_sublist-elements {% if link.handle == 'products' %}-products{% endif %}">
+            <ul class="details-list {% if link.handle == 'products' %}-products{% endif %}">
               {%- for childlink in link.links -%}
                 <li>
                   {%- if childlink.links == blank -%}
-                    <a href="{{ childlink.url }}" class="header_sublist-item c-navigation">{{ childlink.title | escape }}</a>
+                    <a href="{{ childlink.url }}" class="c-navigation">{{ childlink.title | escape }}</a>
                   {%- else -%}
-                    <div class="header_deepsublist" role="list" tabindex="-1">
-                      <span class="header_deepsublist-title c-navigation">{{ childlink.title | escape }}</span>
-                      <ul class="header_deepsublist-elements">
+                    <div class="sublist" role="list" tabindex="-1">
+                      <span class="c-navigation subtitle">{{ childlink.title | escape }}</span>
+                      <ul class="sublist_list">
                         {%- for grandchildlink in childlink.links -%}
-                          <li class="header_deepsublist-item">
+                          <li>
                             <a href="{{ grandchildlink.url }}" class="c-navigation {% if grandchildlink.current %}-active{% endif %}"
                             {% if grandchildlink.current %} aria-current="page"{% endif %}>
                               {{ grandchildlink.title | escape }}
@@ -76,7 +75,7 @@
     <div class="header_buttons">
       <cart-icon class="header_cart-icon">
         <button class="header_buttons_btn -cart">
-          {%- render 'component-icon' icon: 'cart', icon_size: 18 -%}
+          {%- render 'component-icon' icon: 'cart', icon_size: 24 -%}
           <span class="data-quantity">0</span>
         </button>
       </cart-icon>

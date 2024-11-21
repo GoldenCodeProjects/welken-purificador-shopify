@@ -6,7 +6,7 @@
   padding: 1rem 2rem;
   border-bottom: 1px solid rgba(var(--color-base-text), 0.2);
   box-shadow: 0 0 0.5rem rgba(var(--color-base-text), 0.2);
-  @include mq-down(xs) {
+  @include mq-down(sm) {
     padding: 0.75rem 0.5rem;
   }
 
@@ -16,7 +16,7 @@
     align-items: center;
     gap: 2rem;
     padding: 0;
-    @include mq-down(xs) {
+    @include mq-down(sm) {
       grid-template-columns: auto 1fr;
     }
   }
@@ -31,22 +31,66 @@
       cursor: pointer;
       text-decoration: none;
     }
-    @include mq-down(xs) {
+    @include mq-down(sm) {
       font-size: 1.2rem;
     }
   }
 
   &_nav{
+    justify-self: flex-end;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     gap: 1rem;
-    a{
-      color: $color-base-text;
-      font-weight: 600;
-    }
-    @include mq-down(xs) {
+    @include mq-down(sm) {
       display: none;
+    }
+    &, a, span, svg{
+      color: #707070;
+      font-weight: 500;
+      width: max-content;
+    }
+    .c-navigation{
+      .c-icon.-caret{transition: .3s transform ease}
+      &:hover .c-icon.-caret {
+        transform: rotate(180deg);
+      }
+    }
+    .list{
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      a{width: max-content}
+      .details-list{
+        width: max-content;
+        z-index: 10;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        opacity: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        visibility: hidden;
+        border-radius: 4px;
+        transition: .7s ease-in-out transform, .7s ease-in-out opacity;
+        background-color: $color-base-primary;
+        padding: 0.75rem;
+        box-shadow: 2px 2px 7px 0px rgba(black, 0.15);
+        transform: translateY(100%) translateX(-50%);
+        &, a, span, svg{
+          color: $color-base-background-primary;
+        }
+        li{
+          display: inline-block;
+          line-height: 1;
+        }
+      }
+      &:hover .details-list{
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(100%) translateX(-25%);
+      }
     }
   }
 

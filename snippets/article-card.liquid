@@ -1,0 +1,33 @@
+<a href="{{ article.url }}" class="article-card" title="{{ article.title }}">
+  <div class="article-card_image">
+    <img src="{{ article.image.src | image_url: width: 400, height: 400 }}"
+    alt="{{ article.image.alt }}" width="400" height="400" loading="lazy">
+    {% comment %} tag {% endcomment %}
+    {% if article.tags.size > 0 %}
+      <div class="article-card_tag">
+        <span class="c-button -tag -active">{{ article.tags.first }}</span>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="article-card_text">
+    <h3 class="article-card_title">{{ article.title }}</h3>
+
+    <p class="article-card_excerpt">
+      {% comment %} {{ article.excerpt | strip_html | truncatewords: 8 }} {% endcomment %}
+      {%- if article.excerpt.size > 0 -%}
+        {{ article.excerpt | strip_html | truncatewords: 13 }}
+      {%- else -%}
+        {{ article.content | strip_html | truncatewords: 13 }}
+      {%- endif -%}
+    </p>
+
+    <div class="article-card_meta">
+      <time datetime="{{ article.published_at | date: "%Y-%m-%d" }}"
+        class="article-card_date"
+      >
+        {{ article.published_at | date: "%Y-%m-%d" }}
+      </time>
+    </div>
+  </div>
+</a>

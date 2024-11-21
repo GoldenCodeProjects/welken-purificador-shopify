@@ -3,11 +3,15 @@ import './components/modal'
 
 declare global {
   interface Window {
-    Shopify: any
+    Shopify: {
+      CountryProvinceSelector: any
+      bind: (fn: any, scope: any) => any
+      setSelectorByValue: (selector: any, value: any) => number
+      addListener: (target: any, eventName: string, callback: any) => void
+      postLink: (path: string, options: any, cb: any) => void
+    }
   }
 }
-
-console.log('Hello from Theme Layout 👋.')
 
 window.onload = () => {
   const cartElement = document.querySelector('cart-component') as any

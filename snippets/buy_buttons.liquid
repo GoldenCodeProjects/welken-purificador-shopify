@@ -1,0 +1,94 @@
+<div class="product_buttons product-form" {{ block.shopify_attributes }}>
+  <product-form>
+    <div class="product-form__error-message-wrapper c-body -error u-hide" role="alert">
+      {% render 'component-icon' icon: 'error', icon_size: 20 %}
+      <span class="product-form__error-message"></span>
+    </div>
+
+    {%- assign product_form_id = 'product-form-' | append: section.id -%}
+    {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <input id="quantityValue" type="hidden" name="quantity" value="1">
+
+      <div class="quantity">
+        <label for="quantity" class="product_label"
+          onclick="document.querySelector('product-form .quantity-btn').click()"
+        >Cantidad</label>
+        <update-quantity target="#quantityValue" max="{{ product.selected_or_first_available_variant.inventory_quantity }}">
+          <button type="button" class="quantity-minus" down>
+            -
+          </button>
+          <input type="number" id="quantity" name="quantity" value="1" min="1" max="100">
+          <button type="button" class="quantity-plus" up>
+            +
+          </button>
+        </update-quantity>
+      </div>
+
+      <div class="product-form__buttons">
+        {%- if product.metafields.custom.alternative_btns.value != true -%}
+          <button
+            type="submit"
+            name="add"
+            class="c-button -secondary"
+            {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+          >
+            <span>Agregar al carrito</span>
+          </button>
+        {%- else -%}
+          <component-modal id="buy-modal">
+            <div class="now">
+              <div class="text">
+                <h2>{{ section.settings.buynow_modal_title }}</h2>
+                {{ section.settings.buynow_modal_description }}
+              </div>
+              <button class="c-button -white" name="add" checkout type="submit" aria-label="Comprar ahora">
+                {{ section.settings.buynow_modal_text }}
+              </button>
+            </div>
+            <div class="after">
+              <div class="text">
+                <h2>{{ section.settings.after_modal_title }}</h2>
+                {{ section.settings.after_modal_description }}
+              </div>
+              {%- if section.settings.after_modal_text != blank and section.settings.after_modal_url -%}
+                <a class="c-button -secondary" title="{{ section.settings.after_modal_text }}" href="{{ section.settings.after_modal_url }}">
+                  {{ section.settings.after_modal_text }}
+                </a>
+              {%- endif -%}
+            </div>
+          </component-modal>
+          <open-modal target="#buy-modal">
+            <button
+              type="button"
+              name="buy"
+              class="c-button -secondary"
+              {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+            >
+              Comprar
+            </button>
+          </open-modal>
+          <component-modal id="rent-modal">
+            <h2>{{ section.settings.rent_modal_title }}</h2>
+            {{ section.settings.rent_modal_description }}
+            {%- if section.settings.rent_modal_text != blank and section.settings.rent_modal_url -%}
+              <a class="c-button -secondary" title="{{ section.settings.rent_modal_text }}" href="{{ section.settings.rent_modal_url }}">
+                {{ section.settings.rent_modal_text }}
+              </a>
+            {%- endif -%}
+          </component-modal>
+          <open-modal target="#rent-modal">
+            <button
+              type="button"
+              name="buy"
+              class="c-button -primary"
+              {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+            >
+              Rentar
+            </button>
+          </open-modal>
+        {%- endif -%}
+      </div>
+    {%- endform -%}
+  </product-form>
+</div>
