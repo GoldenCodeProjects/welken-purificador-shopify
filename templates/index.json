@@ -15,9 +15,9 @@
         "a2495587-9ae1-4673-9ea2-8a81d3b7e74f": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Sin_titulo-1.jpg",
+            "image": "shopify://shop_images/banner_residencial.png",
             "image_mobile": "shopify://shop_images/banner_residencial_mobile.png",
-            "description": "<h2 style=\"color: #36C2D5;\">Welken en tu hogar</h2>\n<p style=\"color: #8A989A;\">Pureza inigualable del agua para toda tu familia</p>",
+            "description": "<h2>Welken en tu hogar</h2>\n<p>Pureza inigualable del agua para toda tu familia</p>",
             "pos_x": "-left",
             "button_text": "Comprar ahora",
             "button_url": "shopify://collections/all"
@@ -26,7 +26,7 @@
         "image_WyGmYD": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/Group_110.jpg",
+            "image": "shopify://shop_images/banner_comercial.png",
             "image_mobile": "shopify://shop_images/banner_comercial_mobile.png",
             "description": "<h2>Welken en tu oficina o negocio</h2>\n<p>Ofrece a tus colaboradores o clientes la mejor calidad de agua</p>",
             "pos_x": "-left",
