@@ -17,7 +17,7 @@ component-carousel {
   background-color: $color-base-background-secondary;
   width: 100%;
   aspect-ratio: 3 / 1;
-  @include mq-down('sm') {
+  @include mq-down('xs') {
     aspect-ratio: 3 / 4;
   }
 
@@ -56,7 +56,7 @@ component-carousel {
         display: none;
       }
 
-      @include mq-down('sm') {
+      @include mq-down('xs') {
         .desktop {
           display: none;
         }
@@ -104,7 +104,7 @@ component-carousel {
       justify-content: center;
     }
 
-    @include mq-down(sm) {
+    @include mq-down(xs) {
       display: none !important;
     }
   }
@@ -120,7 +120,7 @@ component-carousel {
   .swiper-pagination-bullets.swiper-pagination-horizontal {
     bottom: 2rem !important;
 
-    @include mq-down(sm) {
+    @include mq-down(xs) {
       bottom: 1rem !important;
     }
   }
@@ -141,7 +141,7 @@ component-carousel {
       padding: 1rem 3rem;
       color: #fff;
       font-size: 1rem;
-      @include mq-down('sm') {
+      @include mq-down('xs') {
         padding: 1rem;
       }
 
