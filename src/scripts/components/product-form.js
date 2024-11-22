@@ -47,12 +47,10 @@ if (!customElements.get('product-form')) {
       }
 
       onSuccess(cart) {
-        console.dir(cart)
         document.querySelector('cart-component').addItem()
       }
 
       onError(error) {
-        console.error(error)
         Toastify({
           text: 'Ya no es posible agregar mas productos',
           duration: 3000,

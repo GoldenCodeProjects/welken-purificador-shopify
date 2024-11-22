@@ -56,20 +56,20 @@
       flex-direction: column;
       margin-left: auto;
       padding: 3rem 1rem;
-      max-width: calc((1440px / 2) - 1rem);
-      padding-right: calc(((100vw - 1440px + 2px) / 2) + 1rem);
-      @include mq-only('lg') {
-        max-width: calc((1280px / 2) - 1rem);
-        padding-right: calc(((100vw - 1280px + 2px) / 2) + 1rem);
+      max-width: 450px;
+      margin: 0 auto;
+      textarea{
+        height: 120px;
+        min-height: 80px;
+        max-height: 200px;
       }
-      @include mq-only('md') {
-        max-width: calc((1024px / 2) - 1rem);
-        padding-right: calc(((100vw - 1024px + 2px) / 2) + 1rem);
+      button[type="submit"] {
+        margin-top: 1rem;
+        width: max-content;
+        margin-left: auto;
       }
       @include mq-down('sm') {
         max-width: 400px;
-        padding-right: 1rem;
-        margin: 0 auto;
       }
     }
 

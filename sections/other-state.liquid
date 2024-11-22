@@ -1,7 +1,7 @@
 {{ 'section-other-state.css' | asset_url | stylesheet_tag }}
 
-<div class="o-container -narrow wrapper">
-  {% form 'contact', return_to: 'back' %}
+<div class="o-container -wide wrapper">
+  {% form 'contact', return_to: '/pages/success' %}
     {%- if form.posted_successfully? -%}
       {%- comment -%}<---< - See with: "?contact_posted=true#contact_form" - >--->{%- endcomment -%}
       <h3 class="form_status c-body -bold -h3 -success" tabindex="-1" autofocus>

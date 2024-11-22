@@ -3,7 +3,7 @@
 {%- if section.settings.type_form != blank -%}
   <div class="image">
     {%- if section.settings.banner != blank -%}
-      <img src="{{ section.settings.banner | img_url: '1540x' }}"
+      <img src="{{ section.settings.banner | image_url: width: 1540 }}"
       alt="{{ section.settings.banner.alt }}"
       width="{{ section.settings.banner.width }}"
       height="{{ section.settings.banner.height }}"

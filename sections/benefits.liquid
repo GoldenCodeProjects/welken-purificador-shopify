@@ -8,17 +8,17 @@
         <h3>{{ section.settings.heading_1 }}</h3>
         <p>{{ section.settings.content_1 }}</p>
       </div>
-      <img src="{{ section.settings.image_1 | img_url: 'master' }}" alt="">
+      <img src="{{ section.settings.image_1 | image_url: width: 600 }}" alt="{{ section.settings.heading_1 }}" width="600" height="600">
     </div>
     <div class="benefit">
-      <img src="{{ section.settings.image_2 | img_url: 'master' }}" alt="">
+      <img src="{{ section.settings.image_2 | image_url: width: 600 }}" alt="{{ section.settings.heading_2 }}" width="600" height="600">
       <div class="text">
         <h3>{{ section.settings.heading_2 }}</h3>
         <p>{{ section.settings.content_2 }}</p>
       </div>
     </div>
     <div class="benefit">
-      <img src="{{ section.settings.image_3 | img_url: 'master' }}" alt="">
+      <img src="{{ section.settings.image_3 | image_url: width: 600 }}" alt="{{ section.settings.heading_3 }}" width="600" height="600">
       <div class="text">
         <h3>{{ section.settings.heading_3 }}</h3>
         <p>{{ section.settings.content_3 }}</p>

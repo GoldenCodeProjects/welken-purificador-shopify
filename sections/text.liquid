@@ -12,7 +12,7 @@
         </div>
 
       {%- when 'image' -%}
-        <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt }}">
+        <img src="{{ block.settings.image | image_url: width: 600 }}" alt="{{ block.settings.image.alt }}">
     {%- endcase -%}
   {%- endfor -%}
 </div>

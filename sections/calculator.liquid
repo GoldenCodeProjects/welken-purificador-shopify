@@ -31,7 +31,11 @@
     </p>
   </component-calculator>
 
-  <a href="#" class="c-button -primary">Comprar ahora</a>
+  {%- if section.settings.button_url != blank and section.settings.button_text != blank -%}
+    <a class="c-button -primary" href="{{ section.settings.button_url }}">
+      {{ section.settings.button_text }}
+    </a>
+  {%- endif -%}
 </div>
 
 {% schema %}
@@ -39,10 +43,22 @@
   "name": "Calculadora",
   "class": "section--calculator",
   "tag": "section",
+  "settings": [
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "URL del botón",
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Texto del botón",
+    },
+  ],
   "presets": [
     {
       "name": "Calculadora",
-    }
+    },
   ]
 }
 {% endschema %}

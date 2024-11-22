@@ -60,7 +60,10 @@
     },
     "calculator_hjbPx7": {
       "type": "calculator",
-      "settings": {}
+      "settings": {
+        "button_url": "shopify:\/\/collections\/all",
+        "button_text": "Comprar ahora"
+      }
     },
     "featured_collections_XMapzK": {
       "type": "featured-collections",

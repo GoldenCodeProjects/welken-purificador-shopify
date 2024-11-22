@@ -143,7 +143,6 @@
 <script defer>
   window.addEventListener('load', () => {
     typeof CustomerAddresses !== 'undefined' && new CustomerAddresses();
-    console.log(Shopify)
     if (Shopify && Shopify.CountryProvinceSelector) {
       new Shopify.CountryProvinceSelector('address_country', 'address_province', {
         hideElement: 'address_province-container',

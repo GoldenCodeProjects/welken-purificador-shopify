@@ -1,0 +1,15 @@
+@import './../settings/colors';
+
+main{
+  justify-content: center;
+  .success{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 0;
+    h1{
+      color: $color-base-primary;
+    }
+  }
+}

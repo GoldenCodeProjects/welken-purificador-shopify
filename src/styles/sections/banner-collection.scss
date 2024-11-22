@@ -13,7 +13,8 @@
     border-radius: 1.5rem;
     overflow: hidden;
     @include mq-down('md') {
-      aspect-ratio: 16/9;
+      aspect-ratio: 3 / 4;
+      max-height: 400px;
     }
     img{
       width: 100%;
@@ -45,6 +46,9 @@
       margin: 0;
       padding: 0;
       line-height: 1;
+      @include mq-down('md') {
+        font-size: 1.5rem;
+      }
     }
   }
 }

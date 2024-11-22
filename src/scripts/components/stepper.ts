@@ -2,23 +2,27 @@ import Swal from "sweetalert2";
 
 class StepperForm extends HTMLElement {
   private currentStep: number = 0;
+  private form: HTMLFormElement | null = null;
   private fieldsets: HTMLFieldSetElement[] = [];
   private nextButton: HTMLButtonElement | null = null;
   private prevButton: HTMLButtonElement | null = null;
   private submitButton: HTMLButtonElement | null = null;
   private totalSteps: number = 0;
   private dateInput: HTMLInputElement | null = null;
+  private ownerInput: HTMLInputElement | null = null;
 
   constructor() {
     super();
   }
 
   connectedCallback(): void {
+    this.form = this.querySelector("form");
     this.fieldsets = Array.from(this.querySelectorAll("fieldset"));
     this.nextButton = this.querySelector("#next") as HTMLButtonElement;
     this.prevButton = this.querySelector("#prev") as HTMLButtonElement;
     this.submitButton = this.querySelector("#submit") as HTMLButtonElement;
     this.dateInput = this.querySelector("#fecha") as HTMLInputElement;
+    this.ownerInput = this.querySelector("#owner") as HTMLInputElement
     this.totalSteps = this.fieldsets.length;
 
     this.fieldsets.forEach((fieldset, index) => {
@@ -37,6 +41,12 @@ class StepperForm extends HTMLElement {
       this.dateInput.addEventListener("input", () => this.validateDate());
     }
 
+    this.form?.addEventListener("change", () =>
+      this.validateOwner(
+        new FormData(this.form).get("contact[quiero]")
+      )
+    );
+
     this.updateStepCount();
   }
 
@@ -47,6 +57,11 @@ class StepperForm extends HTMLElement {
         title: "Campos incompletos",
         text: "Por favor, llena todos los campos requeridos.",
         confirmButtonText: "Entendido",
+        buttonsStyling: false,
+        customClass: {
+          confirmButton: "c-button -primary",
+          cancelButton: "c-button -secondary",
+        },
       });
       return;
     }
@@ -85,28 +100,10 @@ class StepperForm extends HTMLElement {
     return currentFields.every((field) => field.reportValidity());
   }
 
-  private async validateDate(): Promise<void> {
-    if (this.dateInput) {
-      const selectedDate = new Date(this.dateInput.value);
-      const dayOfWeek = selectedDate.getDay(); // Sunday is 0
-      console.log(dayOfWeek);
-
-      if (dayOfWeek === 6) {
-        await Swal.fire({
-          icon: "error",
-          title: "Fecha no válida",
-          text: "No se permite agendar en domingos. Por favor, elige otra fecha.",
-          confirmButtonText: "Entendido",
-        });
-        this.dateInput.value = ""; // Reset the input
-      }
-    }
-  }
-
   private updateStepCount(): void {
     const countSpan = this.nextButton?.querySelector(".count");
     if (countSpan) {
-      countSpan.textContent = `${this.currentStep + 1}/${this.totalSteps}`;
+      countSpan.textContent = this.currentStep < 2 ? ` ${this.currentStep + 1}/${this.totalSteps}` : ' ';
     }
 
     if (this.prevButton) {
@@ -114,8 +111,38 @@ class StepperForm extends HTMLElement {
     }
 
     if (this.nextButton) {
-      this.nextButton.textContent =
-        this.currentStep === this.totalSteps - 1 ? "Enviar" : "Siguiente";
+      this.nextButton.querySelector('.text').textContent =
+        this.currentStep === this.totalSteps - 1 ? "Enviar" : "Siguiente ";
+    }
+  }
+
+  private async validateDate(): Promise<void> {
+    if (this.dateInput) {
+      const selectedDate = new Date(this.dateInput.value);
+      const dayOfWeek = selectedDate.getDay(); // Sunday is 0
+
+      if (dayOfWeek === 6) {
+        await Swal.fire({
+          icon: "error",
+          title: "Día no disponible",
+          text: "Lo sentimos, no trabajamos los domingos.",
+          confirmButtonText: "Entendido",
+          buttonsStyling: false,
+          customClass: {
+            confirmButton: "c-button -primary",
+            cancelButton: "c-button -secondary",
+          },
+        });
+        this.dateInput.value = ""; // Reset the input
+      }
+    }
+  }
+
+  private async validateOwner(value: FormDataEntryValue | null): Promise<void> {
+    if(value === 'comprar') {
+      this.ownerInput?.classList.remove('u-hide');
+    } else {
+      this.ownerInput?.classList.add('u-hide');
     }
   }
 

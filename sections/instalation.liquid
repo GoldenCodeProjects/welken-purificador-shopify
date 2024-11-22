@@ -2,6 +2,10 @@
 <script src="{{ 'component-stepper-script.js' | asset_url }}" defer></script>
 
 <stepper-form class="o-container -narrow wrapper">
+  <div class="image">
+    <img src="{{ section.settings.image | image_url: width: 800 }}" alt="{{ page.title }}" width="800" height="800">
+  </div>
+
   <div class="content">
     <h1 class="title">{{ page.title }}</h1>
     <div class="text">
@@ -9,13 +13,13 @@
     </div>
   </div>
 
-  {% form 'contact', return_to: 'back' %}
+  {% form 'contact', return_to: '/pages/success' %}
     <input type="hidden" name="contact[type]" value="instalacion">
     <textarea name="contact[body]" required hidden>Instalación dentro de la ZMG</textarea>
     <button type="submit" id="submit"></button>
 
     <fieldset>
-      <legend class="c-field_label">Dirección de instalación</legend>
+      <legend class="c-field_label u-hide-visually">Dirección de instalación</legend>
       {% comment %} Municipio {% endcomment %}
       <div class="c-field">
         <select name="contact[municipio]" id="municipio" class="c-field_input" required>
@@ -54,7 +58,7 @@
     </fieldset>
 
     <fieldset hidden>
-      <legend class="c-field_label">Datos de contacto</legend>
+      <legend class="c-field_label u-hide-visually">Datos de contacto</legend>
       {% comment %} Nombre {% endcomment %}
       <div class="c-field">
         <input type="name" name="contact[name]" id="name"
@@ -81,7 +85,19 @@
     </fieldset>
 
     <fieldset hidden>
-      <legend class="c-field_label">Hora y fecha</legend>
+      <legend class="c-field_label u-hide-visually">Hora y fecha</legend>
+      {% comment %} Opción {% endcomment %}
+      <div class="c-field -radio">
+        <label for="contact[quiero]" class="c-field_label">¿Cuál opción estás buscando?</label>
+        <label for="comprar" class="c-field_radio">
+          <input type="radio" name="contact[quiero]" value="comprar" id="comprar" required checked>
+          <span>Quiero comprar</span>
+        </label>
+        <label for="rentar" class="c-field_radio">
+          <input type="radio" name="contact[quiero]" value="rentar" id="rentar" required>
+          <span>Quiero rentar</span>
+        </label>
+      </div>
       {% comment %} Fecha, block sundays {% endcomment %}
       <div class="c-field">
         <input type="date" name="contact[fecha]" id="fecha"
@@ -100,6 +116,18 @@
         </select>
         <label for="hora" class="c-field_label">Hora</label>
       </div>
+      {% comment %} ¿Ya cuentas con el Purificador Welken? {% endcomment %}
+      <div class="c-field -radio" id="owner">
+        <label for="contact[tengo_uno]" class="c-field_label">¿Ya cuentas con el Purificador Welken?</label>
+        <label for="si" class="c-field_radio">
+          <input type="radio" name="contact[tengo_uno]" value="si" id="si">
+          <span>Sí, ya realicé mi compra en línea</span>
+        </label>
+        <label for="no" class="c-field_radio">
+          <input type="radio" name="contact[tengo_uno]" value="no" id="no" checked>
+          <span>No, deseo que lleven el Purificador y pagarlo contra entrega</span>
+        </label>
+      </div>
     </fieldset>
 
     {% comment %} Controls {% endcomment %}
@@ -108,7 +136,7 @@
         Anterior
       </button>
       <button type="button" class="c-button -secondary" id="next">
-        Siguiente
+        <span class="text">Siguiente </span>
         <span class="count">1/3</span>
       </button>
     </div>
@@ -120,6 +148,12 @@
   "name": "Formulario de instalacion",
   "tag": "section",
   "class": "section--instalation",
-  "settings": [],
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Imagen",
+    },
+  ],
 }
 {% endschema %}

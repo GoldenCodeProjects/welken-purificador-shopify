@@ -39,21 +39,27 @@
     }
 
     .wrapper{
-      padding-top: 2rem;
+      padding: 2rem 0;
       position: relative;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem;
       align-items: center;
       @include mq-down(sm){
         grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas: "img" "content" "locations";
+        gap: 1rem;
       }
       .content{
-        font-weight: 700;
+        grid-area: content;
+        font-weight: 500;
         @include mq-down(sm){
           text-align: center;
         }
       }
       .image{
+        grid-area: img;
         width: 100%;
         max-width: 600px;
         object-fit: contain;
@@ -64,6 +70,7 @@
         }
       }
       ul.locations{
+        grid-area: locations;
         list-style: none;
         list-style-position: inside;
         padding-left: 1rem;
@@ -101,7 +108,7 @@
     margin: 0 auto;
     text-align: center;
     @include mq-down(sm){
-      margin-top: 4rem;
+      margin-top: 1rem;
     }
     a{
       margin-top: 1rem;

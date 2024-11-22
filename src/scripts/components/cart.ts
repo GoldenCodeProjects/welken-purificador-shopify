@@ -64,7 +64,6 @@ class CartComponent extends HTMLElement {
   }
 
   open() {
-    console.log('open')
     this.classList.add('-active')
     document.documentElement.style.overflow = 'hidden'
     this.lineItemsElement = (Array.from(document.querySelectorAll('.product-item')) as unknown as HTMLElement[]).reverse()
@@ -183,14 +182,12 @@ class AddProductButton extends HTMLElement {
       .catch(this.onError.bind(this))
       .finally(() => {
         this.icons.forEach((icon: CartIcon) => {
-          console.log(icon)
           icon.calculateItems()
         })
       })
   }
 
   onSuccess(cart) {
-    console.dir(cart)
     this.cartComponent.addItem()
     Toastify({
       text: 'Producto agregado al carrito',

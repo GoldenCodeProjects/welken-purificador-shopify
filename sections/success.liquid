@@ -1,7 +1,11 @@
-{{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+{{ 'section-success.css' | asset_url | stylesheet_tag }}
 
-<div class="success o-container -wide -medium">
+<div class="success o-container -narrow -medium">
   {{ page.content }}
+
+  <a class="c-button -primary" href="/">
+    Regresar al inicio
+  </a>
 </div>
 
 {% schema %}

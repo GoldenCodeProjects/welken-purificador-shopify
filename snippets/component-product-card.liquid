@@ -27,7 +27,7 @@
 
 <div class="c-product-card {% if simple_render == true %}-simple{% endif %}">
   <a href="{{ product.url }}" class="c-product-card_featured_image">
-    <img src="{{ product.featured_image | img_url: '400x' }}"
+    <img src="{{ product.featured_image | image_url: width: 500 }}"
     alt="{{ product.featured_image.alt }}"
     width="{{ product.featured_image.width }}"
     height="{{ product.featured_image.height }}"

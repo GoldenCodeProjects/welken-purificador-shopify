@@ -29,8 +29,16 @@
     grid-template-areas: "one two two" "one three three";
     gap: 0.5rem;
     @include mq-down('sm'){
-      grid-template-columns: 1fr;
-      grid-template-areas: "one" "two" "three";
+      display: flex;
+      overflow-x: auto;
+      align-items: stretch;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      gap: 1rem;
+      &::-webkit-scrollbar{
+        display: none;
+      }
     }
     .benefit{
       img{
@@ -88,6 +96,26 @@
         }
         @include mq-down('sm'){
           grid-template-columns: 1fr;
+        }
+      }
+      @include mq-down('sm'){
+        flex: 0 0 80%;
+        display: grid !important;
+        grid-template-areas: "image" "text";
+        grid-template-rows: auto 1fr;
+        background-color: $color-base-background-secondary;
+        flex-direction: column !important;
+        border-radius: 1rem;
+        &:last-child{
+          margin-right: 0;
+        }
+        img{
+          grid-area: image;
+          aspect-ratio: 16 / 9;
+        }
+        .text{
+          grid-area: text;
+          padding: 1rem;
         }
       }
     }

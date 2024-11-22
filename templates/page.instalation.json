@@ -2,7 +2,9 @@
   "sections": {
     "main": {
       "type": "instalation",
-      "settings": {}
+      "settings": {
+        "image": "shopify:\/\/shop_images\/welken.png"
+      }
     },
     "other": {
       "type": "other-state",

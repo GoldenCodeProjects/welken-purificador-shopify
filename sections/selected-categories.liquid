@@ -7,7 +7,7 @@
       <div class="collection">
         <div class="collection_image">
           <a href="{{ collection.url | within: collection }}" title="{{ collection.title }}">
-            <img src="{{ collection.image | img_url: 'master' }}" alt="{{ collection.title }}">
+            <img src="{{ collection.image | image_url: width: 600 }}" alt="{{ collection.title }}">
           </a>
         </div>
         <span class="collection_title">{{ collection.title }}</span>
