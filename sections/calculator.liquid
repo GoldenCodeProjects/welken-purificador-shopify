@@ -5,7 +5,8 @@
 
 
 <div class="o-container -narrow">
-  <h2 class="section_title">¿Cuánto ahorrarías al año con Welken?</h2>
+  <h2 class="section_title">{{ section.settings.title }}</h2>
+  <p class="section_description">{{ section.settings.content }}</p>
 
   <component-calculator>
     <form>
@@ -44,6 +45,18 @@
   "class": "section--calculator",
   "tag": "section",
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Título",
+      "default": "¿Cuánto ahorrarías al año con Welken?"
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Descripción",
+      "default": "Simulación para el purificador de uso residencial Welken 100G",
+    },
     {
       "type": "url",
       "id": "button_url",

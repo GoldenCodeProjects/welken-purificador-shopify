@@ -24,15 +24,15 @@
   }
 
   .o-container{
+    padding: 0;
     overflow: hidden;
   }
 
-  .reviews{
-    padding-top: 3rem;
-    padding-bottom: 9rem;
+  .reviews-wrapper{
+    position: relative;
+    padding: 3rem 3rem 9rem 3rem;
     @include mq-down(sm){
-      padding-top: 2rem;
-      padding-bottom: 6rem;
+      padding: 2rem 1rem 6rem 1rem;
     }
     .swiper-button-prev,
     .swiper-button-next{

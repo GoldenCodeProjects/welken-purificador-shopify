@@ -43,7 +43,7 @@ class StepperForm extends HTMLElement {
 
     this.form?.addEventListener("change", () =>
       this.validateOwner(
-        new FormData(this.form).get("contact[quiero]")
+        new FormData(this.form).get("contact[comprar_o_rentar]")
       )
     );
 
