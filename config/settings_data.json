@@ -41,6 +41,16 @@
           "follow_text": "Sígueme en mis redes",
           "contact_email": "contacto@welken.mx"
         }
+      },
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "announcement_bar_enable": "true",
+          "announcement_bar_text": "Envíos gratis a todo México",
+          "announcement_bar_link_url": "shopify:\/\/collections\/all",
+          "announcement_bar_background_color": "#35C2D5",
+          "announcement_bar_text_color": "#FFFFFF"
+        }
       }
     },
     "content_for_index": []

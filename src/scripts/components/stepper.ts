@@ -103,7 +103,7 @@ class StepperForm extends HTMLElement {
   private updateStepCount(): void {
     const countSpan = this.nextButton?.querySelector(".count");
     if (countSpan) {
-      countSpan.textContent = this.currentStep < 2 ? ` ${this.currentStep + 1}/${this.totalSteps}` : ' ';
+      countSpan.textContent = `${this.currentStep + 1}/${this.totalSteps}`;
     }
 
     if (this.prevButton) {
@@ -112,7 +112,7 @@ class StepperForm extends HTMLElement {
 
     if (this.nextButton) {
       this.nextButton.querySelector('.text').textContent =
-        this.currentStep === this.totalSteps - 1 ? "Enviar" : "Siguiente ";
+        this.currentStep === this.totalSteps - 1 ? "Enviar" : "Siguiente";
     }
   }
 

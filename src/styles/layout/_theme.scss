@@ -5,14 +5,14 @@ body {
   max-width: 100vw;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto auto 1fr auto;
   scroll-behavior: smooth;
   font-size: 18px;
   color: $color-base-text;
   font-family: $font-body-family;
   font-weight: $font-body-weight;
 
-  &:not(.template-index) #shopify-section-header{
+  #shopify-section-header{
     position: sticky;
     top: 0;
     background-color: $color-base-background-primary;

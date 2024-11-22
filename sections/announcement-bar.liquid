@@ -1,0 +1,108 @@
+{%- if section.settings.announcement_bar_enable == 'true' -%}
+  <div
+    class="announcement-bar"
+    style="background-color: {{ section.settings.announcement_bar_background_color }}; color: {{ section.settings.announcement_bar_text_color }};"
+  >
+    {%- if section.settings.announcement_bar_link_url != blank -%}
+      <a class="wrapper" href="{{ section.settings.announcement_bar_link_url }}">
+    {%- else -%}
+      <div class="wrapper">
+    {%- endif -%}
+
+    <p class="announcement-bar_text">
+      {{ section.settings.announcement_bar_text }}
+    </p>
+
+    {%- if section.settings.announcement_bar_link_url != blank -%}
+      </a>
+    {%- else -%}
+      </div>
+    {%- endif -%}
+
+    {% comment %} Extras {% endcomment %}
+    {%- if section.settings.social_list_enable == true -%}
+      <div class="extras">
+        <a
+          class="phone"
+          href="tel:{{ section.settings.announcement_bar_phone | remove: ' ' }}"
+          aria-label="Llámanos"
+          title="Llámanos"
+          target="_blank"
+        >
+          {% render 'component-icon', icon: 'phone', icon_size: 18 %}
+          {{ section.settings.announcement_bar_phone }}
+        </a>
+        {% render 'component-social-list' %}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <style>
+    .announcement-bar:is(p, a) {
+      color: {{ section.settings.announcement_bar_text_color }};
+    }
+    .announcement-bar ::selection {
+      background-color: {{ section.settings.announcement_bar_text_color }};
+      color: {{ section.settings.announcement_bar_background_color }};
+    }
+  </style>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Barra de anuncio",
+  "settings": [
+    {
+      "type": "radio",
+      "id": "announcement_bar_enable",
+      "label": "Mostrar u ocultar anuncio",
+      "options": [
+        {
+          "value": "true",
+          "label": "Mostrar"
+        },
+        {
+          "value": "false",
+          "label": "Ocultar"
+        }
+      ],
+      "default": "true"
+    },
+    {
+      "type": "text",
+      "id": "announcement_bar_text",
+      "label": "Texto exibido",
+      "default": "Envíos gratis a todo México"
+    },
+    {
+      "type": "url",
+      "id": "announcement_bar_link_url",
+      "label": "URL de destino"
+    },
+    {
+      "type": "color",
+      "id": "announcement_bar_background_color",
+      "label": "Color de fondo",
+      "default": "#35C2D5"
+    },
+    {
+      "type": "color",
+      "id": "announcement_bar_text_color",
+      "label": "Color de texto",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "text",
+      "id": "announcement_bar_phone",
+      "label": "Teléfono",
+      "default": "+52 33 3328 6959"
+    },
+    {
+      "type": "checkbox",
+      "id": "social_list_enable",
+      "label": "Mostrar redes sociales",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

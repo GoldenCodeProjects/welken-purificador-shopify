@@ -104,6 +104,13 @@
       color: $color-base-primary;
     }
 
+    .header_menu-open{
+      display: none;
+      @include mq-down(sm) {
+        display: block;
+      }
+    }
+
     &_btn{
       background: transparent;
       border: none;

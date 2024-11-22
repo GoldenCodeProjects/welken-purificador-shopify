@@ -9,6 +9,10 @@
   padding-bottom: 4rem;
   background-color: $color-base-primary;
   color: $color-base-background-secondary;
+  ::selection{
+    background-color: $color-base-background-secondary;
+    color: $color-base-primary;
+  }
   @include mq-down('sm'){
     padding-top: 2rem;
     padding-bottom: 2rem;
