@@ -27,8 +27,7 @@
       "menu-navigation": {
         "type": "menu-navigation",
         "settings": {
-          "menu_list": "main-menu",
-          "special_url": "shopify://collections/all"
+          "menu_list": "main-menu"
         }
       },
       "header": {
