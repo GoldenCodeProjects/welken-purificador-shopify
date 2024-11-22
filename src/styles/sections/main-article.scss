@@ -54,7 +54,9 @@
 }
 
 .main-article {
+  overflow: hidden;
   padding-top: 2rem;
+  word-wrap: break-word;
 
   &_tags{
     display: flex;
