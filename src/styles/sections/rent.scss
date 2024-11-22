@@ -43,6 +43,7 @@
       position: relative;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas: "content img locations";
       gap: 2rem;
       align-items: center;
       @include mq-down(sm){
