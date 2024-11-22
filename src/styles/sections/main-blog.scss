@@ -20,6 +20,14 @@ main {
   }
 
   .blog-filter{
+    &_title{
+      text-align: center;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+      font-family: $font-body-family;
+      color: $color-base-text;
+      font-weight: 500;
+    }
     .tag-list{
       list-style: none;
       display: flex;

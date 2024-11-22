@@ -16,9 +16,9 @@
     <p class="article-card_excerpt">
       {% comment %} {{ article.excerpt | strip_html | truncatewords: 8 }} {% endcomment %}
       {%- if article.excerpt.size > 0 -%}
-        {{ article.excerpt | strip_html | truncatewords: 13 }}
+        {{ article.excerpt | strip_html | truncatewords: 40 }}
       {%- else -%}
-        {{ article.content | strip_html | truncatewords: 13 }}
+        {{ article.content | strip_html | truncatewords: 40 }}
       {%- endif -%}
     </p>
 

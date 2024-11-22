@@ -53,7 +53,7 @@
 
   &_title {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: $color-base-primary;
     @include mq-down('md') {
       font-size: 1rem;
@@ -61,12 +61,17 @@
   }
 
   &_excerpt{
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: $color-base-text;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   &_date{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: rgb(39, 39, 39);
     margin-top: 0.25rem;
   }

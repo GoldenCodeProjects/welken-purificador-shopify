@@ -7,6 +7,9 @@
 
 {% if blog.tags.size > 0 %}
   <div class="blog-filter o-container -wide -medium u-pv-medium">
+    <h2 class="blog-filter_title">
+      Filtrar por…
+    </h2>
     {% comment %} Current tag {% endcomment %}
     {%- assign current_tag = request.path | split: '/' | last | split: '?' | first -%}
     {%- if current_tag == 'tagged' -%}

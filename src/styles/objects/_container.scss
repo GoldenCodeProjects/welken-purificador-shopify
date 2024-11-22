@@ -49,7 +49,7 @@
       max-width: $breakpoint-lg;
     }
     @include mq-up('xlg') {
-      max-width: $breakpoint-xlg;
+      max-width: calc($breakpoint-xlg - 32px);
     }
   }
 
