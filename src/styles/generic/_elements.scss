@@ -25,6 +25,12 @@ details > * {
   box-sizing: border-box;
 }
 
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 a {
   text-decoration: none;
   color: inherit;
