@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "current": {
     "colors_solid_button": "#35c2d5",
@@ -5,11 +14,11 @@
     "colors_accent_secondary": "#35c2d5",
     "colors_text": "#8a989a",
     "colors_background_secondary": "#f4f4f4",
-    "social_facebook_link": "https:\/\/facebook.com\/shopify",
-    "social_instagram_link": "http:\/\/instagram.com\/shopify",
+    "social_facebook_link": "https://facebook.com/shopify",
+    "social_instagram_link": "http://instagram.com/shopify",
     "social_tiktok_link": "",
-    "social_youtube_link": "https:\/\/www.youtube.com\/shopify",
-    "favicon": "shopify:\/\/shop_images\/image_2024-11-21_150730532.png",
+    "social_youtube_link": "https://www.youtube.com/shopify",
+    "favicon": "shopify://shop_images/image_2024-11-21_150730532.png",
     "sections": {
       "cart-collapse": {
         "type": "cart-collapse",
@@ -19,14 +28,14 @@
         "type": "menu-navigation",
         "settings": {
           "menu_list": "main-menu",
-          "special_url": ""
+          "special_url": "shopify://collections/all"
         }
       },
       "header": {
         "type": "header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/welken_logo_2_sin_fondo.png",
-          "img_width": 180,
+          "logo": "shopify://shop_images/welken_logo_2_sin_fondo.png",
+          "img_width": 160,
           "menu": "main-menu"
         }
       },
@@ -34,9 +43,9 @@
         "type": "footer",
         "settings": {
           "menu": "footer",
-          "logo-light": "shopify:\/\/shop_images\/welken_logo_2_sin_fondo.png",
-          "address_text": "<p>São Paulo 1912, Providencia, 44630 Guadalajara, Jal.<\/p>",
-          "address_link": "https:\/\/goo.gl\/maps\/iUa9tyD52Cc5LjAJ6",
+          "logo-light": "shopify://shop_images/welken_logo_2_sin_fondo.png",
+          "address_text": "<p>São Paulo 1912, Providencia, 44630 Guadalajara, Jal.</p>",
+          "address_link": "https://goo.gl/maps/iUa9tyD52Cc5LjAJ6",
           "find_text": "Mapa del sitio",
           "follow_text": "Sígueme en mis redes",
           "contact_email": "contacto@welken.mx"
@@ -47,9 +56,11 @@
         "settings": {
           "announcement_bar_enable": "true",
           "announcement_bar_text": "Envíos gratis a todo México",
-          "announcement_bar_link_url": "shopify:\/\/collections\/all",
-          "announcement_bar_background_color": "#35C2D5",
-          "announcement_bar_text_color": "#FFFFFF"
+          "announcement_bar_link_url": "shopify://collections/all",
+          "announcement_bar_background_color": "#35c2d5",
+          "announcement_bar_text_color": "#ffffff",
+          "announcement_bar_phone": "+52 33 3328 6959",
+          "social_list_enable": true
         }
       }
     },
