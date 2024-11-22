@@ -27,7 +27,7 @@
       <div class="wrapper">
         {%- if section.settings.whatsapp != blank -%}
           <div class="whatsapp">
-            <a class="c-button -primary" href="https://wa.me/{{ section.settings.whatsapp }}" target="_blank" rel="noopener noreferrer">
+            <a class="c-button -primary whatsapp" href="https://wa.me/{{ section.settings.whatsapp }}" target="_blank" rel="noopener noreferrer">
               {% render 'component-icon' icon: 'whatsapp', icon_size: 20 %}
               Whatsapp
             </a>
@@ -36,8 +36,8 @@
 
         {%- if section.settings.phone != blank -%}
           <div class="phone">
-            <h2 class="c-body -bold -h2">Ventas:</h2>
-            <a href="tel:{{ section.settings.phone }}" class="c-body -bold -h3">{{ section.settings.phone }}</a>
+            <h2 class="c-body -bold -h2 ufo">Ventas:</h2>
+            <a href="tel:{{ section.settings.phone | url_encode | base64_encode }}" class="c-body -bold -h3 ufo llamar">{{ section.settings.phone }}</a>
           </div>
         {%- endif -%}
 
@@ -112,8 +112,8 @@
         <label for="body" class="c-field_label">Mensaje</label>
       </div>
 
-      <button type="submit" class="c-button -dark formulario">
-        Enviar
+      <button type="submit" class="c-button -dark formulario {{ section.settings.submit_class }}">
+        {{ section.settings.submit_text }}
       </button>
     {% endform %}
   </div>
@@ -147,7 +147,19 @@
       "id": "whatsapp",
       "label": "Teléfono de Whatsapp",
       "info": "Número de teléfono para Whatsapp"
-    }
+    },
+    {
+      "type": "text",
+      "id": "submit_text",
+      "label": "Texto del botón de enviar",
+      "default": "Enviar"
+    },
+    {
+      "type": "text",
+      "id": "submit_class",
+      "label": "Clase del botón de enviar",
+      "default": "contacto"
+    },
   ],
   "blocks": [
     {

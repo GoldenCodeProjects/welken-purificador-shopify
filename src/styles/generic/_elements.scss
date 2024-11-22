@@ -133,3 +133,24 @@ video {
 svg {
   fill: currentColor; // [5]
 }
+
+// Search all a elements with tel:, mailto:, sms:, callto:, facetime:, http:, or https:
+a[href^="tel:"],
+a[href^="mailto:"],
+a[href^="sms:"],
+a[href^="callto:"],
+a[href^="facetime:"],
+a[href^="http:"],
+a[href^="https:"] {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    opacity: 0;
+  }
+}

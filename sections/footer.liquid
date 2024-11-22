@@ -29,7 +29,7 @@
 
     <div class="footer_contact">
       <h6>Contacto</h6>
-      <a href="mailto:{{ section.settings.contact_email }}" class="link">
+      <a href="mailto:{{ section.settings.contact_email | url_encode | base64_encode }}" class="link ufo correo">
         {% render 'component-icon', icon: 'email', icon_size: 20 %}
         <span>
           {{ section.settings.contact_email }}

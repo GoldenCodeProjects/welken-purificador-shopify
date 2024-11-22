@@ -29,7 +29,7 @@
         {%- if product.metafields.custom.alternative_btns.value != true -%}
           <button
             type="submit"
-            name="add"
+            name="add carrito"
             class="c-button -secondary"
             {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
           >
@@ -61,7 +61,7 @@
           <open-modal target="#buy-modal">
             <button
               type="button"
-              name="buy"
+              name="buy comprar"
               class="c-button -secondary"
               {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
             >
@@ -80,7 +80,7 @@
           <open-modal target="#rent-modal">
             <button
               type="button"
-              name="buy"
+              name="buy rentar"
               class="c-button -primary"
               {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
             >

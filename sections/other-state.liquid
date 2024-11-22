@@ -55,8 +55,8 @@
       hidden
     >Instalación en otro estado de la república</textarea>
 
-    <button type="submit" class="c-button -white">
-      Enviar
+    <button type="submit" class="c-button -white {{ section.settings.submit_class }}">
+      {{ section.settings.submit_text }}
     </button>
   {% endform %}
 
@@ -85,7 +85,19 @@
         "type": "text",
         "id": "description",
         "label": "Descripción"
-      }
+      },
+      {
+        "type": "text",
+        "id": "submit_text",
+        "label": "Texto del botón de enviar",
+        "default": "Enviar"
+      },
+      {
+        "type": "text",
+        "id": "submit_class",
+        "label": "Clase del botón de enviar",
+        "default": "contacto"
+      },
     ],
   }
 {% endschema %}

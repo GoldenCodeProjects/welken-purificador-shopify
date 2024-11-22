@@ -186,3 +186,26 @@ if (policy_container) {
     table.parentNode.replaceChild(newTable, table)
   })
 }
+
+// Search all forms and when the user submits, we disable the submit button to prevent double submission
+const forms = document.querySelectorAll('form')
+forms.forEach((form) => {
+  form.addEventListener('submit', (e) => {
+    const submitButton = form.querySelector('[type="submit"]')
+    submitButton.setAttribute('disabled', 'disabled')
+  })
+})
+
+
+const ufoLinks = document.querySelectorAll('a.ufo')
+ufoLinks.forEach((link) => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault()
+    const url = link.getAttribute('href')
+    const type = url.match(/(tel:|mailto:|sms:)/)
+    const cleanUrl = url.replace(/(tel:|mailto:|sms:)/, '')
+    const decodedStr = atob(cleanUrl)
+    const decodedURI = decodeURIComponent(decodedStr)
+    window.open(type ? `${type[0]}${decodedURI}` : decodedURI)
+  })
+})

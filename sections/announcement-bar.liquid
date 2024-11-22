@@ -23,8 +23,8 @@
     {%- if section.settings.social_list_enable == true -%}
       <div class="extras">
         <a
-          class="phone"
-          href="tel:{{ section.settings.announcement_bar_phone | remove: ' ' }}"
+          class="phone ufo llamar"
+          href="tel:{{ section.settings.announcement_bar_phone | remove: ' ' | url_encode | base64_encode }}"
           aria-label="Llámanos"
           title="Llámanos"
           target="_blank"
