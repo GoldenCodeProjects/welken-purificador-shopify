@@ -16,6 +16,9 @@ summary {
   cursor: pointer;
   list-style: none;
   position: relative;
+  &::-webkit-details-marker {
+    display: none;
+  }
 }
 
 details > * {
