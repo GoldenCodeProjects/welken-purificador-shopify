@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="{{ 'component-calculator-script.css' | asset_url }}">
 <script src="{{ 'component-calculator-script.js' | asset_url }}" defer></script>
 
 {{ 'section-calculator.css' | asset_url | stylesheet_tag }}
@@ -8,7 +7,12 @@
   <h2 class="section_title">{{ section.settings.title }}</h2>
   <p class="section_description">{{ section.settings.content }}</p>
 
-  <component-calculator>
+  <component-calculator
+    cbpa-price="{{ section.settings.cbpa_price }}"
+    cbpa-liters="{{ section.settings.cbpa_liters }}"
+    ro-price="{{ section.settings.ro_price }}"
+    ro-liters="{{ section.settings.ro_liters }}"
+  >
     <form>
       <div class="c-field -icon">
         <label for="cost" class="c-field_label">¿Cuánto gastas por garrafón?</label>
@@ -56,6 +60,30 @@
       "id": "content",
       "label": "Descripción",
       "default": "Simulación para el purificador de uso residencial Welken 100G",
+    },
+    {
+      "type": "number",
+      "id": "cbpa_price",
+      "label": "Precio de cartucho CBPA",
+      "default": 1690
+    },
+    {
+      "type": "number",
+      "id": "cbpa_liters",
+      "label": "Litros por cartucho CBPA",
+      "default": 3659
+    },
+    {
+      "type": "number",
+      "id": "ro_price",
+      "label": "Precio de cartucho RO",
+      "default": 2552,
+    },
+    {
+      "type": "number",
+      "id": "ro_liters",
+      "label": "Litros por cartucho RO",
+      "default": 8200,
     },
     {
       "type": "url",

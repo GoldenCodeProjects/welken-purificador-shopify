@@ -3,54 +3,64 @@ import 'toolcool-range-slider';
 
 class CalculadoraAhorro {
   private precioPorGarrafon: number = 45;
-  private garrafonesPorSemana: number = 10;
+  private garrafonesPorDia: number = 1;
 
   // Costos de los cartuchos
-  private costoCartuchoA = 1090;
-  private costoCartuchoB = 1590;
+  private costoCartuchoCBPA: number = 1690;
+  private costoCartuchoRO: number = 2552;
+
+  // Frecuencia de reemplazo por litros filtrados
+  private litrosEntreReemplazosCBPA: number = 3659;
+  private litrosEntreReemplazosRO: number = 8200;
 
   // Constantes
-  private readonly semanasPorAño = 52;
-  private readonly mesesPorAño = 12;
+  private readonly diasPorAño = 365;
+  private readonly litrosPorGarrafon: number = 19;
 
-  // Frecuencias de reemplazo
-  private readonly mesesEntreReemplazosA = 6;
-  private readonly mesesEntreReemplazosB = 19;
+  constructor() {
+  }
 
-  constructor() { }
+  public setParametrosLitros(litrosEntreReemplazosCBPA: number, litrosEntreReemplazosRO: number) {
+    this.litrosEntreReemplazosCBPA = litrosEntreReemplazosCBPA;
+    this.litrosEntreReemplazosRO = litrosEntreReemplazosRO;
+  }
 
-  public setGarrafones(precioPorGarrafon: number, garrafonesPorSemana: number) {
+  public setCostosCartuchos(costoCartuchoCBPA: number, costoCartuchoRO: number) {
+    this.costoCartuchoCBPA = costoCartuchoCBPA;
+    this.costoCartuchoRO = costoCartuchoRO;
+  }
+
+  public setParametrosGarrafon(precioPorGarrafon: number, garrafonesPorDia: number) {
     this.precioPorGarrafon = precioPorGarrafon;
-    this.garrafonesPorSemana = garrafonesPorSemana;
+    this.garrafonesPorDia = garrafonesPorDia;
   }
 
-  public setCostosCartuchos(costoCartuchoA: number, costoCartuchoB: number) {
-    this.costoCartuchoA = costoCartuchoA;
-    this.costoCartuchoB = costoCartuchoB;
+  private get litrosAnuales(): number {
+    return this.garrafonesPorDia * this.litrosPorGarrafon * this.diasPorAño;
   }
 
-  private get reemplazosAnualesA(): number {
-    return this.mesesPorAño / this.mesesEntreReemplazosA;
+  private get reemplazosAnualesCBPA(): number {
+    return this.litrosAnuales / this.litrosEntreReemplazosCBPA;
   }
 
-  private get costoAnualA(): number {
-    return this.costoCartuchoA * this.reemplazosAnualesA;
+  private get reemplazosAnualesRO(): number {
+    return this.litrosAnuales / this.litrosEntreReemplazosRO;
   }
 
-  private get reemplazosAnualesB(): number {
-    return this.mesesPorAño / this.mesesEntreReemplazosB;
+  private get costoAnualCBPA(): number {
+    return this.costoCartuchoCBPA * this.reemplazosAnualesCBPA;
   }
 
-  private get costoAnualB(): number {
-    return this.costoCartuchoB * this.reemplazosAnualesB;
+  private get costoAnualRO(): number {
+    return this.costoCartuchoRO * this.reemplazosAnualesRO;
   }
 
   private get costoAnualPurificador(): number {
-    return this.costoAnualA + this.costoAnualB;
+    return this.costoAnualCBPA + this.costoAnualRO;
   }
 
   private get costoAnualGarrafones(): number {
-    return this.precioPorGarrafon * this.garrafonesPorSemana * this.semanasPorAño;
+    return this.precioPorGarrafon * this.garrafonesPorDia * this.diasPorAño;
   }
 
   public calcularAhorroAnual(): number {
@@ -75,8 +85,19 @@ class ComponentCalculator extends HTMLElement {
   private precioPorGarrafon: number = this.inputCostEl.value ? Number(this.inputCostEl.value) : 45;
   private garrafonesPorSemana: number = 10;
 
+  private params = {
+    cbpaPrice: Number(this.getAttribute('cbpa-price') || 1690),
+    cbpaLiters: Number(this.getAttribute('cbpa-liters') || 3659),
+    roPrice: Number(this.getAttribute('ro-price') || 2552),
+    roLiters: Number(this.getAttribute('ro-liters') || 8200),
+  };
+
+  private calculadora = new CalculadoraAhorro();
+
   constructor() {
     super();
+    this.calculadora.setCostosCartuchos(this.params.cbpaPrice, this.params.roPrice);
+    this.calculadora.setParametrosLitros(this.params.cbpaLiters, this.params.roLiters);
   }
 
   connectedCallback() {
@@ -114,9 +135,13 @@ class ComponentCalculator extends HTMLElement {
         return this.resultValueEl.textContent = this.numberToCurrency(0);
       }
 
-      const calculadora = new CalculadoraAhorro();
-      calculadora.setGarrafones(this.precioPorGarrafon, this.garrafonesPorSemana);
-      const ahorroAnual = calculadora.calcularAhorroAnual();
+      this.calculadora.setParametrosGarrafon(
+        this.precioPorGarrafon,
+        this.garrafonesPorSemana / 7
+      );
+      const ahorroAnual = this.calculadora.calcularAhorroAnual();
+
+      if (ahorroAnual <= 0) return;
 
       this.resultValueEl.textContent = this.numberToCurrency(ahorroAnual);
     } catch (error) {

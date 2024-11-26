@@ -99,7 +99,7 @@
       <li class="rb_list">
       <a href="{{ article.url }}" class="main_row">
         {%- if related_settings.enable_bimage == '1' -%}
-		 <p class="left_img">{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{%- endif -%}</p>
+		 <p class="left_img">{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{%- endif -%}</p>
       {%- elsif related_settings.enable_bimage == '0' -%}
       {%- endif-%}
         <div class="right_content">
@@ -121,7 +121,7 @@
             {%- if random_article1 <= no_post_display -%}
       <li class="rb_list" random-no="{{ random_article1 }}">
 		 <a href="{{ article.url }}" class="main_row">
-		 {% if related_settings.enable_bimage == '1' %}<p class="left_img">{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{% endif %}</p>
+		 {% if related_settings.enable_bimage == '1' %}<p class="left_img">{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{% endif %}</p>
            {%- elsif related_settings.enable_bimage == '0' -%}
 		 {% endif %}<div class="right_content">
            <h4>{{ article.title }}</h4>
@@ -141,7 +141,7 @@
            {% if article_tags contains tag %}
       <li ture class="rb_list" random-no="{{ random_article1 }}">
        <a href="{{ article.url }}" class="main_row">{% if related_settings.enable_bimage == '1' %}
-		  <p  class="left_img">{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{% endif %}</p>
+		  <p  class="left_img">{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{% endif %}</p>
         {%- elsif related_settings.enable_bimage == '0' -%}
          {% endif %}<div class="right_content">
           <h4>{{ article.title }}</h4>
@@ -157,7 +157,7 @@
           {%- if random_article1 <= no_post_display -%}
       <li false class="rb_list" random-no="{{ random_article1 }}">
        <a href="{{ article.url }}" class="main_row">{% if related_settings.enable_bimage == '1' %}
-		  <p  class="left_img">{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{% endif %}</p>
+		  <p  class="left_img">{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{% endif %}</p>
         {%- elsif related_settings.enable_bimage == '0' -%}
          {% endif %}<div class="right_content">
           <h4>{{ article.title }}</h4>
@@ -174,7 +174,7 @@
           {% assign random_article1 = random_article1 %}
       {%- if random_article1 <= no_post_display -%}<li class="rb_list" data-name="{{article.author}}" random-no="{{ random_article1 }}">
          <a href="{{ article.url }}" class="main_row">{% if related_settings.enable_bimage == '1' %}
-			<p class="left_img">{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{% endif %}</p>
+			<p class="left_img">{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{% endif %}</p>
         {%- elsif related_settings.enable_bimage == '0' -%}
           {% endif %}<div class="right_content">
             <h4>{{ article.title }}</h4>
@@ -352,7 +352,7 @@
       <li class="rb_list" random-no="{{ random_article1 }}" {% if currentarticle == article.handle %} data-post="current" {% endif %} {% if currentarticle == article.handle or random_article1 > no_post_display %} style="display: none;"{% endif %}>
         {%- if related_settings.enable_bimage == '1' -%}
 		<a href="{{ article.url }}">
-			<p>{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{%- endif -%}</p>
+			<p>{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{%- endif -%}</p>
 			<h4>{{ article.title }}</h4>
 		</a>
         {%- elsif related_settings.enable_bimage == '0' -%}
@@ -381,7 +381,7 @@
 			{%- if random_article1 <= no_post_display -%}
       <li class="rb_list" random-no="{{ random_article1 }}">{% if related_settings.enable_bimage == '1' %}
 		  <a href="{{ article.url }}">
-			  <p>{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{% endif %}</p>
+			  <p>{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{% endif %}</p>
 			  <h4>{{ article.title }}</h4>
 		  </a>
         {%- elsif related_settings.enable_bimage == '0' -%}
@@ -407,7 +407,7 @@
            {% if article_tags contains tag %}
 	  <li true1 class="rb_list" random-no="{{ random_article1 }}">{% if related_settings.enable_bimage == '1' %}
 			<a href="{{ article.url }}">
-				<p>{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{% endif %}</p>
+				<p>{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{% endif %}</p>
 				<h4>{{ article.title }}</h4>
 			</a>
         {%- elsif related_settings.enable_bimage == '0' -%}
@@ -429,7 +429,7 @@
       {%- if random_article1 <= no_post_display -%}
 	  <li false class="rb_list" random-no="{{ random_article1 }}">{% if related_settings.enable_bimage == '1' %}
 			<a href="{{ article.url }}">
-				<p>{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{% endif %}</p>
+				<p>{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{% endif %}</p>
 				<h4>{{ article.title }}</h4>
 			</a>
         {%- elsif related_settings.enable_bimage == '0' -%}
@@ -450,7 +450,7 @@
           {%- assign random_article1 = random_article1 -%}
       {% if random_article1 <= no_post_display %}<li class="rb_list" random-no="{{ random_article1 }}">{% if related_settings.enable_bimage == '1' %}
 			<a href="{{ article.url }}">
-				<p>{%- if article.image -%}{{ article | image_url: width: 500 | image_tag }}{%- endif -%}</p>
+				<p>{%- if article.image -%}{{ article | image_url: width: 700 | image_tag }}{%- endif -%}</p>
 				<h4>{{ article.title }}</h4>
 			</a>
         {%- elsif related_settings.enable_bimage == '0' -%}

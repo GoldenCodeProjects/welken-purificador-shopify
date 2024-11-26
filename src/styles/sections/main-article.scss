@@ -240,19 +240,19 @@
   ul#postList{
     display: flex;
     overflow-x: auto;
-    gap: 1.5rem;
+    gap: 1rem;
     padding: 1rem 0;
     scroll-behavior: smooth;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     li {
-      flex: 0 0 33%;
+      flex: 0 0 calc(33% - 1rem);
       scroll-snap-align: start;
       @include mq-down(md) {
-        flex: 0 0 45%;
+        flex: 0 0 calc(45% - 1rem);
       }
       @include mq-down(xs) {
-        flex: 0 0 80%;
+        flex: 0 0 calc(80% - 1rem);
       }
       a.main_row{
         flex-direction: column;

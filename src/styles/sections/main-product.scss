@@ -22,9 +22,7 @@
       list-style-position: inside;
       padding-left: 1rem;
       li{
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
+        position: relative;
         font-size: 1rem;
         font-weight: 400;
         color: $color-base-text;
@@ -37,13 +35,12 @@
           background-color: $color-base-primary;
           border-radius: 50%;
           margin-right: 1rem;
+          position: absolute;
+          left: -1rem;
+          top: 0.5rem;
         }
       }
     }
-  }
-
-  .media-wrapper{
-
   }
 
   &_media {
@@ -202,7 +199,6 @@
     line-height: 1;
     @include mq-down('sm') {
       font-size: rem(24px);
-      text-align: center;
     }
   }
 
@@ -229,10 +225,6 @@
     }
     @include mq-down(xs) {
       font-size: 0.9rem;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      align-self: center;
       .compare{
         font-size: 1em;
       }
@@ -335,7 +327,6 @@
         @include mq-down(xs) {
           display: flex;
           flex-direction: column;
-          align-items: center;
         }
       }
     }
@@ -454,6 +445,7 @@
       }
       .product-form__buttons{
         flex-direction: column;
+        align-items: stretch;
         button{
           width: 100%;
         }
