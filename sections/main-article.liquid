@@ -62,6 +62,17 @@
     const options = { year: 'numeric', month: 'long', day: 'numeric' };
     timeElement.textContent = date.toLocaleDateString('es-MX', options);
   });
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Search img with &width=170 and replace with &width=600
+    const articleImages = document.querySelectorAll('img');
+    articleImages.forEach(image => {
+      const src = image.getAttribute('src');
+      if (!src.includes('&width=170')) return;
+      const newSrc = src.replace('&width=170', '&width=600');
+      image.setAttribute('src', newSrc);
+    });
+  });
 </script>
 
 {% schema %}
