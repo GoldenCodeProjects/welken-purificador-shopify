@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "56deeea7-a573-493b-8593-aeacf53dc825": {
@@ -6,21 +15,23 @@
         "a2495587-9ae1-4673-9ea2-8a81d3b7e74f": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Sin_titulo-1.jpg",
-            "description": "<h2 style=\"color: #36C2D5;\">Welken en tu hogar<\/h2>\n<p style=\"color: #8A989A;\">Pureza inigualable del agua para toda tu familia<\/p>",
+            "image": "shopify://shop_images/banner_residencial.png",
+            "image_mobile": "shopify://shop_images/banner_residencial_mobile.png",
+            "description": "<h2>Welken en tu hogar</h2>\n<p>Pureza inigualable del agua para toda tu familia</p>",
             "pos_x": "-left",
             "button_text": "Comprar ahora",
-            "button_url": "shopify:\/\/collections\/all"
+            "button_url": "shopify://collections/all"
           }
         },
         "image_WyGmYD": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Group_110.jpg",
-            "description": "<h2>Welken en tu oficina o negocio<\/h2>\n<p>Ofrece a tus colaboradores o clientes la mejor calidad de agua<\/p>",
+            "image": "shopify://shop_images/banner_comercial.png",
+            "image_mobile": "shopify://shop_images/banner_comercial_mobile.png",
+            "description": "<h2>Welken en tu oficina o negocio</h2>\n<p>Ofrece a tus colaboradores o clientes la mejor calidad de agua</p>",
             "pos_x": "-left",
             "button_text": "Comprar ahora",
-            "button_url": "shopify:\/\/collections\/all"
+            "button_url": "shopify://collections/all"
           }
         }
       },
@@ -37,7 +48,7 @@
       "settings": {
         "title": "El purificador de aguamás potente y fácil de utilizar",
         "description": "Welken es un purificador de agua por ósmosis inversa que le ofrece a \ntu familia o a tu negocio una calidad inigualable en la pureza del agua",
-        "video_frame": "<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/Gx3m2xjAX8o?si=JSZyAGbgkq_sIzoD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen><\/iframe>"
+        "video_frame": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Gx3m2xjAX8o?si=JSZyAGbgkq_sIzoD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
       }
     },
     "benefits_4qJRnm": {
@@ -46,13 +57,13 @@
         "title": "Solo obtienes beneficios al adquirir  tu purificador Welken",
         "heading_1": "Ahorra por cada litro de  agua purificada",
         "content_1": "Ahorra hasta $15 por litro invirtiendo en tu purificador de agua Welken y obtén una calidad de agua aún más pura.",
-        "image_1": "shopify:\/\/shop_images\/realistic-water-drop-with-ecosystem.jpg",
+        "image_1": "shopify://shop_images/realistic-water-drop-with-ecosystem.jpg",
         "heading_2": "Cuida tu salud de metales pesados  y bacterias",
         "content_2": "Welken elimina contaminantes presentes en el agua como metales pesados, bacterias, parásitos y exceso de minerales.",
-        "image_2": "shopify:\/\/shop_images\/crop-man-pouring-water-near-window.jpg",
+        "image_2": "shopify://shop_images/crop-man-pouring-water-near-window.jpg",
         "heading_3": "Contribuye a la disminución del uso  de plásticos",
         "content_3": "Utilizar un purificador de agua Welken contribuye a reducir el más de un millón de botellas de plástico que se utilizan en México por hora.",
-        "image_3": "shopify:\/\/shop_images\/Mask_Group_2.png"
+        "image_3": "shopify://shop_images/Mask_Group_2.png"
       }
     },
     "calculator_hjbPx7": {
@@ -60,7 +71,7 @@
       "settings": {
         "title": "¿Cuánto ahorrarías al año con Welken?",
         "content": "Simulación para el purificador de uso residencial Welken 100G",
-        "button_url": "shopify:\/\/collections\/all",
+        "button_url": "shopify://collections/all",
         "button_text": "Comprar ahora"
       }
     },
@@ -70,19 +81,19 @@
         "collection_VfJQnq": {
           "type": "collection",
           "settings": {
-            "collection": "shopify:\/\/collections\/para-tu-hogar",
+            "collection": "shopify://collections/para-tu-hogar",
             "title": "Para tu hogar",
-            "image": "shopify:\/\/shop_images\/Group_111.jpg",
-            "float_image": "shopify:\/\/shop_images\/Group_106_da247ec1-1f70-46c1-9b74-8d678e2f72c4.png"
+            "image": "shopify://shop_images/Group_111.jpg",
+            "float_image": "shopify://shop_images/Group_106_da247ec1-1f70-46c1-9b74-8d678e2f72c4.png"
           }
         },
         "collection_zCNh6c": {
           "type": "collection",
           "settings": {
-            "collection": "shopify:\/\/collections\/para-tu-oficina-o-negocio",
+            "collection": "shopify://collections/para-tu-oficina-o-negocio",
             "title": "Para tu oficina o negocio",
-            "image": "shopify:\/\/shop_images\/Group_112.jpg",
-            "float_image": "shopify:\/\/shop_images\/Group_106_da247ec1-1f70-46c1-9b74-8d678e2f72c4.png"
+            "image": "shopify://shop_images/Group_112.jpg",
+            "float_image": "shopify://shop_images/DSC03635-Enhanced-NR__1_-removebg-preview.png"
           }
         }
       },
@@ -125,7 +136,7 @@
         "feature_kndM8P"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/welken.png"
+        "image": "shopify://shop_images/welken.png"
       }
     },
     "reviews_gfazzA": {
@@ -136,8 +147,8 @@
           "settings": {
             "author": "Arturo Ramirez",
             "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "image": "shopify://shop_images/Group_75.png",
+            "image_2": "shopify://shop_images/Group_75.png",
             "rating": 4
           }
         },
@@ -146,8 +157,8 @@
           "settings": {
             "author": "Daniel Ramirez",
             "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "image": "shopify://shop_images/Group_75.png",
+            "image_2": "shopify://shop_images/Group_75.png",
             "rating": 4
           }
         },
@@ -156,8 +167,8 @@
           "settings": {
             "author": "Fur Ramirez",
             "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "image": "shopify://shop_images/Group_75.png",
+            "image_2": "shopify://shop_images/Group_75.png",
             "rating": 4
           }
         },
@@ -166,8 +177,8 @@
           "settings": {
             "author": "Karen Ramirez",
             "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "image": "shopify://shop_images/Group_75.png",
+            "image_2": "shopify://shop_images/Group_75.png",
             "rating": 4
           }
         },
@@ -176,8 +187,8 @@
           "settings": {
             "author": "Manuel Ramirez",
             "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "image": "shopify://shop_images/Group_75.png",
+            "image_2": "shopify://shop_images/Group_75.png",
             "rating": 4
           }
         },
@@ -186,8 +197,8 @@
           "settings": {
             "author": "Poel Ramirez",
             "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
+            "image": "shopify://shop_images/Group_75.png",
+            "image_2": "shopify://shop_images/Group_75.png",
             "rating": 4
           }
         }
