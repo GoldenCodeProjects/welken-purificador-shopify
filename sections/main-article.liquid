@@ -71,6 +71,9 @@
       if (!src.includes('&width=170')) return;
       const newSrc = src.replace('&width=170', '&width=600');
       image.setAttribute('src', newSrc);
+      // Also srcset and and add lazy loading
+      image.setAttribute('srcset', newSrc);
+      image.setAttribute('loading', 'lazy');
     });
   });
 </script>
