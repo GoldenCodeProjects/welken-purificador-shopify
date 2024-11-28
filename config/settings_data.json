@@ -43,8 +43,8 @@
         "settings": {
           "menu": "footer",
           "logo-light": "shopify://shop_images/welken_logo_2_sin_fondo.png",
-          "address_text": "<p>São Paulo 1912, Providencia, 44630 Guadalajara, Jal.</p>",
-          "address_link": "https://goo.gl/maps/iUa9tyD52Cc5LjAJ6",
+          "address_text": "",
+          "address_link": "",
           "find_text": "Mapa del sitio",
           "follow_text": "Sígueme en mis redes",
           "contact_email": "contacto@welken.mx"
