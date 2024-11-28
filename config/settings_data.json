@@ -12,7 +12,7 @@
     "colors_solid_button": "#35c2d5",
     "colors_accent_primary": "#35c2d5",
     "colors_accent_secondary": "#35c2d5",
-    "colors_text": "#8a989a",
+    "colors_text": "#515353",
     "colors_background_secondary": "#f4f4f4",
     "social_facebook_link": "https://facebook.com/shopify",
     "social_instagram_link": "http://instagram.com/shopify",
@@ -56,7 +56,7 @@
           "announcement_bar_enable": "true",
           "announcement_bar_text": "Envíos gratis a todo México",
           "announcement_bar_link_url": "shopify://collections/all",
-          "announcement_bar_background_color": "#35c2d5",
+          "announcement_bar_background_color": "#49c5d6",
           "announcement_bar_text_color": "#ffffff",
           "announcement_bar_phone": "+52 33 3328 6959",
           "social_list_enable": true
