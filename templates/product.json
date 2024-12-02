@@ -65,6 +65,19 @@
       "type": "product-details",
       "settings": {}
     },
+    "calculator_YnYXjF": {
+      "type": "calculator",
+      "settings": {
+        "title": "¿Cuánto ahorrarías al año con Welken?",
+        "content": "",
+        "cbpa_price": 1690,
+        "cbpa_liters": 3659,
+        "ro_price": 2552,
+        "ro_liters": 8200,
+        "button_url": "",
+        "button_text": ""
+      }
+    },
     "3305b4e4-6449-4f35-a4fd-621be981a9e3": {
       "type": "product-recommendations",
       "settings": {
@@ -76,6 +89,7 @@
   "order": [
     "main",
     "details",
+    "calculator_YnYXjF",
     "3305b4e4-6449-4f35-a4fd-621be981a9e3"
   ]
 }

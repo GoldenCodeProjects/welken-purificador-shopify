@@ -9,6 +9,9 @@
   overflow-x: hidden;
   padding: 3rem 0;
   background-color: $color-base-background-secondary;
+  &:not(:has(.o-container)){
+    display: none;
+  }
 
   .section_title{
     color: $color-base-primary;

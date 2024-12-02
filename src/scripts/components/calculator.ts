@@ -64,14 +64,10 @@ class CalculadoraAhorro {
   }
 
   public calcularAhorroAnual(): number {
-    // Verificar si el usuario estaría ahorrando
     if (this.costoAnualPurificador >= this.costoAnualGarrafones) {
       throw new Error('Con los datos ingresados, no estarías ahorrando dinero.');
     }
-
-    // Cálculo del ahorro anual
     const ahorroAnual = this.costoAnualGarrafones - this.costoAnualPurificador;
-
     return ahorroAnual;
   }
 }

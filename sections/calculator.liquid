@@ -2,46 +2,76 @@
 
 {{ 'section-calculator.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign show = false
 
-<div class="o-container -narrow">
-  <h2 class="section_title">{{ section.settings.title }}</h2>
-  <p class="section_description">{{ section.settings.content }}</p>
+  if template.name != 'product'
+    assign show = true
+  endif
 
-  <component-calculator
-    cbpa-price="{{ section.settings.cbpa_price }}"
-    cbpa-liters="{{ section.settings.cbpa_liters }}"
-    ro-price="{{ section.settings.ro_price }}"
-    ro-liters="{{ section.settings.ro_liters }}"
-  >
-    <form>
-      <div class="c-field -icon">
-        <label for="cost" class="c-field_label">¿Cuánto gastas por garrafón?</label>
-        <input type="number" id="cost" class="c-field_input" value="45" placeholder="Ej. $45">
-        <span class="c-field_icon">$</span>
-      </div>
-      <div class="c-field">
-        <label for="quantity" class="c-field_label">Garrafones por semana</label>
-        <tc-range-slider id="quantity"
-          value1="10" min="0" max="40" step="1"
-          value-label="#value-1"
-        ></tc-range-slider>
-        <div class="value-label" id="value-1"></div>
-      </div>
-    </form>
+  if template.name == 'product' and product.tags contains 'Purificador'
+    assign show = true
+  endif
 
-    <p class="result">
-      <span>Ahorra hasta</span>
-      <span class="result__value">$0.00</span>
-      <span>Al año con Welken</span>
-    </p>
-  </component-calculator>
+  assign cbpa_price = section.settings.cbpa_price
+  if product.metafields.custom.cbpa_price != blank
+    assign cbpa_price = product.metafields.custom.cbpa_price
+  endif
+  assign cbpa_liters = section.settings.cbpa_liters
+  if product.metafields.custom.cbpa_liters != blank
+    assign cbpa_liters = product.metafields.custom.cbpa_liters
+  endif
+  assign ro_price = section.settings.ro_price
+  if product.metafields.custom.ro_price != blank
+    assign ro_price = product.metafields.custom.ro_price
+  endif
+  assign ro_liters = section.settings.ro_liters
+  if product.metafields.custom.ro_liters != blank
+    assign ro_liters = product.metafields.custom.ro_liters
+  endif
+-%}
 
-  {%- if section.settings.button_url != blank and section.settings.button_text != blank -%}
-    <a class="c-button -primary" href="{{ section.settings.button_url }}">
-      {{ section.settings.button_text }}
-    </a>
-  {%- endif -%}
-</div>
+{%- if show == true -%}
+  <div class="o-container -narrow">
+    <h2 class="section_title">{{ section.settings.title }}</h2>
+    <p class="section_description">{{ section.settings.content }}</p>
+
+    <component-calculator
+      cbpa-price="{{ cbpa_price }}"
+      cbpa-liters="{{ cbpa_liters }}"
+      ro-price="{{ ro_price }}"
+      ro-liters="{{ ro_liters }}"
+    >
+      <form>
+        <div class="c-field -icon">
+          <label for="cost" class="c-field_label">¿Cuánto gastas por garrafón?</label>
+          <input type="number" id="cost" class="c-field_input" value="45" placeholder="Ej. $45">
+          <span class="c-field_icon">$</span>
+        </div>
+        <div class="c-field">
+          <label for="quantity" class="c-field_label">Garrafones por semana</label>
+          <tc-range-slider id="quantity"
+            value1="10" min="0" max="40" step="1"
+            value-label="#value-1"
+          ></tc-range-slider>
+          <div class="value-label" id="value-1"></div>
+        </div>
+      </form>
+
+      <p class="result">
+        <span>Ahorra hasta</span>
+        <span class="result__value">$0.00</span>
+        <span>Al año con Welken</span>
+      </p>
+    </component-calculator>
+
+    {%- if section.settings.button_url != blank and section.settings.button_text != blank -%}
+      <a class="c-button -primary" href="{{ section.settings.button_url }}">
+        {{ section.settings.button_text }}
+      </a>
+    {%- endif -%}
+  </div>
+{%- endif -%}
 
 {% schema %}
 {
