@@ -174,6 +174,7 @@ class Shopify {
 }
 
 window.Shopify = new Shopify()
+window['Shopify']['theme']['name'] = 'Welken theme';
 
 // Policies
 const policy_container = document.querySelector('.shopify-policy__container')
