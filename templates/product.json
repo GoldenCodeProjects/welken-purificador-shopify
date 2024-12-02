@@ -49,7 +49,7 @@
         "whatsapp_chat_widget_app_block_8ArPQT": {
           "type": "shopify://apps/whatsapp-chat-widget/blocks/app-block/b85b5e45-9cea-417a-9b9e-0aa961ccf3ef",
           "settings": {
-            "button_label": "Need help? Chat with us",
+            "button_label": "¿Necesitas ayuda?",
             "button_style": "round",
             "background_color": "#2DB742",
             "text_color": "#ffffff"
