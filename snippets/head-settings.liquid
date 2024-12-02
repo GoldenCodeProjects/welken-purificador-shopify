@@ -93,6 +93,8 @@
 
 {% comment %} JavaScript/Liquid Settings {% endcomment %}
 <script>
+  window['Shopify']['theme']['name'] = 'Welken theme';
+
   window.routes = {
     cart: '{{ routes.cart_url }}',
     cartAdd: '{{ routes.cart_add_url }}',
