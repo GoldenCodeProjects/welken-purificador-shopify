@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -28,7 +37,7 @@
         "schedule_hJptwM": {
           "type": "schedule",
           "settings": {
-            "description": "<p><strong>Renta únicamente disponible en nuestras zonas de cobertura:<\/strong><\/p><ul><li>Zona Metropolitana de Guadalajara<\/li><li>Chapala<\/li><li>Ajijic<\/li><li>San Juan Cosalá<\/li><li>Puerto Vallarta<\/li><\/ul>",
+            "description": "<p><strong>Renta únicamente disponible en nuestras zonas de cobertura:</strong></p><ul><li>Zona Metropolitana de Guadalajara</li><li>Chapala</li><li>Ajijic</li><li>San Juan Cosalá</li><li>Puerto Vallarta</li></ul>",
             "text": "",
             "url": ""
           }
@@ -36,6 +45,15 @@
         "more_info_9iq4R9": {
           "type": "more_info",
           "settings": {}
+        },
+        "whatsapp_chat_widget_app_block_8ArPQT": {
+          "type": "shopify://apps/whatsapp-chat-widget/blocks/app-block/b85b5e45-9cea-417a-9b9e-0aa961ccf3ef",
+          "settings": {
+            "button_label": "¿Necesitas ayuda?",
+            "button_style": "round",
+            "background_color": "#2DB742",
+            "text_color": "#ffffff"
+          }
         }
       },
       "block_order": [
@@ -45,19 +63,20 @@
         "caaa9716-2cb9-46d7-8edc-47bfc2180066",
         "59ab47e0-8863-48ec-8805-a59802e0c8af",
         "schedule_hJptwM",
-        "more_info_9iq4R9"
+        "more_info_9iq4R9",
+        "whatsapp_chat_widget_app_block_8ArPQT"
       ],
       "settings": {
         "buynow_modal_title": "Pagar ahora",
-        "buynow_modal_description": "<p>Te enviamos completamente gratis tu purificador. Realiza la instalación tú mismo o agenda la instalación después de finalizar tu compra.<\/p>",
+        "buynow_modal_description": "<p>Te enviamos completamente gratis tu purificador. Realiza la instalación tú mismo o agenda la instalación después de finalizar tu compra.</p>",
         "buynow_modal_text": "Pagar en línea",
         "after_modal_title": "Pagar al recibir",
-        "after_modal_description": "<p>Puedes solicitar la instalación gratuita de tu purificador y pagar en el momento si vives en los siguientes municipios:<\/p><ul><li>Zona Metropolitana de Guadalajara<\/li><li>Chapala<\/li><li>Ajijic<\/li><li>San Juan Cosalá<\/li><li>Puerto Vallarta<\/li><\/ul>",
-        "after_modal_url": "shopify:\/\/pages\/agenda-tu-instalacion",
+        "after_modal_description": "<p>Puedes solicitar la instalación gratuita de tu purificador y pagar en el momento si vives en los siguientes municipios:</p><ul><li>Zona Metropolitana de Guadalajara</li><li>Chapala</li><li>Ajijic</li><li>San Juan Cosalá</li><li>Puerto Vallarta</li></ul>",
+        "after_modal_url": "shopify://pages/agenda-tu-instalacion",
         "after_modal_text": "Agendar entrega e instalación",
         "rent_modal_title": "Renta un purificador Welken",
-        "rent_modal_description": "<p>Servicio disponible únicamente en los siguientes municipios:<\/p><ul><li>Zona Metropolitana de Guadalajara<\/li><li>Chapala<\/li><li>Ajijic<\/li><li>San Juan Cosalá<\/li><li>Puerto Vallarta<\/li><\/ul>",
-        "rent_modal_url": "shopify:\/\/pages\/agenda-tu-instalacion",
+        "rent_modal_description": "<p>Servicio disponible únicamente en los siguientes municipios:</p><ul><li>Zona Metropolitana de Guadalajara</li><li>Chapala</li><li>Ajijic</li><li>San Juan Cosalá</li><li>Puerto Vallarta</li></ul>",
+        "rent_modal_url": "shopify://pages/agenda-tu-instalacion",
         "rent_modal_text": "Agendar instalación"
       }
     },

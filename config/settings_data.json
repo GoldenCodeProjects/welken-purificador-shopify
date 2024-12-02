@@ -12,7 +12,7 @@
     "colors_solid_button": "#35c2d5",
     "colors_accent_primary": "#35c2d5",
     "colors_accent_secondary": "#35c2d5",
-    "colors_text": "#8a989a",
+    "colors_text": "#515353",
     "colors_background_secondary": "#f4f4f4",
     "social_facebook_link": "https://facebook.com/shopify",
     "social_instagram_link": "http://instagram.com/shopify",
@@ -43,8 +43,8 @@
         "settings": {
           "menu": "footer",
           "logo-light": "shopify://shop_images/welken_logo_2_sin_fondo.png",
-          "address_text": "<p>São Paulo 1912, Providencia, 44630 Guadalajara, Jal.</p>",
-          "address_link": "https://goo.gl/maps/iUa9tyD52Cc5LjAJ6",
+          "address_text": "",
+          "address_link": "",
           "find_text": "Mapa del sitio",
           "follow_text": "Sígueme en mis redes",
           "contact_email": "contacto@welken.mx"
@@ -56,14 +56,43 @@
           "announcement_bar_enable": "true",
           "announcement_bar_text": "Envíos gratis a todo México",
           "announcement_bar_link_url": "shopify://collections/all",
-          "announcement_bar_background_color": "#35c2d5",
+          "announcement_bar_background_color": "#49c5d6",
           "announcement_bar_text_color": "#ffffff",
           "announcement_bar_phone": "+52 33 3328 6959",
           "social_list_enable": true
         }
       }
     },
-    "content_for_index": []
+    "content_for_index": [],
+    "blocks": {
+      "11813581335429059158": {
+        "type": "shopify://apps/whatsapp-chat-widget/blocks/app-embed/b85b5e45-9cea-417a-9b9e-0aa961ccf3ef",
+        "disabled": false,
+        "settings": {
+          "show_on_desktop": true,
+          "show_on_mobile": true,
+          "show_label_on_desktop": true,
+          "show_label_on_mobile": false,
+          "show_scroll_bar": false,
+          "show_gdpr_notice": false,
+          "use_click_to_chat": false,
+          "widget_label_text": "¿Necesitas ayuda?",
+          "widget_text": "Chatea con nosotros",
+          "description": "Hi! Click one of our member below to chat on WhatsApp",
+          "response_text": "The team typically replies in a few minutes.",
+          "gdpr_text": "Please accept our privacy policy first to start a conversation.",
+          "background_color": "#2DB742",
+          "text_color": "#ffffff",
+          "position": "right",
+          "label_width": 155,
+          "scroll_bar_height": 500,
+          "icon_size": 56,
+          "distance_left": 30,
+          "distance_right": 30,
+          "distance_bottom": 30
+        }
+      }
+    }
   },
   "presets": {
     "Default": {}

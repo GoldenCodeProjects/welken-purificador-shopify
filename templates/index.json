@@ -11,7 +11,7 @@
             "description": "<h2>Welken en tu hogar<\/h2>\n<p>Pureza inigualable del agua para toda tu familia<\/p>",
             "pos_x": "-left",
             "button_text": "Comprar ahora",
-            "button_url": "shopify:\/\/collections\/all"
+            "button_url": "shopify://collections/para-tu-hogar"
           }
         },
         "image_WyGmYD": {
@@ -22,7 +22,7 @@
             "description": "<h2>Welken en tu oficina o negocio<\/h2>\n<p>Ofrece a tus colaboradores o clientes la mejor calidad de agua<\/p>",
             "pos_x": "-left",
             "button_text": "Comprar ahora",
-            "button_url": "shopify:\/\/collections\/all"
+            "button_url": "shopify://collections/para-tu-oficina-o-negocio"
           }
         }
       },
@@ -62,7 +62,11 @@
       "settings": {
         "title": "¿Cuánto ahorrarías al año con Welken?",
         "content": "Simulación para el purificador de uso residencial Welken 100G",
-        "button_url": "shopify:\/\/collections\/all",
+        "cbpa_price": 1690,
+        "cbpa_liters": 3659,
+        "ro_price": 2552,
+        "ro_liters": 8200,
+        "button_url": "shopify://collections/para-tu-hogar",
         "button_text": "Comprar ahora"
       }
     },
