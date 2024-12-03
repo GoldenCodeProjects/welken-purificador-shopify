@@ -53,9 +53,12 @@ main{
     .c-body{
       padding: 1rem;
       padding-top: 0;
+      overflow: hidden;
     }
-    &[open] summary svg{
-      transform: rotate(180deg);
+    &[open] {
+      summary svg{
+        transform: rotate(180deg);
+      }
     }
   }
 }

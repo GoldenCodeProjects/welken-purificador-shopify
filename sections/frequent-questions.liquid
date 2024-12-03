@@ -1,5 +1,7 @@
 {{ 'section-frequent-questions.css' | asset_url | stylesheet_tag }}
 
+<script src="{{ 'component-accordion-script.js' | asset_url }}" defer></script>
+
 <div class="page o-container -narrow -medium">
   <h1>{{ page.title }}</h1>
 
@@ -17,7 +19,6 @@
     {% endfor %}
   </nav>
 </div>
-
 
 {% schema %}
 {
