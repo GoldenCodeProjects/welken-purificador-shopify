@@ -1,0 +1,29 @@
+{{ 'section-frequent-questions.css' | asset_url | stylesheet_tag }}
+
+<div class="page o-container -narrow -medium">
+  <h1>{{ page.title }}</h1>
+
+  <nav class="questions">
+    {% for article in blogs["preguntas-frecuentes"].articles  %}
+      <details {% if forloop.first %}open{% endif %}>
+        <summary>
+          {{ article.title }}
+          {% render 'component-icon' icon: 'caret', icon_size: 18 %}
+        </summary>
+        <div class="c-body">
+          {{ article.content }}
+        </div>
+      </details>
+    {% endfor %}
+  </nav>
+</div>
+
+
+{% schema %}
+{
+  "name": "Preguntas frecuentes",
+  "tag": "section",
+  "class": "section--frequent-questions",
+  "settings": []
+}
+{% endschema %}

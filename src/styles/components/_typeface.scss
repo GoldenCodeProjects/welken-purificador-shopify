@@ -65,31 +65,128 @@ h6 {
 
 .c-body {
   font-family: $font-body-family;
-  font-style: $font-body-style;
-  font-weight: $font-body-weight;
-  color: inherit;
+  font-size: 1rem;
+  color: $color-base-text;
+  font-weight: 400;
   line-height: 1.5;
-  text-decoration: none;
-
-  // Size variants
-  &.-h1 {
-    font-size: rem(24px);
+  @include mq-down(xs) {
+    font-size: 1rem;
   }
-
-  &.-h2 {
-    font-size: rem(19px);
+  .default-image{
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2rem;
   }
-
-  &.-h3 {
-    font-size: rem(15px);
+  img,
+  video,
+  iframe {
+    max-width: 100%;
+    margin-bottom: 2rem;
   }
-
-  &.-italic {
-    font-style: italic;
+  p {
+    color: $color-base-text;
+    font-weight: 400;
+    font-size: 1Rem;
+    margin-bottom: 1rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-
-  &.-bold {
-    font-weight: 700;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $color-base-text;
+    font-weight: 500;
+    margin: 1.5rem 0 1rem 0;
+  }
+  h6 {
+    font-size: 1rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+  h4 {
+    font-size: 1.2rem;
+  }
+  h3 {
+    font-size: 1.4rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  ul {
+    list-style: disc;
+  }
+  ol {
+    list-style: decimal;
+  }
+  ul,
+  ol {
+    margin-left: 1rem;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    li {
+      font-size: 1em;
+      margin-bottom: 0.5rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  blockquote {
+    margin-left: 1.5rem;
+    border: 1px solid rgba(var(--color-base-text), 0.25);
+    border-left: 3px solid $color-base-primary;
+    background-color: $color-base-background-secondary;
+    box-shadow: 0 0 3px 0px rgba(var(--color-base-text), 0.25);
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    p {
+      margin-bottom: 0.5rem;
+    }
+  }
+  a {
+    color: $color-base-primary;
+    font-size: 1em;
+    text-decoration: underline;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    border-spacing: 0;
+    border: 1px solid rgba(var(--color-base-text), 0.25);
+    box-shadow: 0 0 3px 0px rgba(var(--color-base-text), 0.25);
+    margin-bottom: 2rem;
+    td,
+    th {
+      border: 1px solid rgba(var(--color-base-text), 0.25);
+      padding: 0.5rem;
+      &:first-child {
+        border-left: none;
+        border-top-left-radius: 0.5rem;
+        border-bottom-left-radius: 0.5rem;
+      }
+      &:last-child {
+        border-right: none;
+        border-top-right-radius: 0.5rem;
+        border-bottom-right-radius: 0.5rem;
+      }
+    }
+    th {
+      background-color: $color-base-background-secondary;
+      color: $color-base-text;
+      font-weight: 700;
+    }
+  }
+  iframe{
+    aspect-ratio: 16 / 9;
+    margin-bottom: 0;
   }
 }
 
