@@ -182,6 +182,15 @@
             "rating": 5
           }
         },
+        "review_YxM8pP": {
+          "type": "review",
+          "settings": {
+            "author": "Mariana Márquez",
+            "content": "El sabor del agua es muy bueno, me encantó que el purificador ocupa poco espacio, el grifo es muy bonito de acero inoxidable y excelente servicio al cliente. Muy contenta!!",
+            "image": "shopify://shop_images/IMG_20231207_105929.jpg",
+            "rating": 5
+          }
+        },
         "review_bkM8m8y": {
           "type": "review",
           "settings": {
@@ -215,6 +224,7 @@
         "review_bkM8m9",
         "review_bkM8m84",
         "review_bkM8m2",
+        "review_YxM8pP",
         "review_bkM8m8y",
         "review_yhPUBT",
         "review_bkM8m8a"
