@@ -51,7 +51,7 @@
           "settings": {
             "button_label": "¿Necesitas ayuda?",
             "button_style": "round",
-            "background_color": "#2DB742",
+            "background_color": "#2db742",
             "text_color": "#ffffff"
           }
         }
@@ -87,7 +87,7 @@
     "calculator_YnYXjF": {
       "type": "calculator",
       "settings": {
-        "title": "¿Cuánto ahorrarías al año con Welken?",
+        "title": "¿Cuánto ahorrarías al año con Welken 800G?",
         "content": "",
         "cbpa_price": 1690,
         "cbpa_liters": 3659,
