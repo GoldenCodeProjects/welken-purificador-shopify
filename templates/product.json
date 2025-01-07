@@ -51,7 +51,7 @@
           "settings": {
             "button_label": "¿Necesitas ayuda?",
             "button_style": "round",
-            "background_color": "#2DB742",
+            "background_color": "#2db742",
             "text_color": "#ffffff"
           }
         }
@@ -88,7 +88,7 @@
       "type": "calculator",
       "settings": {
         "title": "¿Cuánto ahorrarías al año con Welken?",
-        "content": "",
+        "content": "Simulación para el purificador de uso residencial Welken 800G",
         "cbpa_price": 1690,
         "cbpa_liters": 3659,
         "ro_price": 2552,

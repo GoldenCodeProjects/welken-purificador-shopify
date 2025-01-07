@@ -15,9 +15,9 @@
         "a2495587-9ae1-4673-9ea2-8a81d3b7e74f": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner_residencial.png",
-            "image_mobile": "shopify:\/\/shop_images\/banner_residencial_mobile.png",
-            "description": "<h2>Welken en tu hogar<\/h2>\n<p>Pureza inigualable del agua para toda tu familia<\/p>",
+            "image": "shopify://shop_images/banner_residencial.png",
+            "image_mobile": "shopify://shop_images/banner_residencial_mobile.png",
+            "description": "<h2>Welken en tu hogar</h2>\n<p>Pureza inigualable del agua para toda tu familia</p>",
             "pos_x": "-left",
             "button_text": "Comprar ahora",
             "button_url": "shopify://collections/para-tu-hogar"
@@ -26,9 +26,9 @@
         "image_WyGmYD": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/banner_comercial.png",
-            "image_mobile": "shopify:\/\/shop_images\/banner_comercial_mobile.png",
-            "description": "<h2>Welken en tu oficina o negocio<\/h2>\n<p>Ofrece a tus colaboradores o clientes la mejor calidad de agua<\/p>",
+            "image": "shopify://shop_images/banner_comercial.png",
+            "image_mobile": "shopify://shop_images/banner_comercial_mobile.png",
+            "description": "<h2>Welken en tu oficina o negocio</h2>\n<p>Ofrece a tus colaboradores o clientes la mejor calidad de agua</p>",
             "pos_x": "-left",
             "button_text": "Comprar ahora",
             "button_url": "shopify://collections/para-tu-oficina-o-negocio"
@@ -48,7 +48,7 @@
       "settings": {
         "title": "El purificador de aguamás potente y fácil de utilizar",
         "description": "Welken es un purificador de agua por ósmosis inversa que le ofrece a \ntu familia o a tu negocio una calidad inigualable en la pureza del agua",
-        "video_frame": "<iframe width=\"560\" height=\"315\" src=\"https:\/\/www.youtube.com\/embed\/Gx3m2xjAX8o?si=JSZyAGbgkq_sIzoD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen><\/iframe>"
+        "video_frame": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Gx3m2xjAX8o?si=JSZyAGbgkq_sIzoD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
       }
     },
     "benefits_4qJRnm": {
@@ -57,13 +57,13 @@
         "title": "Solo obtienes beneficios al adquirir  tu purificador Welken",
         "heading_1": "Ahorra por cada litro de  agua purificada",
         "content_1": "Ahorra hasta $15 por litro invirtiendo en tu purificador de agua Welken y obtén una calidad de agua aún más pura.",
-        "image_1": "shopify:\/\/shop_images\/realistic-water-drop-with-ecosystem.jpg",
+        "image_1": "shopify://shop_images/realistic-water-drop-with-ecosystem.jpg",
         "heading_2": "Cuida tu salud de metales pesados  y bacterias",
         "content_2": "Welken elimina contaminantes presentes en el agua como metales pesados, bacterias, parásitos y exceso de minerales.",
-        "image_2": "shopify:\/\/shop_images\/crop-man-pouring-water-near-window.jpg",
+        "image_2": "shopify://shop_images/crop-man-pouring-water-near-window.jpg",
         "heading_3": "Contribuye a la disminución del uso  de plásticos",
         "content_3": "Utilizar un purificador de agua Welken contribuye a reducir el más de un millón de botellas de plástico que se utilizan en México por hora.",
-        "image_3": "shopify:\/\/shop_images\/Mask_Group_2.png"
+        "image_3": "shopify://shop_images/Mask_Group_2.png"
       }
     },
     "calculator_hjbPx7": {
@@ -85,19 +85,19 @@
         "collection_VfJQnq": {
           "type": "collection",
           "settings": {
-            "collection": "shopify:\/\/collections\/para-tu-hogar",
+            "collection": "shopify://collections/para-tu-hogar",
             "title": "Para tu hogar",
-            "image": "shopify:\/\/shop_images\/Group_111.jpg",
-            "float_image": "shopify:\/\/shop_images\/Group_106_da247ec1-1f70-46c1-9b74-8d678e2f72c4.png"
+            "image": "shopify://shop_images/Group_111.jpg",
+            "float_image": "shopify://shop_images/Group_106_da247ec1-1f70-46c1-9b74-8d678e2f72c4.png"
           }
         },
         "collection_zCNh6c": {
           "type": "collection",
           "settings": {
-            "collection": "shopify:\/\/collections\/para-tu-oficina-o-negocio",
+            "collection": "shopify://collections/para-tu-oficina-o-negocio",
             "title": "Para tu oficina o negocio",
-            "image": "shopify:\/\/shop_images\/Group_112.jpg",
-            "float_image": "shopify:\/\/shop_images\/DSC03635-Enhanced-NR__1_-removebg-preview.png"
+            "image": "shopify://shop_images/Group_112.jpg",
+            "float_image": "shopify://shop_images/DSC03635-Enhanced-NR__1_-removebg-preview.png"
           }
         }
       },
@@ -140,7 +140,7 @@
         "feature_kndM8P"
       ],
       "settings": {
-        "image": "shopify:\/\/shop_images\/welken.png"
+        "image": "shopify://shop_images/welken.png"
       }
     },
     "reviews_gfazzA": {
@@ -149,70 +149,84 @@
         "review_bkM8m8": {
           "type": "review",
           "settings": {
-            "author": "Arturo Ramirez",
-            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
-            "rating": 4
+            "author": "Arturo Ramírez",
+            "content": "Muy práctico y eficiente. La calidad del agua es excelente, el flujo es muy bueno, y además me encanta que me avise cuando necesita mantenimiento. ¡100% recomendado!",
+            "image": "shopify://shop_images/IMG_20240215_182723.jpg",
+            "rating": 5
+          }
+        },
+        "review_YxM8pP": {
+          "type": "review",
+          "settings": {
+            "author": "Mariana Márquez",
+            "content": "El sabor del agua es muy bueno, me encantó que el purificador ocupa poco espacio, el grifo es muy bonito de acero inoxidable y excelente servicio al cliente. Muy contenta!!",
+            "image": "shopify://shop_images/IMG_20231207_105929.jpg",
+            "rating": 5
           }
         },
         "review_bkM8m9": {
           "type": "review",
           "settings": {
-            "author": "Daniel Ramirez",
-            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
-            "rating": 4
+            "author": "Daniela Ochoa",
+            "content": "El servicio de instalación fue rápido y sin problemas. El agua tiene un sabor increíble, ya no tengo que cargar garrafones y no me tengo que preocupar de nada, en Welken se encargan del mantenimiento y lo que necesite el purificador",
+            "image": "shopify://shop_images/IMG_0074.heic",
+            "rating": 5
           }
         },
         "review_bkM8m84": {
           "type": "review",
           "settings": {
-            "author": "Fur Ramirez",
-            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
-            "rating": 4
+            "author": "Fernando Cárdenas",
+            "content": "Llevo seis meses usándolo y funciona de maravilla. Para el mantenimiento los cambios de cartucho son rápidos, sencillos y me avisa cada vez que necesita cambio de cartucho. Estoy muy satisfecho.",
+            "image": "shopify://shop_images/IMG_20240228_111957.jpg",
+            "rating": 5
           }
         },
         "review_bkM8m2": {
           "type": "review",
           "settings": {
-            "author": "Karen Ramirez",
-            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
-            "rating": 4
+            "author": "Andrés Fernández",
+            "content": "¡Gran inversión! No más garrafones en mi casa. Ahora tengo agua purificada de manera cómoda y económica. Recomendado.",
+            "image": "shopify://shop_images/IMG_20240110_134605.jpg",
+            "rating": 5
           }
         },
         "review_bkM8m8y": {
           "type": "review",
           "settings": {
-            "author": "Manuel Ramirez",
-            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
-            "rating": 4
+            "author": "Carolina Anaya",
+            "content": "La atención al cliente fue impecable, y el técnico que hizo la instalación fue súper amable y profesional. También lo conectaron al refrigerador y funciona excelente. ¡Cinco estrellas!",
+            "image": "shopify://shop_images/IMG_20240112_130229.jpg",
+            "rating": 5
+          }
+        },
+        "review_yhPUBT": {
+          "type": "review",
+          "settings": {
+            "author": "Inés López",
+            "content": "Me gustó que al contratar el servicio incluye todo, desde la instalación, mantenimiento, servicio técnico de lo que necesite, no me tengo que preocupar de nada y siempre tengo agua. Llevamos 8 meses usándolo y ha superado nuestras expectativas. Lo recomiendo ampliamente.",
+            "image": "shopify://shop_images/IMG_20240412_120932__01.jpg",
+            "rating": 5
           }
         },
         "review_bkM8m8a": {
           "type": "review",
           "settings": {
-            "author": "Poel Ramirez",
-            "content": "¡Me encanta mi Welken! Desde que lo instalé, no he vuelto a comprar agua embotellada. El agua sabe deliciosa y me siento tranquila sabiendo que estoy cuidando mi salud y la del planeta.",
-            "image": "shopify:\/\/shop_images\/Group_75.png",
-            "image_2": "shopify:\/\/shop_images\/Group_75.png",
-            "rating": 4
+            "author": "Alejandro Flores",
+            "content": "Mi familia y yo estamos felices con este purificador. Ahora tomamos agua con confianza y sin complicaciones. Tiene la mejor tecnología ósmosis inversa, avisa cada vez que necesita mantenimiento, funciona muy bien.",
+            "image": "shopify://shop_images/IMG_20231110_123702.jpg",
+            "rating": 5
           }
         }
       },
       "block_order": [
         "review_bkM8m8",
+        "review_YxM8pP",
         "review_bkM8m9",
         "review_bkM8m84",
         "review_bkM8m2",
         "review_bkM8m8y",
+        "review_yhPUBT",
         "review_bkM8m8a"
       ],
       "settings": {
