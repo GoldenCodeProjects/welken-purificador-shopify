@@ -1,7 +1,12 @@
 import 'toolcool-range-slider/dist/plugins/tcrs-binding-labels.min.js';
 import 'toolcool-range-slider';
 
-class CalculadoraAhorro {
+interface Calculadora {
+  calcularAhorroAnual(): number;
+  setParametrosGarrafon(precioPorGarrafon: number, garrafonesPorDia: number): void;
+}
+
+class CalculadoraDeLitros implements Calculadora {
   private precioPorGarrafon: number = 45;
   private garrafonesPorDia: number = 1;
 
@@ -72,6 +77,27 @@ class CalculadoraAhorro {
   }
 }
 
+class CalculadoraPorMantenimiento implements Calculadora {
+  private precioPorGarrafon: number = 45;
+  private garrafonesPorDia: number = 1;
+
+  private costoMensual: number = 265;
+
+  constructor() {
+  }
+
+  public setParametrosGarrafon(precioPorGarrafon: number, garrafonesPorDia: number) {
+    this.precioPorGarrafon = precioPorGarrafon;
+    this.garrafonesPorDia = garrafonesPorDia;
+  }
+
+  public calcularAhorroAnual(): number {
+    const costoAnual = this.costoMensual * 12;
+    const costoGarrafones = this.precioPorGarrafon * this.garrafonesPorDia * 365;
+    return costoGarrafones - costoAnual;
+  }
+}
+
 class ComponentCalculator extends HTMLElement {
   private inputCostEl = document.getElementById('cost') as HTMLInputElement;
   private quantityEl = document.querySelector('tc-range-slider#quantity') as HTMLInputElement;
@@ -79,21 +105,29 @@ class ComponentCalculator extends HTMLElement {
   private resultValueEl = document.querySelector('.result__value') as HTMLSpanElement;
 
   private precioPorGarrafon: number = this.inputCostEl.value ? Number(this.inputCostEl.value) : 45;
-  private garrafonesPorSemana: number = 10;
+  private garrafonesPorSemana: number = 7;
 
   private params = {
     cbpaPrice: Number(this.getAttribute('cbpa-price') || 1690),
     cbpaLiters: Number(this.getAttribute('cbpa-liters') || 3659),
     roPrice: Number(this.getAttribute('ro-price') || 2552),
     roLiters: Number(this.getAttribute('ro-liters') || 8200),
+    garrafonsLimit: Number(this.getAttribute('garrafons-limit') || 7),
+    purifierType: this.getAttribute('purifier-type') || '100',
   };
 
-  private calculadora = new CalculadoraAhorro();
+  private calculadora: Calculadora;
 
   constructor() {
     super();
-    this.calculadora.setCostosCartuchos(this.params.cbpaPrice, this.params.roPrice);
-    this.calculadora.setParametrosLitros(this.params.cbpaLiters, this.params.roLiters);
+    if (this.params.purifierType === '100') {
+      this.calculadora = new CalculadoraPorMantenimiento();
+    } else {
+      const calculadoraLitros = new CalculadoraDeLitros();
+      calculadoraLitros.setCostosCartuchos(this.params.cbpaPrice, this.params.roPrice);
+      calculadoraLitros.setParametrosLitros(this.params.cbpaLiters, this.params.roLiters);
+      this.calculadora = calculadoraLitros;
+    }
   }
 
   connectedCallback() {

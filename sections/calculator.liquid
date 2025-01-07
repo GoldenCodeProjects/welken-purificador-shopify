@@ -29,6 +29,16 @@
   if product.metafields.custom.ro_liters != blank
     assign ro_liters = product.metafields.custom.ro_liters
   endif
+  assign garrafons_limit = section.settings.garrafons_limit
+  if product.metafields.custom.garrafons_limit != blank
+    assign garrafons_limit = product.metafields.custom.garrafons_limit
+  endif
+  assign purifier_type = section.settings.type
+  if product.title contains '800G'
+    assign purifier_type = '800'
+  else
+    assign purifier_type = '100'
+  endif
 -%}
 
 {%- if show == true -%}
@@ -41,6 +51,8 @@
       cbpa-liters="{{ cbpa_liters }}"
       ro-price="{{ ro_price }}"
       ro-liters="{{ ro_liters }}"
+      garrafons-limit="{{ garrafons_limit }}"
+      purifier-type="{{ purifier_type }}"
     >
       <form>
         <div class="c-field -icon">
@@ -51,7 +63,7 @@
         <div class="c-field">
           <label for="quantity" class="c-field_label">Garrafones por semana</label>
           <tc-range-slider id="quantity"
-            value1="10" min="0" max="40" step="1"
+            value1="10" min="0" max="{{ garrafons_limit }}" step="1"
             value-label="#value-1"
           ></tc-range-slider>
           <div class="value-label" id="value-1"></div>
@@ -90,6 +102,28 @@
       "id": "content",
       "label": "Descripción",
       "default": "Simulación para el purificador de uso residencial Welken 100G",
+    },
+    {
+      "type": "radio",
+      "id": "type",
+      "label": "Tipo de purificador",
+      "options": [
+        {
+          "value": "100",
+          "label": "Residencial 100G"
+        },
+        {
+          "value": "800",
+          "label": "Comercial 800G"
+        },
+      ],
+      "default": "100"
+    },
+    {
+      "type": "number",
+      "id": "garrafons_limit",
+      "label": "Límite de garrafones",
+      "default": 7
     },
     {
       "type": "number",
