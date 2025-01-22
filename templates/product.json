@@ -91,6 +91,23 @@
         "rent_modal_text": "Agendar instalación"
       }
     },
+    "17375093856db4a005": {
+      "type": "apps",
+      "blocks": {
+        "trustreviews_reviews_widget_nCRAyq": {
+          "type": "shopify://apps/trustreviews/blocks/reviews_widget/56d0fe1b-e701-4cff-8f84-466a26e09adb",
+          "settings": {
+            "product": "{{product}}"
+          }
+        }
+      },
+      "block_order": [
+        "trustreviews_reviews_widget_nCRAyq"
+      ],
+      "settings": {
+        "include_container": true
+      }
+    },
     "details": {
       "type": "product-details",
       "settings": {}
@@ -110,23 +127,6 @@
         "button_text": ""
       }
     },
-    "17375093856db4a005": {
-      "type": "apps",
-      "blocks": {
-        "trustreviews_reviews_widget_nCRAyq": {
-          "type": "shopify://apps/trustreviews/blocks/reviews_widget/56d0fe1b-e701-4cff-8f84-466a26e09adb",
-          "settings": {
-            "product": "{{product}}"
-          }
-        }
-      },
-      "block_order": [
-        "trustreviews_reviews_widget_nCRAyq"
-      ],
-      "settings": {
-        "include_container": true
-      }
-    },
     "3305b4e4-6449-4f35-a4fd-621be981a9e3": {
       "type": "product-recommendations",
       "settings": {
@@ -137,9 +137,9 @@
   },
   "order": [
     "main",
+    "17375093856db4a005",
     "details",
     "calculator_YnYXjF",
-    "17375093856db4a005",
     "3305b4e4-6449-4f35-a4fd-621be981a9e3"
   ]
 }
