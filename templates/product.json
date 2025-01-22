@@ -20,6 +20,10 @@
           "type": "price",
           "settings": {}
         },
+        "judge_me_reviews_preview_badge_86JeKR": {
+          "type": "shopify://apps/judge-me-reviews/blocks/preview_badge/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {}
+        },
         "2a0f9cd7-e5ac-4720-a2fd-fca377abe899": {
           "type": "description",
           "settings": {}
@@ -47,7 +51,7 @@
           "settings": {}
         },
         "whatsapp_chat_widget_app_block_8ArPQT": {
-          "type": "shopify://apps/whatsapp-chat-widget/blocks/app-block/b85b5e45-9cea-417a-9b9e-0aa961ccf3ef",
+          "type": "shopify://apps/seedgrow-whatsapp-chat/blocks/app-block/b85b5e45-9cea-417a-9b9e-0aa961ccf3ef",
           "settings": {
             "button_label": "¿Necesitas ayuda?",
             "button_style": "round",
@@ -59,6 +63,7 @@
       "block_order": [
         "300a0ebb-bb0d-479d-ab0a-88ad80b6a1cd",
         "eb397b33-70f2-4ede-a68a-efbf0fca3375",
+        "judge_me_reviews_preview_badge_86JeKR",
         "2a0f9cd7-e5ac-4720-a2fd-fca377abe899",
         "caaa9716-2cb9-46d7-8edc-47bfc2180066",
         "59ab47e0-8863-48ec-8805-a59802e0c8af",
@@ -89,6 +94,8 @@
       "settings": {
         "title": "¿Cuánto ahorrarías al año con Welken?",
         "content": "Simulación para el purificador de uso residencial Welken 800G",
+        "type": "100",
+        "garrafons_limit": 7,
         "cbpa_price": 1690,
         "cbpa_liters": 3659,
         "ro_price": 2552,
