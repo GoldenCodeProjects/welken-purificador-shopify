@@ -18,7 +18,7 @@
     "main": {
       "type": "main-collection",
       "settings": {
-        "cartridges_collection": "cartuchos"
+        "cartridges_collection": "cartuchos-para-purificador-100g"
       }
     }
   },
