@@ -5,11 +5,25 @@
   <p class="section_description">{{ section.settings.description }}</p>
 
   <div class="video_wrapper">
-    <div class="video">
-      {{ section.settings.video_frame }}
+    <div class="video" id="video-placeholder">
+      <button id="play-video" class="video-button">
+        <img src="{{ section.settings.image | image_url: width: 600 }}" loading="lazy" alt="Play video" width="600" height="400">
+        <i class="fas fa-play"></i>
+      </button>
     </div>
   </div>
 </div>
+
+<script defer>
+  document.addEventListener("DOMContentLoaded", function () {
+    let button = document.getElementById("play-video");
+    let placeholder = document.getElementById("video-placeholder");
+
+    button.addEventListener("click", function () {
+      placeholder.innerHTML = `{{ section.settings.video_frame }}`;
+    });
+  });
+</script>
 
 {% schema %}
 {
@@ -20,7 +34,7 @@
     {
       "type": "text",
       "id": "title",
-      "label": "Title",
+      "label": "Title"
     },
     {
       "type": "textarea",
@@ -28,15 +42,20 @@
       "label": "Description"
     },
     {
-      "type": "text",
+      "type": "html",
       "id": "video_frame",
       "label": "Video Frame",
-      "info": "Insert the video frame URL"
+      "info": "Insert the embed iframe of the YouTube video"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Placeholder Image"
     },
   ],
   "presets": [
     {
-      "name": "Video",
+      "name": "Video"
     }
   ]
 }

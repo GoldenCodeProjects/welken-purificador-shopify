@@ -36,7 +36,7 @@ if (customElements.get('component-carousel') === undefined) {
     }
 
     connectedCallback() {
-      this.setCarousel()
+      document.addEventListener('DOMContentLoaded', this.setCarousel.bind(this))
     }
 
     setDinaicHeight() {
