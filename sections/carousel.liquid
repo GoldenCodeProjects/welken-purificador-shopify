@@ -13,31 +13,31 @@
           {%- assign mobile_image = block.settings.image_mobile -%}
           {%- if image != blank -%}
             <div class="swiper-slide swiper-lazy {% if mobile_image != blank %} -responsive{% endif %}">
-              <img src="{{ image | image_url: width: 1600 }}"
+              <img src="{{ image | image_url: width: 1600, format: 'webp' }}"
               alt="{{ image.alt }}"
               width="1920"
               height="600"
               {% if forloop.first == false  %}loading="lazy"{% endif %}
               class="desktop"
-              srcset="{{ image | image_url: width: 1600 }} 1600w,
-                      {{ image | image_url: width: 1200 }} 1200w,
-                      {{ image | image_url: width: 800 }} 800w,
-                      {{ image | image_url: width: 400 }} 400w"
+              srcset="{{ image | image_url: width: 1600, format: 'webp' }} 1600w,
+                      {{ image | image_url: width: 1200, format: 'webp' }} 1200w,
+                      {{ image | image_url: width: 800, format: 'webp' }} 800w,
+                      {{ image | image_url: width: 400, format: 'webp' }} 400w"
               sizes="(min-width: 1024px) 1600px,
                      (min-width: 768px) 1200px,
                      (min-width: 600px) 800px,
                      400px"
               >
               {%- if mobile_image != blank -%}
-                <img src="{{ mobile_image | image_url: width: 700 }}"
+                <img src="{{ mobile_image | image_url: width: 700, format: 'webp' }}"
                 alt="{{ mobile_image.alt }}"
                 width="700"
                 height="600"
                 {% if forloop.first == false %}loading="lazy"{% endif %}
                 class="mobile"
-                srcset="{{ mobile_image | image_url: width: 700 }} 700w,
-                        {{ mobile_image | image_url: width: 500 }} 500w,
-                        {{ mobile_image | image_url: width: 300 }} 300w"
+                srcset="{{ mobile_image | image_url: width: 700, format: 'webp' }} 700w,
+                        {{ mobile_image | image_url: width: 500, format: 'webp' }} 500w,
+                        {{ mobile_image | image_url: width: 300, format: 'webp' }} 300w"
                 sizes="(min-width: 600px) 700px,
                        (min-width: 400px) 500px,
                        300px"
@@ -61,7 +61,7 @@
             <div class="swiper-slide swiper-lazy">
               <video-link video-type="{{ block.settings.video_link.type }}"
               video-id="{{ block.settings.video_link.id }}"
-              cover-url="{{ block.settings.video_poster | image_url: width: 1400 }}">
+              cover-url="{{ block.settings.video_poster | image_url: width: 1400, format: 'webp' }}">
                 <button slot="btn" aria-label="Play video">
                   {%- render 'component-icon', icon: 'play', icon_size: 80 -%}
                 </button>
