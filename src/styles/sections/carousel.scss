@@ -46,26 +46,6 @@ component-carousel {
     display: flex;
     align-items: center;
     position: relative;
-
-    &.-responsive {
-      .desktop {
-        display: block;
-      }
-
-      .mobile {
-        display: none;
-      }
-
-      @include mq-down('xs') {
-        .desktop {
-          display: none;
-        }
-
-        .mobile {
-          display: block;
-        }
-      }
-    }
   }
 
   .swiper,
