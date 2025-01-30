@@ -7,7 +7,7 @@
   {%- liquid
     assign cartridges = section.settings.cartridges_collection
     if collection.metafields.custom.cartuchos != blank
-      assign cartridges = collection.metafields.custom.cartuchos
+      assign cartridges = collection.metafields.custom.cartuchos.value
     endif
 
     if collection.id != cartridges.id
