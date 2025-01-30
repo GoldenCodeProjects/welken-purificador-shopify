@@ -12,7 +12,7 @@
 
     if collection.id != cartridges.id
       render 'collection-grid' collection: collection, title: 'Purificadores', omit: cartridges
-      render 'collection-grid' collection: cartridges
+      render 'collection-grid' collection: cartridges, title: 'Cartuchos'
     else
       render 'collection-grid' collection: collection
     endif
