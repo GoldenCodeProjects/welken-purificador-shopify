@@ -12,13 +12,13 @@
                 {{ link.title }}
               </a>
           {%- else -%}
-            <div role="list" class="list">
+            <div class="list">
               <p {% if link.child_active %} active {% endif %} class="list_label {% if link.child_active %}-active{% endif %}">
                 {{ link.title | escape }}
               </p>
-              <ul class="list_details">
+              <ul class="list_details" role="list">
                 {%- for childlink in link.links -%}
-                  <li>
+                  <li role="listitem">
                     {%- if childlink.links == blank -%}
                       <a href="{{ childlink.url }}" class="list_item {% if childlink.current %}-active{% endif %}"
                       {% if childlink.current %}aria-current="page"{% endif %}>

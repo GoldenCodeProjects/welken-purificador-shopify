@@ -14,7 +14,7 @@
     </div>
 
     <div class="footer_sitemap">
-      <h6>{{ section.settings.find_text }}</h6>
+      <h2>{{ section.settings.find_text }}</h2>
       {% comment %} Menu linklist {% endcomment %}
       <ul class="footer_menu">
         {%- for item in section.settings.menu.links -%}
@@ -28,7 +28,7 @@
     </div>
 
     <div class="footer_contact">
-      <h6>Contacto</h6>
+      <h2>Contacto</h2>
       <a href="mailto:{{ section.settings.contact_email | url_encode | base64_encode }}" class="link ufo correo">
         {% render 'component-icon', icon: 'email', icon_size: 20 %}
         <span>
@@ -51,12 +51,12 @@
     </div>
 
     <div class="footer_info">
-      <h6>{{ section.settings.follow_text }}</h6>
+      <h2>{{ section.settings.follow_text }}</h2>
       <div class="social">
         {% render 'component-social-list' %}
       </div>
 
-      <h6 class="u-mt-medium">Metodos de pago</h6>
+      <h2 class="u-mt-medium">Metodos de pago</h2>
       <ul class="payment_types">
         {%- for type in shop.enabled_payment_types -%}
           <li>
