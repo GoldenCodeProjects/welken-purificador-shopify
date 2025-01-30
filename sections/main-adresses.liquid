@@ -41,7 +41,7 @@
 
     <nav class="list" role="list">
       {%- for address in customer.addresses -%}
-        <div class="address">
+        <div class="address" role="listitem">
           {%- if address == customer.default_address -%}
             <h3 class="address_title">Dirección principal:</h3>
           {%- endif -%}

@@ -38,15 +38,15 @@
             {{ link.title }}
           </a>
         {%- else -%}
-          <div class="list" role="list" tabindex="-1">
+          <div class="list" tabindex="-1">
             <a class="c-navigation" href="{{ link.url }}" title="{{ link.title }}" aria-expanded="false">
               {{ link.title }}
               {% render 'component-icon' icon: 'caret', icon_size: 16 %}
             </a>
 
-            <ul class="details-list {% if link.handle == 'products' %}-products{% endif %}">
+            <ul role="list" class="details-list {% if link.handle == 'products' %}-products{% endif %}">
               {%- for childlink in link.links -%}
-                <li>
+                <li role="listitem">
                   {%- if childlink.links == blank -%}
                     <a href="{{ childlink.url }}" class="c-navigation">{{ childlink.title | escape }}</a>
                   {%- else -%}

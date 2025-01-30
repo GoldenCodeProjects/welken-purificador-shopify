@@ -69,7 +69,7 @@
         </h3>
         <ul class="form_status -list" role="list">
           {% for field in form.errors %}
-            <li class="c-body -bold -h3 -error">
+            <li class="c-body -bold -h3 -error" role="listitem">
               {% if field == 'form' %}
                 {{ form.errors.messages[field] | capitalize }}
               {% else %}
