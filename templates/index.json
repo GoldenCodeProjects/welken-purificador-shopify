@@ -48,7 +48,8 @@
       "settings": {
         "title": "El purificador de aguamás potente y fácil de utilizar",
         "description": "Welken es un purificador de agua por ósmosis inversa que le ofrece a \ntu familia o a tu negocio una calidad inigualable en la pureza del agua",
-        "video_frame": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Gx3m2xjAX8o?si=JSZyAGbgkq_sIzoD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+        "video_frame": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Gx3m2xjAX8o?si=JSZyAGbgkq_sIzoD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
+        "image": "shopify://shop_images/image_2025-01-30_073445360.png"
       }
     },
     "benefits_4qJRnm": {
@@ -71,6 +72,8 @@
       "settings": {
         "title": "¿Cuánto ahorrarías al año con Welken?",
         "content": "Simulación para el purificador de uso residencial Welken 100G",
+        "type": "100",
+        "garrafons_limit": 7,
         "cbpa_price": 1690,
         "cbpa_liters": 3659,
         "ro_price": 2552,
