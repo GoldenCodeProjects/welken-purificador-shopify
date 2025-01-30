@@ -80,11 +80,24 @@
   </div>
 </component-carousel>
 
+{% comment %} Hide until page is loader {% endcomment %}
+<style>
+  .swiper {
+    display: none;
+  }
+</style>
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelector('.swiper').style.display = 'block';
+  });
+</script>
 
 {% schema %}
 {
   "name": "Carrusel de imagenes",
   "tag": "section",
+  "class": "section-carousel",
   "blocks": [
     {
       "type": "image",
