@@ -119,21 +119,21 @@
           "type": "feature",
           "settings": {
             "title": "Fácil rápido cambio de cartucho.",
-            "content": "No requiere de técnico o herramienta para hacer el cambio de cartucho."
+            "content": "No requiere de técnico o herramienta para hacer el cambio de cartucho"
           }
         },
         "feature_taXqEN": {
           "type": "feature",
           "settings": {
             "title": "Certificación CE, RoHS y NSF",
-            "content": "en la membrana de ósmosis"
+            "content": "En la membrana de ósmosis"
           }
         },
         "feature_kndM8P": {
           "type": "feature",
           "settings": {
-            "title": "Aviso cada vez que requiere cambio de cartucho.",
-            "content": "También nosotros notificamos a nuestros clientes con un mensaje."
+            "title": "Avisa cada vez que requiere cambio de cartucho",
+            "content": "También nosotros notificamos a nuestros clientes con un mensaje"
           }
         }
       },
