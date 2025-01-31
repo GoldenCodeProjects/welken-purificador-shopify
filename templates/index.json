@@ -158,6 +158,15 @@
             "rating": 5
           }
         },
+        "review_xVMiAC": {
+          "type": "review",
+          "settings": {
+            "author": "Gabriela Ríos",
+            "content": "Ideal para familias con niños. \nDesde que instalamos el purificador, he notado que tomamos más agua que antes. Me encanta que mis hijos pequeños pueden servirse solos sin ayuda de nadie, además de que siempre hay agua sin tener que cargar algún garrafón.",
+            "image": "shopify://shop_images/IMG_0363.heic",
+            "rating": 5
+          }
+        },
         "review_YxM8pP": {
           "type": "review",
           "settings": {
@@ -224,6 +233,7 @@
       },
       "block_order": [
         "review_bkM8m8",
+        "review_xVMiAC",
         "review_YxM8pP",
         "review_bkM8m9",
         "review_bkM8m84",
