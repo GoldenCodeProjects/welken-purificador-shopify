@@ -54,7 +54,7 @@
         "type": "announcement-bar",
         "settings": {
           "announcement_bar_enable": "true",
-          "announcement_bar_text": "Envíos gratis a todo México",
+          "announcement_bar_text": "Especial San Valentín: 20% dsco. en Purificador Residencial",
           "announcement_bar_link_url": "shopify://collections/all",
           "announcement_bar_background_color": "#49c5d6",
           "announcement_bar_text_color": "#ffffff",
