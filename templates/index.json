@@ -46,8 +46,8 @@
     "video_KRff36": {
       "type": "video",
       "settings": {
-        "title": "El purificador de aguamás potente y fácil de utilizar",
-        "description": "Welken es un purificador de agua por ósmosis inversa que le ofrece a \ntu familia o a tu negocio una calidad inigualable en la pureza del agua",
+        "title": "El purificador inteligente más fácil y cómodo de utilizar",
+        "description": "Welken es un purificador de agua con tecnología de ósmosis inversa que le ofrece a \ntu familia o a tu negocio una gran calidad de agua",
         "video_frame": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/Gx3m2xjAX8o?si=JSZyAGbgkq_sIzoD\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>",
         "image": "shopify://shop_images/image_2025-01-30_073445360.png"
       }
@@ -58,13 +58,13 @@
         "title": "Solo obtienes beneficios al adquirir  tu purificador Welken",
         "heading_1": "Ahorra por cada litro de  agua purificada",
         "content_1": "Ahorra hasta $15 por litro invirtiendo en tu purificador de agua Welken y obtén una calidad de agua aún más pura.",
-        "image_1": "shopify://shop_images/realistic-water-drop-with-ecosystem.jpg",
+        "image_1": "shopify://shop_images/DSC03597-Enhanced-NRihi.jpg",
         "heading_2": "Cuida tu salud de metales pesados  y bacterias",
         "content_2": "Welken elimina contaminantes presentes en el agua como metales pesados, bacterias, parásitos y exceso de minerales.",
         "image_2": "shopify://shop_images/crop-man-pouring-water-near-window.jpg",
         "heading_3": "Contribuye a la disminución del uso  de plásticos",
         "content_3": "Utilizar un purificador de agua Welken contribuye a reducir el más de un millón de botellas de plástico que se utilizan en México por hora.",
-        "image_3": "shopify://shop_images/Mask_Group_2.png"
+        "image_3": "shopify://shop_images/3_tomate_largo_c270cc26-1273-48a9-b261-fcafb7bba181.png"
       }
     },
     "calculator_hjbPx7": {
@@ -118,22 +118,22 @@
         "feature_DrGnKy": {
           "type": "feature",
           "settings": {
-            "title": "Fácil rápido cambio de cartucho.",
-            "content": "No requiere de técnico o herramienta para hacer el cambio de cartucho."
+            "title": "Fácil y rápido cambio de cartucho",
+            "content": "No requiere de técnico o herramienta para hacer el cambio de cartucho"
           }
         },
         "feature_taXqEN": {
           "type": "feature",
           "settings": {
             "title": "Certificación CE, RoHS y NSF",
-            "content": "en la membrana de ósmosis"
+            "content": "En la membrana de ósmosis"
           }
         },
         "feature_kndM8P": {
           "type": "feature",
           "settings": {
-            "title": "Aviso cada vez que requiere cambio de cartucho.",
-            "content": "También nosotros notificamos a nuestros clientes con un mensaje."
+            "title": "Avisa cada vez que requiere cambio de cartucho",
+            "content": "También nosotros notificamos a nuestros clientes con un mensaje"
           }
         }
       },
@@ -155,6 +155,15 @@
             "author": "Arturo Ramírez",
             "content": "Muy práctico y eficiente. La calidad del agua es excelente, el flujo es muy bueno, y además me encanta que me avise cuando necesita mantenimiento. ¡100% recomendado!",
             "image": "shopify://shop_images/IMG_20240215_182723.jpg",
+            "rating": 5
+          }
+        },
+        "review_xVMiAC": {
+          "type": "review",
+          "settings": {
+            "author": "Gabriela Ríos",
+            "content": "Ideal para familias con niños. \nDesde que instalamos el purificador, he notado que tomamos más agua que antes. Me encanta que mis hijos pequeños pueden servirse solos sin ayuda de nadie, además de que siempre hay agua sin tener que cargar algún garrafón.",
+            "image": "shopify://shop_images/IMG_0363.heic",
             "rating": 5
           }
         },
@@ -224,6 +233,7 @@
       },
       "block_order": [
         "review_bkM8m8",
+        "review_xVMiAC",
         "review_YxM8pP",
         "review_bkM8m9",
         "review_bkM8m84",

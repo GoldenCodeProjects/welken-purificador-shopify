@@ -37,8 +37,8 @@
       ],
       "settings": {
         "type_form": "contact",
-        "banner": "shopify:\/\/shop_images\/formatocuadradotomandoagua_cb228835-b7ac-4a2c-92fa-a703b111c5e2.png",
-        "phone": "+52 33 5874 0098",
+        "banner": "shopify://shop_images/formatocuadradotomandoagua_cb228835-b7ac-4a2c-92fa-a703b111c5e2.png",
+        "phone": "+52 33 3328 6959",
         "whatsapp": "52335874098",
         "submit_text": "Enviar",
         "submit_class": "contacto"
